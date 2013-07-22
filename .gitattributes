@@ -1,0 +1,29 @@
+# No EOL translation
+* -crlf
+
+# Binary. No EOL translation, no diff
+*.ico binary
+*.jpeg binary
+*.jpg binary
+*.png binary
+*.crt binary
+*.pdf binary
+*.dll binary
+*.jar binary
+*.jnilib binary
+*.so binary
+*.zip binary
+*.doc binary
+*.ppt binary
+*.xls binary
+*.odg binary
+*.odp binary
+*.ods binary
+*.odt binary
+*.otg binary
+*.otp binary
+*.ots binary
+*.ott binary
+*.key binary
+*.numbers binary
+*.pages binary
