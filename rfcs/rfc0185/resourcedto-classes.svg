@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="333.54px" height="156.42px" viewBox="92.16 0 333.54 156.42" enable-background="new 92.16 0 333.54 156.42"
+	 xml:space="preserve">
+<rect x="94.74" y="65.819" width="54.3" height="26.581"/>
+<rect x="94.74" y="65.579" width="54.539" height="0.48"/>
+<rect x="148.8" y="65.819" width="0.479" height="26.821"/>
+<rect x="94.5" y="92.159" width="54.54" height="0.48"/>
+<rect x="94.5" y="65.579" width="0.479" height="26.82"/>
+<rect x="92.4" y="64.02" fill="#FFFFFF" width="54.301" height="26.581"/>
+<rect x="92.4" y="63.779" width="54.54" height="0.48"/>
+<rect x="146.46" y="64.02" width="0.479" height="26.82"/>
+<rect x="92.16" y="90.358" width="54.54" height="0.479"/>
+<rect x="92.16" y="63.779" width="0.479" height="26.82"/>
+<text transform="matrix(0.9504 0 0 1 94.7415 71.1592)" font-family="'ProductusOSGiBookc'" font-size="7.98">&lt;&lt;dto&gt;&gt;</text>
+<text transform="matrix(1 0 0 1 94.7405 79.6201)" font-family="'ProductusSemibold'" font-size="7.98">Resource DTO</text>
+<rect x="215.392" y="16.199" width="57.833" height="26.58"/>
+<rect x="215.392" y="15.96" width="58.089" height="0.479"/>
+<rect x="272.969" y="16.199" width="0.512" height="26.82"/>
+<rect x="215.136" y="42.539" width="58.089" height="0.48"/>
+<rect x="215.136" y="15.96" width="0.511" height="26.819"/>
+<rect x="212.835" y="14.399" fill="#FFFFFF" width="57.897" height="26.58"/>
+<rect x="212.835" y="14.159" width="58.154" height="0.48"/>
+<rect x="270.477" y="14.399" width="0.512" height="26.82"/>
+<rect x="212.58" y="40.739" width="58.153" height="0.479"/>
+<rect x="212.58" y="14.159" width="0.511" height="26.82"/>
+<text transform="matrix(0.9504 0 0 1 215.2214 21.54)" font-family="'ProductusOSGiBookc'" font-size="7.98">&lt;&lt;dto&gt;&gt;</text>
+<text transform="matrix(1 0 0 1 215.2205 30.0596)" enable-background="new    "><tspan x="0" y="0" font-family="'ProductusSemibold'" font-size="7.98">Requirement</tspan><tspan x="0" y="9.576" font-family="'ProductusSemibold'" font-size="7.98">DTO</tspan></text>
+<rect x="215.22" y="115.438" width="54.3" height="26.58"/>
+<rect x="215.22" y="115.198" width="54.54" height="0.48"/>
+<rect x="269.28" y="115.438" width="0.48" height="26.818"/>
+<rect x="214.98" y="141.778" width="54.54" height="0.479"/>
+<rect x="214.98" y="115.198" width="0.479" height="26.82"/>
+<rect x="212.82" y="113.64" fill="#FFFFFF" width="54.36" height="26.58"/>
+<rect x="212.82" y="113.399" width="54.602" height="0.479"/>
+<rect x="266.94" y="113.64" width="0.479" height="26.82"/>
+<rect x="212.58" y="139.979" width="54.602" height="0.479"/>
+<rect x="212.58" y="113.399" width="0.479" height="26.818"/>
+<text transform="matrix(0.9504 0 0 1 215.2214 120.7803)" font-family="'ProductusOSGiBookc'" font-size="7.98">&lt;&lt;dto&gt;&gt;</text>
+<text transform="matrix(1 0 0 1 215.2205 129.2412)" font-family="'ProductusSemibold'" font-size="7.98">Capability DTO</text>
+<rect x="215.22" y="65.819" width="54.3" height="26.581"/>
+<rect x="215.22" y="65.579" width="54.54" height="0.48"/>
+<rect x="269.28" y="65.819" width="0.48" height="26.821"/>
+<rect x="214.98" y="92.159" width="54.54" height="0.48"/>
+<rect x="214.98" y="65.579" width="0.479" height="26.82"/>
+<rect x="212.82" y="64.02" fill="#FFFFFF" width="54.36" height="26.581"/>
+<rect x="212.82" y="63.779" width="54.602" height="0.48"/>
+<rect x="266.94" y="64.02" width="0.479" height="26.82"/>
+<rect x="212.58" y="90.358" width="54.602" height="0.479"/>
+<rect x="212.58" y="63.779" width="0.479" height="26.82"/>
+<text transform="matrix(0.9504 0 0 1 215.2214 71.1592)" font-family="'ProductusOSGiBookc'" font-size="7.98">&lt;&lt;dto&gt;&gt;</text>
+<text transform="matrix(1 0 0 1 215.2205 79.6201)" font-family="'ProductusSemibold'" font-size="7.98">Wiring DTO</text>
+<rect x="240.959" y="42.539" width="0.479" height="21.721"/>
+<rect x="240.959" y="92.159" width="0.479" height="21.721"/>
+<rect x="134.64" y="28.38" width="78.42" height="0.479"/>
+<rect x="134.64" y="28.619" width="0.479" height="35.641"/>
+<rect x="148.8" y="78" width="64.261" height="0.479"/>
+<rect x="134.64" y="127.56" width="78.42" height="0.479"/>
+<rect x="134.64" y="92.159" width="0.479" height="35.641"/>
+<text transform="matrix(1 0 0 1 137.4597 61.6201)" font-family="'ProductusBook'" font-size="7.98">1</text>
+<text transform="matrix(1 0 0 1 199.9207 25.8613)" font-family="'ProductusBook'" font-size="7.98">0..n</text>
+<text transform="matrix(1 0 0 1 200.5212 134.54)" font-family="'ProductusBook'" font-size="7.98">0..n</text>
+<text transform="matrix(1 0 0 1 137.4597 97.5596)" font-family="'ProductusBook'" font-size="7.98">1</text>
+<text transform="matrix(1 0 0 1 356.4001 68.7607)" font-family="'ProductusBook'" font-size="7.98">0..n</text>
+<text transform="matrix(1 0 0 1 228.8396 47.9404)" font-family="'ProductusBook'" font-size="7.98">0..n</text>
+<rect x="371.1" y="65.819" width="54.359" height="26.581"/>
+<rect x="371.1" y="65.579" width="54.6" height="0.48"/>
+<rect x="425.219" y="65.819" width="0.479" height="26.821"/>
+<rect x="370.86" y="92.159" width="54.604" height="0.48"/>
+<rect x="370.86" y="65.579" width="0.48" height="26.82"/>
+<rect x="368.76" y="64.02" fill="#FFFFFF" width="54.357" height="26.581"/>
+<rect x="368.76" y="63.779" width="54.6" height="0.48"/>
+<rect x="422.88" y="64.02" width="0.479" height="26.82"/>
+<rect x="368.52" y="90.358" width="54.6" height="0.479"/>
+<rect x="368.52" y="63.779" width="0.48" height="26.82"/>
+<text transform="matrix(0.9504 0 0 1 371.1013 71.1592)" font-family="'ProductusOSGiBookc'" font-size="7.98">&lt;&lt;dto&gt;&gt;</text>
+<text transform="matrix(1 0 0 1 371.1003 79.6201)" font-family="'ProductusSemibold'" font-size="7.98">Wire DTO</text>
+<rect x="269.28" y="70.859" width="99.723" height="0.48"/>
+<rect x="269.28" y="85.079" width="57.184" height="0.48"/>
+<rect x="382.68" y="28.38" width="0.479" height="35.88"/>
+<rect x="272.969" y="28.38" width="109.952" height="0.479"/>
+<rect x="382.68" y="92.159" width="0.479" height="35.88"/>
+<rect x="269.28" y="127.56" width="113.643" height="0.479"/>
+<rect x="411.059" width="0.479" height="64.26"/>
+<rect x="106.32" width="304.979" height="0.479"/>
+<rect x="106.32" y="0.239" width="0.479" height="64.021"/>
+<rect x="411.059" y="92.159" width="0.479" height="64.261"/>
+<rect x="106.32" y="155.938" width="304.979" height="0.479"/>
+<rect x="106.32" y="92.159" width="0.479" height="64.021"/>
+<text transform="matrix(1 0 0 1 356.4001 82.9209)" font-family="'ProductusBook'" font-size="7.98">0..n</text>
+<rect x="368.76" y="85.079" width="0.24" height="0.48"/>
+<rect x="269.28" y="85.079" width="99.48" height="0.48"/>
+<text transform="matrix(1 0 0 1 141.5398 26.5205)" font-family="'ProductusBook'" font-size="7.98">declares</text>
+<text transform="matrix(1 0 0 1 139.4392 134.54)" font-family="'ProductusBook'" font-size="7.98">declares</text>
+<text transform="matrix(1 0 0 1 228.4998 111.2402)" font-family="'ProductusBook'" font-size="7.98">0..n</text>
+<text transform="matrix(1 0 0 1 223.6199 153.8389)" font-family="'ProductusBook'" font-size="7.98">provider for</text>
+<text transform="matrix(1 0 0 1 227.0408 7.6191)" font-family="'ProductusBook'" font-size="7.98">requirer for</text>
+<text transform="matrix(1 0 0 1 108.7805 62.1592)" font-family="'ProductusBook'" font-size="7.98">1</text>
+<text transform="matrix(1 0 0 1 108.7805 97.5596)" font-family="'ProductusBook'" font-size="7.98">1</text>
+<text transform="matrix(1 0 0 1 275.8005 26.2197)" font-family="'ProductusBook'" font-size="7.98">1</text>
+<text transform="matrix(1 0 0 1 273.4812 125.3994)" font-family="'ProductusBook'" font-size="7.98">1</text>
+<text transform="matrix(1 0 0 1 290.8201 68.7607)" font-family="'ProductusBook'" font-size="7.98">provided</text>
+<text transform="matrix(1 0 0 1 290.8201 92.0605)" font-family="'ProductusBook'" font-size="7.98">required</text>
+<text transform="matrix(1 0 0 1 312.0613 26.2803)" font-family="'ProductusBook'" font-size="7.98">requirer for</text>
+<text transform="matrix(1 0 0 1 312.0613 125.4609)" font-family="'ProductusBook'" font-size="7.98">provider for</text>
+<text transform="matrix(1 0 0 1 152.7693 74.8799)" font-family="'ProductusBook'" font-size="7.98">1</text>
+</svg>
