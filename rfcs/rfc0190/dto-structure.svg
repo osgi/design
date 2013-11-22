@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.4, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="164.263px" height="206.654px" viewBox="-109.477 -3.618 164.263 206.654"
+	 enable-background="new -109.477 -3.618 164.263 206.654" xml:space="preserve">
+<g>
+	<rect x="-59.44" y="-0.793" stroke="#000000" stroke-width="0.75" stroke-miterlimit="10" width="66.001" height="34.333"/>
+	
+		<rect x="-60.877" y="-3.243" fill="#FFFFFF" stroke="#000000" stroke-width="0.75" stroke-miterlimit="10" width="66" height="34.333"/>
+	<text transform="matrix(0.9504 0 0 1 -58.7087 6.7566)" font-family="'ProductusOSGiBookc'" font-size="7.98">&lt;&lt;service&gt;&gt;</text>
+	<text transform="matrix(1 0 0 1 -58.7092 16.3328)" font-family="'ProductusSemibold'" font-size="7.98">Service Component</text>
+	<text transform="matrix(1 0 0 1 -58.7092 25.9089)" font-family="'ProductusSemibold'" font-size="7.98">Runtime</text>
+	<polyline points="6.561,26.46 6.561,19.38 -7.6,33.54 6.561,33.54 	"/>
+</g>
+<g>
+	<rect x="-107.665" y="59.408" stroke="#000000" stroke-width="0.75" stroke-miterlimit="10" width="59.408" height="30.854"/>
+	
+		<rect x="-109.102" y="56.958" fill="#FFFFFF" stroke="#000000" stroke-width="0.75" stroke-miterlimit="10" width="59.179" height="31.322"/>
+	<text transform="matrix(1 0 0 1 -106.9343 66.9578)" font-family="'ProductusSemibold'" font-size="7.98">Component</text>
+	<text transform="matrix(1 0 0 1 -106.9343 76.5339)" font-family="'ProductusSemibold'" font-size="7.98">Description DTO</text>
+</g>
+<g>
+	<rect x="-10.64" y="58.417" stroke="#000000" stroke-width="0.75" stroke-miterlimit="10" width="65.051" height="30.854"/>
+	
+		<rect x="-12.077" y="55.969" fill="#FFFFFF" stroke="#000000" stroke-width="0.75" stroke-miterlimit="10" width="64.487" height="31.321"/>
+	<text transform="matrix(1 0 0 1 -9.9099 65.9675)" font-family="'ProductusSemibold'" font-size="7.98">Component</text>
+	<text transform="matrix(1 0 0 1 -9.9099 75.5437)" font-family="'ProductusSemibold'" font-size="7.98">Configuration DTO</text>
+</g>
+<g>
+	<rect x="-106.947" y="116.33" stroke="#000000" stroke-width="0.75" stroke-miterlimit="10" width="59.408" height="30.854"/>
+	
+		<rect x="-108.384" y="113.88" fill="#FFFFFF" stroke="#000000" stroke-width="0.75" stroke-miterlimit="10" width="59.178" height="31.322"/>
+	<text transform="matrix(1 0 0 1 -106.2166 123.8796)" font-family="'ProductusSemibold'" font-size="7.98">Reference DTO</text>
+</g>
+<g>
+	<rect x="-11.64" y="115.339" stroke="#000000" stroke-width="0.75" stroke-miterlimit="10" width="65.051" height="30.854"/>
+	
+		<rect x="-13.077" y="112.89" fill="#FFFFFF" stroke="#000000" stroke-width="0.75" stroke-miterlimit="10" width="64.487" height="31.321"/>
+	<text transform="matrix(1 0 0 1 -10.9099 122.8894)" font-family="'ProductusSemibold'" font-size="7.98">Bound Reference</text>
+	<text transform="matrix(1 0 0 1 -10.9099 132.4656)" font-family="'ProductusSemibold'" font-size="7.98">DTO</text>
+</g>
+<g>
+	<rect x="-11.64" y="171.808" stroke="#000000" stroke-width="0.75" stroke-miterlimit="10" width="65.051" height="30.853"/>
+	
+		<rect x="-13.077" y="169.359" fill="#FFFFFF" stroke="#000000" stroke-width="0.75" stroke-miterlimit="10" width="64.487" height="31.321"/>
+	<text transform="matrix(1 0 0 1 -10.9099 179.3582)" font-family="'ProductusSemibold'" font-size="7.98">Service Reference</text>
+	<text transform="matrix(1 0 0 1 -10.9099 188.9343)" font-family="'ProductusSemibold'" font-size="7.98">DTO</text>
+</g>
+<line fill="none" stroke="#000000" stroke-width="0.75" stroke-miterlimit="10" x1="-48.257" y1="31.09" x2="-78.794" y2="56.97"/>
+<line fill="none" stroke="#000000" stroke-width="0.75" stroke-miterlimit="10" x1="-12.077" y1="31.09" x2="17.076" y2="55.969"/>
+<line fill="none" stroke="#000000" stroke-width="0.75" stroke-miterlimit="10" x1="-79.513" y1="90.26" x2="-79.513" y2="113.88"/>
+<line fill="none" stroke="#000000" stroke-width="0.75" stroke-miterlimit="10" x1="20.166" y1="89.27" x2="20.166" y2="112.89"/>
+<line fill="none" stroke="#000000" stroke-width="0.75" stroke-miterlimit="10" x1="19.166" y1="145.058" x2="19.166" y2="169.291"/>
+<line fill="none" stroke="#000000" stroke-width="0.75" stroke-miterlimit="10" x1="-12.577" y1="129.541" x2="-49.424" y2="129.541"/>
+<line fill="none" stroke="#000000" stroke-width="0.75" stroke-miterlimit="10" x1="-12.077" y1="71.628" x2="-49.924" y2="71.628"/>
+<text transform="matrix(1 0 0 1 -42.3723 39.5398)" font-family="'ProductusBook'" font-size="7.98">1</text>
+<text transform="matrix(1 0 0 1 -20.0779 39.5398)" font-family="'ProductusBook'" font-size="7.98">1</text>
+<text transform="matrix(1 0 0 1 23.2942 94.5398)" font-family="'ProductusBook'" font-size="7.98">1</text>
+<text transform="matrix(1 0 0 1 -77.2424 95.8796)" font-family="'ProductusBook'" font-size="7.98">1</text>
+<text transform="matrix(1 0 0 1 21.884 151.5466)" font-family="'ProductusBook'" font-size="7.98">1</text>
+<text transform="matrix(1 0 0 1 -89.5002 54.4187)" font-family="'ProductusBook'" font-size="7.98">0..*</text>
+<text transform="matrix(1 0 0 1 19.1663 54.4187)" font-family="'ProductusBook'" font-size="7.98">0..*</text>
+<text transform="matrix(1 0 0 1 -77.9617 111.4187)" font-family="'ProductusBook'" font-size="7.98">0..*</text>
+<text transform="matrix(1 0 0 1 23.2942 111.4187)" font-family="'ProductusBook'" font-size="7.98">0..*</text>
+<text transform="matrix(1 0 0 1 21.884 167.3396)" font-family="'ProductusBook'" font-size="7.98">1</text>
+<text transform="matrix(1 0 0 1 -46.1873 126.3162)" font-family="'ProductusBook'" font-size="7.98">1</text>
+<text transform="matrix(1 0 0 1 -46.1873 67.6511)" font-family="'ProductusBook'" font-size="7.98">1</text>
+<text transform="matrix(1 0 0 1 -24.5906 67.6511)" font-family="'ProductusBook'" font-size="7.98">0..*</text>
+<text transform="matrix(1 0 0 1 -25.5906 126.3162)" font-family="'ProductusBook'" font-size="7.98">0..*</text>
+</svg>
