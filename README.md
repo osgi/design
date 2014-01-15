@@ -6,6 +6,8 @@ The documents in this repository are non-final specification design work which e
 
 Readers are expected to be familiar with OSGi Technology and the currently published OSGi specification documents. Readers should refer to <http://www.osgi.org/Technology/HomePage> for more information on the OSGi Technology. There readers can find a description of the OSGi Technology, as well as links to whitepapers and the OSGi specification documents, which are all available for download.
 
+A list of RFCs in this repository is at [http://wiki.osgi.org/wiki/RFCs](http://wiki.osgi.org/wiki/RFCs) with links to the RFCs in the [GitHub mirror](https://github.com/osgi/design). This list is maintained by the OSGi community and may not always be up to date.
+
 # License
 
 The contents of this repository are made available to the public under the terms of the [OSGi Distribution and Feedback License](http://www.osgi.org/Main/OSGiDistributionAndFeedbackLicense) which is reproduced below.
