@@ -1,0 +1,33 @@
+digraph Device_Status_Transitions {
+  graph [layout=circo size=8 mindist=0.5 overlap=false];
+  
+  // initial
+  ENTRY -> STATUS_PROCESSING;
+  
+  // Offline status transitions
+  STATUS_OFFLINE -> STATUS_REMOVED;
+  STATUS_OFFLINE -> STATUS_PROCESSING [dir=both];
+  STATUS_OFFLINE -> STATUS_NOT_CONFIGURED [dir=both];
+  STATUS_OFFLINE -> STATUS_ONLINE [dir=both];
+  
+  // Online status transitions
+  STATUS_ONLINE -> STATUS_REMOVED;
+  STATUS_ONLINE -> STATUS_NOT_CONFIGURED [dir=both];
+  STATUS_ONLINE -> STATUS_PROCESSING [dir=both];
+  
+  // Processing status transitions
+  STATUS_PROCESSING -> STATUS_REMOVED;
+  STATUS_PROCESSING -> STATUS_NOT_INITIALIZED [dir=both];
+  STATUS_PROCESSING -> STATUS_NOT_CONFIGURED [dir=both];
+  
+  // "Not initialized" status transitions
+  STATUS_NOT_INITIALIZED -> STATUS_REMOVED;
+  STATUS_NOT_INITIALIZED -> STATUS_OFFLINE;
+  
+  // "Not configured" status transitions
+  STATUS_NOT_CONFIGURED -> STATUS_REMOVED;
+  
+  STATUS_PROCESSING [style=bold];
+  STATUS_REMOVED [style=bold];
+  ENTRY [shape=point];
+}
