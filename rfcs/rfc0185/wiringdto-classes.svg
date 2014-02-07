@@ -2,23 +2,23 @@
 <!-- Generator: Adobe Illustrator 16.0.4, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="278px" height="361.918px" viewBox="110.36 0 278 361.918" enable-background="new 110.36 0 278 361.918"
-	 xml:space="preserve">
-<rect x="222.061" y="2.04" width="54.359" height="27"/>
-<rect x="222.061" y="1.8" width="54.603" height="0.48"/>
-<rect x="276.18" y="2.04" width="0.479" height="27.24"/>
-<rect x="221.82" y="28.8" width="54.603" height="0.48"/>
-<rect x="221.82" y="1.8" width="0.479" height="27.24"/>
-<rect x="219.721" y="0.24" fill="#FFFFFF" width="54.299" height="27"/>
-<rect x="219.721" width="54.539" height="0.48"/>
-<rect x="273.779" y="0.24" width="0.48" height="27.24"/>
-<rect x="219.48" y="27" width="54.539" height="0.48"/>
-<rect x="219.48" width="0.479" height="27.24"/>
-<text transform="matrix(0.9504 0 0 1 222.0615 7.3789)" font-family="'ProductusOSGiBookc'" font-size="7.98">&lt;&lt;dto&gt;&gt;</text>
-<text transform="matrix(1 0 0 1 222.0586 15.9004)" font-family="'ProductusBook'" font-size="7.98">Bundle DTO</text>
+	 width="321.472px" height="350.972px" viewBox="110.36 10.946 321.472 350.972"
+	 enable-background="new 110.36 10.946 321.472 350.972" xml:space="preserve">
+<rect x="294.12" y="129.181" width="54.359" height="27"/>
+<rect x="294.12" y="128.941" width="54.604" height="0.48"/>
+<rect x="348.239" y="129.181" width="0.479" height="27.24"/>
+<rect x="293.998" y="155.941" width="54.603" height="0.48"/>
+<rect x="293.88" y="128.941" width="0.479" height="27.24"/>
+<rect x="291.78" y="127.381" fill="#FFFFFF" width="54.299" height="27"/>
+<rect x="291.78" y="127.141" width="54.539" height="0.48"/>
+<rect x="345.839" y="127.381" width="0.479" height="27.24"/>
+<rect x="291.54" y="154.141" width="54.539" height="0.48"/>
+<rect x="291.54" y="127.141" width="0.479" height="27.24"/>
+<text transform="matrix(0.9504 0 0 1 294.1211 134.52)" font-family="'ProductusOSGiBookc'" font-size="7.98">&lt;&lt;dto&gt;&gt;</text>
+<text transform="matrix(1 0 0 1 294.1182 143.0415)" font-family="'ProductusBook'" font-size="7.98">Bundle DTO</text>
 <rect x="122.156" y="129.18" width="58.903" height="27"/>
 <rect x="122.156" y="128.94" width="59.159" height="0.48"/>
-<rect x="176.939" y="129.18" width="0.48" height="27.24"/>
+<rect x="176.939" y="129.18" width="0.479" height="27.24"/>
 <rect x="121.74" y="155.94" width="59.316" height="0.48"/>
 <rect x="121.902" y="128.94" width="0.513" height="27.24"/>
 <rect x="119.596" y="127.38" fill="#FFFFFF" width="58.9" height="27"/>
@@ -26,7 +26,7 @@
 <rect x="178.54" y="127.38" width="0.479" height="27.24"/>
 <rect x="119.34" y="154.14" width="59.157" height="0.48"/>
 <rect x="119.34" y="127.14" width="0.512" height="27.24"/>
-<text transform="matrix(0.9504 0 0 1 121.9805 134.5195)" font-family="'ProductusOSGiBookc'" font-size="7.98">&lt;&lt;dto&gt;&gt;</text>
+<text transform="matrix(0.9504 0 0 1 121.981 134.5195)" font-family="'ProductusOSGiBookc'" font-size="7.98">&lt;&lt;dto&gt;&gt;</text>
 <text transform="matrix(1 0 0 1 121.979 142.9805)" font-family="'ProductusBook'" font-size="7.98">Requirement DTO</text>
 <rect x="222.12" y="129.18" width="55.198" height="27"/>
 <rect x="222.12" y="128.94" width="55.438" height="0.48"/>
@@ -36,81 +36,82 @@
 <rect x="219.721" y="127.38" fill="#FFFFFF" width="55.199" height="27"/>
 <rect x="219.721" y="127.14" width="55.438" height="0.48"/>
 <rect x="274.68" y="127.38" width="0.479" height="27.24"/>
-<rect x="219.48" y="154.14" width="55.439" height="0.48"/>
+<rect x="219.48" y="154.14" width="55.438" height="0.48"/>
 <rect x="219.48" y="127.14" width="0.479" height="27.24"/>
-<text transform="matrix(0.9504 0 0 1 222.1201 134.5195)" font-family="'ProductusOSGiBookc'" font-size="7.98">&lt;&lt;dto&gt;&gt;</text>
+<text transform="matrix(0.9504 0 0 1 222.1211 134.5195)" font-family="'ProductusOSGiBookc'" font-size="7.98">&lt;&lt;dto&gt;&gt;</text>
 <text transform="matrix(1 0 0 1 222.1191 142.9805)" font-family="'ProductusSemibold'" font-size="7.98">Bundle Wiring</text>
 <text transform="matrix(1 0 0 1 222.1191 152.5547)" font-family="'ProductusSemibold'" font-size="7.98">DTO</text>
 <rect x="222.061" y="276.32" width="54.359" height="26.58"/>
-<rect x="222.061" y="276.081" width="54.603" height="0.479"/>
+<rect x="222.061" y="276.081" width="54.604" height="0.479"/>
 <rect x="276.18" y="276.32" width="0.479" height="26.82"/>
 <rect x="221.82" y="302.661" width="54.603" height="0.479"/>
 <rect x="221.82" y="276.081" width="0.479" height="26.819"/>
 <rect x="219.721" y="274.581" fill="#FFFFFF" width="54.299" height="26.521"/>
 <rect x="219.721" y="274.34" width="54.539" height="0.479"/>
-<rect x="273.779" y="274.581" width="0.48" height="26.76"/>
+<rect x="273.779" y="274.581" width="0.479" height="26.76"/>
 <rect x="219.48" y="300.859" width="54.539" height="0.479"/>
 <rect x="219.48" y="274.34" width="0.479" height="26.76"/>
-<text transform="matrix(0.9504 0 0 1 222.0615 281.6602)" font-family="'ProductusOSGiBookc'" font-size="7.98">&lt;&lt;dto&gt;&gt;</text>
+<text transform="matrix(0.9504 0 0 1 222.0625 281.6602)" font-family="'ProductusOSGiBookc'" font-size="7.98">&lt;&lt;dto&gt;&gt;</text>
 <text transform="matrix(1 0 0 1 222.0586 289.1807)" font-family="'ProductusSemibold'" font-size="7.98">Bundle Wire</text>
 <text transform="matrix(1 0 0 1 222.0586 298.7559)" font-family="'ProductusSemibold'" font-size="7.98">DTO</text>
 <rect x="222.061" y="65.82" width="54.359" height="26.58"/>
-<rect x="222.061" y="65.58" width="54.603" height="0.48"/>
+<rect x="222.061" y="65.58" width="54.604" height="0.48"/>
 <rect x="276.18" y="65.82" width="0.479" height="26.82"/>
 <rect x="221.82" y="92.16" width="54.603" height="0.48"/>
 <rect x="221.82" y="65.58" width="0.479" height="26.82"/>
 <rect x="219.721" y="64.02" fill="#FFFFFF" width="54.299" height="26.58"/>
 <rect x="219.721" y="63.78" width="54.539" height="0.479"/>
-<rect x="273.779" y="64.02" width="0.48" height="26.82"/>
+<rect x="273.779" y="64.02" width="0.479" height="26.82"/>
 <rect x="219.48" y="90.36" width="54.539" height="0.48"/>
 <rect x="219.48" y="63.78" width="0.479" height="26.82"/>
-<text transform="matrix(0.9504 0 0 1 222.0615 71.1602)" font-family="'ProductusOSGiBookc'" font-size="7.98">&lt;&lt;dto&gt;&gt;</text>
+<text transform="matrix(0.9504 0 0 1 222.0625 71.1602)" font-family="'ProductusOSGiBookc'" font-size="7.98">&lt;&lt;dto&gt;&gt;</text>
 <text transform="matrix(1 0 0 1 222.0586 79.6182)" font-family="'ProductusSemibold'" font-size="7.98">Bundle Revision</text>
 <text transform="matrix(1 0 0 1 222.0586 89.1953)" font-family="'ProductusSemibold'" font-size="7.98">DTO</text>
 <rect x="247.799" y="91.5" width="0.479" height="35.88"/>
-<rect x="320.4" y="129.18" width="55.199" height="27"/>
-<rect x="320.4" y="128.94" width="55.439" height="0.48"/>
-<rect x="375.359" y="129.18" width="0.48" height="27.24"/>
-<rect x="320.158" y="155.94" width="55.439" height="0.48"/>
-<rect x="320.158" y="128.94" width="0.48" height="27.24"/>
-<rect x="318" y="127.38" fill="#FFFFFF" width="55.197" height="27"/>
-<rect x="318" y="127.14" width="55.438" height="0.48"/>
-<rect x="372.959" y="127.38" width="0.479" height="27.24"/>
-<rect x="317.76" y="154.14" width="55.438" height="0.48"/>
-<rect x="317.76" y="127.14" width="0.479" height="27.24"/>
-<text transform="matrix(0.9504 0 0 1 320.4043 134.5195)" font-family="'ProductusOSGiBookc'" font-size="7.98">&lt;&lt;dto&gt;&gt;</text>
-<polyline points="317.76,50.18 317.76,46.88 318.42,47.06 327.658,49.7 329.279,50.18 327.658,50.66 318.42,53.36 317.76,53.54 
-	317.76,52.88 318.117,52.4 327.359,49.7 327.658,50.66 327.359,50.66 318.117,48.02 318.42,47.06 318.779,47.54 318.779,50.18 "/>
-<rect x="317.76" y="50.18" width="1.02" height="2.7"/>
-<polyline points="318.24,50.18 318.24,47.54 327.48,50.18 318.24,52.88 "/>
+<rect x="367.4" y="129.18" width="55.199" height="27"/>
+<rect x="367.4" y="128.94" width="55.439" height="0.48"/>
+<rect x="422.359" y="129.18" width="0.48" height="27.24"/>
+<rect x="367.158" y="155.94" width="55.439" height="0.48"/>
+<rect x="367.158" y="128.94" width="0.48" height="27.24"/>
+<rect x="365" y="127.38" fill="#FFFFFF" width="55.197" height="27"/>
+<rect x="365" y="127.14" width="55.438" height="0.48"/>
+<rect x="419.959" y="127.38" width="0.479" height="27.24"/>
+<rect x="364.76" y="154.14" width="55.438" height="0.48"/>
+<rect x="364.76" y="127.14" width="0.479" height="27.24"/>
+<text transform="matrix(0.9504 0 0 1 367.4043 134.5195)" font-family="'ProductusOSGiBookc'" font-size="7.98">&lt;&lt;dto&gt;&gt;</text>
+<polyline points="246.72,51.086 243.42,51.086 243.601,50.426 246.24,41.188 246.72,39.566 247.2,41.188 249.899,50.426 
+	250.08,51.086 249.42,51.086 248.94,50.729 246.24,41.486 247.2,41.188 247.2,41.486 244.56,50.729 243.601,50.426 244.08,50.066 
+	246.72,50.066 "/>
+<rect x="246.72" y="50.066" width="2.7" height="1.02"/>
+<polyline points="246.72,50.605 244.08,50.605 246.72,41.365 249.42,50.605 "/>
 <rect x="335.76" y="77.94" width="0.24" height="0.48"/>
-<rect x="276.18" y="286.581" width="57.18" height="0.479"/>
-<rect x="332.879" y="155.94" width="0.479" height="131.121"/>
+<rect x="276.18" y="286.581" width="103.699" height="0.479"/>
+<rect x="379.879" y="155.94" width="0.479" height="131.121"/>
 <rect x="162.779" y="286.581" width="57.183" height="0.479"/>
-<rect x="162.779" y="155.94" width="0.48" height="131.121"/>
-<text transform="matrix(1 0 0 1 320.3203 125.459)" font-family="'ProductusBook'" font-size="7.98">0..n</text>
-<text transform="matrix(1 0 0 1 271.0996 97.8594)" font-family="'ProductusBook'" font-size="7.98">1</text>
+<rect x="162.779" y="155.94" width="0.479" height="131.121"/>
+<text transform="matrix(1 0 0 1 367.3203 125.459)" font-family="'ProductusBook'" font-size="7.98">0..n</text>
+<text transform="matrix(1 0 0 1 314.0996 125.459)" font-family="'ProductusBook'" font-size="7.98">1</text>
 <text transform="matrix(1 0 0 1 222.6211 97.8594)" font-family="'ProductusBook'" font-size="7.98">1</text>
 <text transform="matrix(1 0 0 1 164.4609 125.459)" font-family="'ProductusBook'" font-size="7.98">0..n</text>
 <text transform="matrix(1 0 0 1 278.3418 274.2598)" font-family="'ProductusBook'" font-size="7.98">0..n</text>
 <text transform="matrix(1 0 0 1 207.4805 274.2598)" font-family="'ProductusBook'" font-size="7.98">0..n</text>
 <text transform="matrix(1 0 0 1 280.3203 192.1143)" font-family="'ProductusBook'" font-size="7.98">1</text>
 <text transform="matrix(1 0 0 1 214.7402 192.1143)" font-family="'ProductusBook'" font-size="7.98">1</text>
-<rect x="246.561" y="28.38" width="0.479" height="35.88"/>
-<text transform="matrix(1 0 0 1 242.2598 35.46)" font-family="'ProductusBook'" font-size="7.98">1</text>
+<rect x="246.561" y="51.086" width="0.479" height="12.694"/>
+<text transform="matrix(1 0 0 1 279.3203 83.96)" font-family="'ProductusBook'" font-size="7.98">1</text>
 <text transform="matrix(1 0 0 1 299.2207 210.4785)" font-family="'ProductusBook'" font-size="7.98">provider</text>
 <text transform="matrix(1 0 0 1 174.7402 210.4785)" font-family="'ProductusBook'" font-size="7.98">requirer</text>
 <rect x="222.061" y="335.1" width="54.359" height="26.58"/>
-<rect x="222.061" y="334.859" width="54.603" height="0.479"/>
+<rect x="222.061" y="334.859" width="54.604" height="0.479"/>
 <rect x="276.18" y="335.1" width="0.479" height="26.818"/>
 <rect x="221.82" y="361.439" width="54.603" height="0.479"/>
 <rect x="221.82" y="334.859" width="0.479" height="26.82"/>
 <rect x="219.721" y="333.359" fill="#FFFFFF" width="54.299" height="26.521"/>
 <rect x="219.721" y="333.12" width="54.539" height="0.479"/>
-<rect x="273.779" y="333.359" width="0.48" height="26.761"/>
+<rect x="273.779" y="333.359" width="0.479" height="26.761"/>
 <rect x="219.48" y="359.641" width="54.539" height="0.479"/>
 <rect x="219.48" y="333.12" width="0.479" height="26.76"/>
-<text transform="matrix(0.9504 0 0 1 222.0615 340.4395)" font-family="'ProductusOSGiBookc'" font-size="7.98">&lt;&lt;dto&gt;&gt;</text>
+<text transform="matrix(0.9504 0 0 1 222.0625 340.4395)" font-family="'ProductusOSGiBookc'" font-size="7.98">&lt;&lt;dto&gt;&gt;</text>
 <text transform="matrix(1 0 0 1 222.0586 348.96)" font-family="'ProductusBook'" font-size="7.98">Wire DTO</text>
 <polyline points="248.042,321.838 251.34,321.838 251.161,322.5 248.52,331.68 248.042,333.359 247.561,331.68 244.92,322.5 
 	244.741,321.838 245.4,321.838 245.879,322.2 248.52,331.379 247.561,331.68 247.561,331.379 250.2,322.2 251.161,322.5 
@@ -119,36 +120,36 @@
 <polyline points="248.042,322.32 250.68,322.32 248.042,331.5 245.4,322.32 "/>
 <rect x="247.799" y="302.661" width="0.479" height="0.239"/>
 <rect x="247.799" y="302.661" width="0.479" height="19.358"/>
-<rect x="219.721" y="14.16" width="0.238" height="0.48"/>
+<rect x="291.78" y="141.301" width="0.238" height="0.48"/>
 <rect x="226.561" y="92.16" width="0.479" height="14.64"/>
 <rect x="162.779" y="106.32" width="64.021" height="0.48"/>
-<rect x="162.779" y="106.56" width="0.48" height="20.82"/>
+<rect x="162.779" y="106.56" width="0.479" height="20.82"/>
 <rect x="269.1" y="92.16" width="0.48" height="14.64"/>
-<rect x="269.34" y="106.32" width="64.02" height="0.48"/>
-<rect x="332.64" y="106.56" width="0.479" height="20.581"/>
-<rect x="331.617" y="37.82" width="54.361" height="26.58"/>
-<rect x="331.617" y="37.58" width="54.605" height="0.48"/>
-<rect x="385.74" y="37.82" width="0.479" height="26.82"/>
-<rect x="331.379" y="64.16" width="54.602" height="0.48"/>
-<rect x="331.379" y="37.58" width="0.479" height="26.82"/>
-<rect x="329.279" y="36.02" fill="#FFFFFF" width="54.301" height="26.58"/>
-<rect x="329.279" y="35.78" width="54.541" height="0.479"/>
-<rect x="383.34" y="36.02" width="0.479" height="26.82"/>
-<rect x="329.039" y="62.36" width="54.539" height="0.48"/>
-<rect x="329.039" y="35.78" width="0.48" height="26.82"/>
-<text transform="matrix(0.9504 0 0 1 331.6211 43.1602)" font-family="'ProductusOSGiBookc'" font-size="7.98">&lt;&lt;dto&gt;&gt;</text>
-<text transform="matrix(1 0 0 1 331.6191 51.6182)" font-family="'ProductusBook'" font-size="7.98">Resource DTO</text>
+<rect x="269.34" y="106.32" width="49.35" height="0.48"/>
+<rect x="379.641" y="78.75" width="0.479" height="48.391"/>
+<rect x="220.786" y="12.986" width="54.361" height="26.58"/>
+<rect x="220.786" y="12.747" width="54.605" height="0.48"/>
+<rect x="274.909" y="12.986" width="0.479" height="26.82"/>
+<rect x="220.548" y="39.327" width="54.602" height="0.48"/>
+<rect x="220.548" y="12.747" width="0.479" height="26.82"/>
+<rect x="218.448" y="11.187" fill="#FFFFFF" width="54.301" height="26.58"/>
+<rect x="218.448" y="10.946" width="54.541" height="0.479"/>
+<rect x="272.509" y="11.187" width="0.479" height="26.82"/>
+<rect x="218.208" y="37.526" width="54.539" height="0.48"/>
+<rect x="218.208" y="10.946" width="0.48" height="26.82"/>
+<text transform="matrix(0.9504 0 0 1 220.791 18.3267)" font-family="'ProductusOSGiBookc'" font-size="7.98">&lt;&lt;dto&gt;&gt;</text>
+<text transform="matrix(1 0 0 1 220.7881 26.7847)" font-family="'ProductusBook'" font-size="7.98">Resource DTO</text>
 <rect x="222.061" y="227.459" width="54.359" height="26.58"/>
-<rect x="222.061" y="227.219" width="54.603" height="0.48"/>
+<rect x="222.061" y="227.219" width="54.604" height="0.48"/>
 <rect x="276.18" y="227.459" width="0.479" height="26.82"/>
 <rect x="221.82" y="253.799" width="54.603" height="0.48"/>
 <rect x="221.82" y="227.219" width="0.479" height="26.82"/>
 <rect x="219.721" y="225.661" fill="#FFFFFF" width="54.299" height="26.579"/>
 <rect x="219.721" y="225.42" width="54.539" height="0.479"/>
-<rect x="273.779" y="225.661" width="0.48" height="26.819"/>
+<rect x="273.779" y="225.661" width="0.479" height="26.819"/>
 <rect x="219.48" y="252" width="54.539" height="0.479"/>
 <rect x="219.48" y="225.42" width="0.479" height="26.82"/>
-<text transform="matrix(0.9504 0 0 1 222.0615 232.7988)" font-family="'ProductusOSGiBookc'" font-size="7.98">&lt;&lt;dto&gt;&gt;</text>
+<text transform="matrix(0.9504 0 0 1 222.0625 232.7979)" font-family="'ProductusOSGiBookc'" font-size="7.98">&lt;&lt;dto&gt;&gt;</text>
 <text transform="matrix(1 0 0 1 222.0586 241.2598)" font-family="'ProductusBook'" font-size="7.98">Wiring DTO</text>
 <polyline points="248.042,214.141 251.34,214.141 251.161,214.799 248.042,225.719 244.92,214.799 244.741,214.141 245.4,214.141 
 	245.879,214.5 248.52,223.74 247.561,224.04 247.561,223.74 250.2,214.5 251.161,214.799 250.68,215.161 248.042,215.161 "/>
@@ -162,42 +163,46 @@
 <rect x="198.18" y="186.42" width="21.779" height="0.479"/>
 <rect x="198.18" y="186.42" width="0.48" height="90.48"/>
 <rect x="198.42" y="276.42" width="21.542" height="0.479"/>
-<text transform="matrix(1 0 0 1 320.3203 142.9805)" font-family="'ProductusBook'" font-size="7.98">Capability DTO</text>
-<line fill="none" stroke="#000000" stroke-width="0.5" stroke-miterlimit="10" x1="276.659" y1="68.19" x2="303.859" y2="68.19"/>
-<line fill="none" stroke="#000000" stroke-width="0.5" stroke-miterlimit="10" x1="303.609" y1="68.365" x2="303.609" y2="50.18"/>
-<line fill="none" stroke="#000000" stroke-width="0.5" stroke-miterlimit="10" x1="303.609" y1="50.18" x2="317.76" y2="50.18"/>
-<line fill="none" stroke="#000000" stroke-width="0.5" stroke-miterlimit="10" x1="276.659" y1="299.27" x2="388.109" y2="299.27"/>
-<line fill="none" stroke="#000000" stroke-width="0.5" stroke-miterlimit="10" x1="388.109" y1="299.27" x2="388.109" y2="84.959"/>
-<line fill="none" stroke="#000000" stroke-width="0.5" stroke-miterlimit="10" x1="388.109" y1="84.959" x2="276.659" y2="84.959"/>
+<text transform="matrix(1 0 0 1 367.3203 142.9805)" font-family="'ProductusBook'" font-size="7.98">Capability DTO</text>
+<line fill="none" stroke="#000000" stroke-width="0.5" stroke-miterlimit="10" x1="276.659" y1="299.27" x2="431.582" y2="299.27"/>
+<line fill="none" stroke="#000000" stroke-width="0.5" stroke-miterlimit="10" x1="431.582" y1="299.27" x2="431.582" y2="72.959"/>
+<line fill="none" stroke="#000000" stroke-width="0.5" stroke-miterlimit="10" x1="431.582" y1="72.959" x2="276.659" y2="72.959"/>
 <line fill="none" stroke="#000000" stroke-width="0.5" stroke-miterlimit="10" x1="219.719" y1="299.27" x2="110.61" y2="299.27"/>
 <line fill="none" stroke="#000000" stroke-width="0.5" stroke-miterlimit="10" x1="110.61" y1="299.27" x2="110.61" y2="84.959"/>
 <line fill="none" stroke="#000000" stroke-width="0.5" stroke-miterlimit="10" x1="110.61" y1="84.959" x2="219.48" y2="84.959"/>
 <text transform="matrix(1 0 0 1 214.7402 81.6182)" font-family="'ProductusBook'" font-size="7.98">1</text>
-<text transform="matrix(1 0 0 1 279.3203 81.6182)" font-family="'ProductusBook'" font-size="7.98">1</text>
+<text transform="matrix(1 0 0 1 279.3203 69.6182)" font-family="'ProductusBook'" font-size="7.98">1</text>
 <text transform="matrix(1 0 0 1 165.1641 162.2871)" font-family="'ProductusBook'" font-size="7.98">1</text>
-<text transform="matrix(1 0 0 1 336 162.2871)" font-family="'ProductusBook'" font-size="7.98">1</text>
-<text transform="matrix(1 0 0 1 362.8867 210.4785)" font-family="'ProductusBook'" font-size="7.98">provider</text>
+<text transform="matrix(1 0 0 1 383 162.2871)" font-family="'ProductusBook'" font-size="7.98">1</text>
+<text transform="matrix(1 0 0 1 406.3594 210.4785)" font-family="'ProductusBook'" font-size="7.98">provider</text>
 <text transform="matrix(1 0 0 1 112.4067 210.4785)" font-family="'ProductusBook'" font-size="7.98">requirer</text>
-<rect x="221.398" y="174.96" width="55.198" height="27"/>
+<rect x="221.398" y="174.96" width="55.197" height="27"/>
 <rect x="221.398" y="174.72" width="55.438" height="0.48"/>
 <rect x="276.359" y="174.96" width="0.479" height="27.24"/>
-<rect x="221.157" y="201.72" width="55.438" height="0.48"/>
+<rect x="221.157" y="201.721" width="55.438" height="0.479"/>
 <rect x="221.157" y="174.72" width="0.479" height="27.24"/>
-<rect x="218.999" y="173.16" fill="#FFFFFF" width="55.199" height="27"/>
+<rect x="218.999" y="173.16" fill="#FFFFFF" width="55.198" height="27"/>
 <rect x="273.958" y="173.16" width="0.479" height="27.24"/>
-<rect x="218.759" y="199.921" width="55.439" height="0.479"/>
+<rect x="218.759" y="199.921" width="55.438" height="0.479"/>
 <rect x="218.759" y="172.92" width="0.479" height="27.24"/>
-<text transform="matrix(0.9504 0 0 1 221.3984 180.2998)" font-family="'ProductusOSGiBookc'" font-size="7.98">&lt;&lt;dto&gt;&gt;</text>
-<text transform="matrix(1 0 0 1 221.3984 188.7607)" font-family="'ProductusSemibold'" font-size="7.98">Bundle Wiring</text>
+<text transform="matrix(0.9504 0 0 1 221.3984 180.2988)" font-family="'ProductusOSGiBookc'" font-size="7.98">&lt;&lt;dto&gt;&gt;</text>
+<text transform="matrix(1 0 0 1 221.3984 188.7598)" font-family="'ProductusSemibold'" font-size="7.98">Bundle Wiring</text>
 <text transform="matrix(1 0 0 1 221.3984 198.335)" font-family="'ProductusSemibold'" font-size="7.98">DTO.Node DTO</text>
-<rect x="247.077" y="201.72" width="0.479" height="0.24"/>
+<rect x="247.077" y="201.721" width="0.479" height="0.239"/>
 <rect x="219.004" y="172.681" width="55.438" height="0.48"/>
-<rect x="247.56" y="154.62" width="0.479" height="18.061"/>
-<text transform="matrix(1 0 0 1 235.9609 170.709)" font-family="'ProductusBook'" font-size="7.98">1..n</text>
+<rect x="234.561" y="154.62" width="0.479" height="18.061"/>
+<text transform="matrix(1 0 0 1 222.9609 170.709)" font-family="'ProductusBook'" font-size="7.98">1..n</text>
 <text transform="matrix(1 0 0 1 250.6797 97.8594)" font-family="'ProductusBook'" font-size="7.98">1..n</text>
 <rect x="237.355" y="92.16" width="0.479" height="24.81"/>
 <rect x="198.18" y="116.73" width="39.176" height="0.48"/>
-<rect x="197.939" y="117.21" width="0.48" height="63.09"/>
-<rect x="197.939" y="180.06" width="21.298" height="0.48"/>
+<rect x="197.939" y="117.21" width="0.479" height="63.09"/>
+<rect x="197.939" y="180.06" width="21.297" height="0.48"/>
 <text transform="matrix(1 0 0 1 239.166 97.8594)" font-family="'ProductusBook'" font-size="7.98">1</text>
+<rect x="276.664" y="78.75" width="102.977" height="0.48"/>
+<rect x="318.689" y="106.8" width="0.48" height="20.58"/>
+<rect x="277.321" y="141.301" width="14.459" height="0.48"/>
+<text transform="matrix(1 0 0 1 288.2666 139.959)" font-family="'ProductusBook'" font-size="7.98">1</text>
+<rect x="255.4" y="154.62" width="0.479" height="18.061"/>
+<text transform="matrix(1 0 0 1 251.1348 170.709)" font-family="'ProductusBook'" font-size="7.98">1</text>
+<text transform="matrix(1 0 0 1 258.0547 166.6455)" font-family="'ProductusBook'" font-size="7.98">root</text>
 </svg>
