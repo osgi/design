@@ -328,7 +328,7 @@
                 <xsd:attribute name="destroy-method" type="Tmethod" />
                 <xsd:attribute name="factory-method" type="Tmethod" />
                 <xsd:attribute name="factory-ref" type="Tidref" />
-                <xsd:attribute name="scope" type="Tscope" />
+                <xsd:attribute name="scope" type="TbeanScope" />
                 <xsd:anyAttribute namespace="##other"
                     processContents="strict" />
             </xsd:extension>
@@ -639,13 +639,16 @@
                     </xsd:annotation>
                 </xsd:attribute>
 <!-- xxx added scope attribute xxx -->
-                <xsd:attribute name="scope" type="Tscope">
+                <xsd:attribute name="scope" type="TreferenceScope">
                     <xsd:annotation>
                         <xsd:documentation>
                             <![CDATA[
                             An options specifier that can be used to match to a service of a specific 
                             scope.  When not specified the dependency can be matched to services of
-                            any scope.
+                            any scope.  To a reference a "singleton" or "bundle" scoped service looks the 
+                            same as the referencing bundle will only ever receive one instance.  Therefore, 
+                            the scope attribute on a reference only specifies "bundle" and "prototype" scope,
+                            where "bundle" will match both "bundle" and "singleton" scoped services.
                             ]]>
                         </xsd:documentation>
                     </xsd:annotation>
@@ -1343,7 +1346,7 @@
         </xsd:restriction>
     </xsd:simpleType>
 
-    <xsd:simpleType name="Tscope">
+    <xsd:simpleType name="TbeanScope">
         <xsd:union>
             <xsd:simpleType>
                 <xsd:restriction base="xsd:NMTOKEN">
@@ -1361,6 +1364,22 @@
         </xsd:union>
     </xsd:simpleType>
 
+<!-- xxx added scope type for references xxx -->
+    <xsd:simpleType name="TreferenceScope">
+        <xsd:union>
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:NMTOKEN">
+                    <xsd:enumeration value="bundle" />
+                    <xsd:enumeration value="prototype" />
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:QName">
+                    <xsd:pattern value=".+:.+" />
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:union>
+    </xsd:simpleType>
     <xsd:simpleType name="Tservice-use">
         <xsd:annotation>
             <xsd:documentation>
