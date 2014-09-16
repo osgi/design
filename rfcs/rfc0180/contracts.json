@@ -1,0 +1,497 @@
+[ {
+  "name" : "JavaAnnotation",
+  "version" : "1",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ ],
+  "packages" : [ "javax.annotation", "javax.annotation.security" ],
+  "comments" : "",
+  "jsr" : "250"
+}, {
+  "name" : "JavaAnnotation",
+  "version" : "1.1",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "6" ],
+  "packages" : [ "javax.annotation", "javax.annotation.security", "javax.annotation.sql" ],
+  "comments" : "Compatible with 1",
+  "jsr" : "250"
+}, {
+  "name" : "JavaAnnotation",
+  "version" : "1.2",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "7" ],
+  "packages" : [ "javax.annotation", "javax.annotation.security", "javax.annotation.sql" ],
+  "comments" : "Compatible with 1 & 1.1. Subset available in SE 8",
+  "jsr" : "250"
+}, {
+  "name" : "JavaBatch",
+  "version" : "1",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "7" ],
+  "packages" : [ "javax.batch.api", "javax.batch.api.chunk", "javax.batch.api.chunk.listener", "javax.batch.api.listener", "javax.batch.api.partition", "javax.batch.operations", "javax.batch.runtime", "javax.batch.runtime.context" ],
+  "comments" : "",
+  "jsr" : "352"
+}, {
+  "name" : "JavaBeanValidation",
+  "version" : "1",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "6" ],
+  "packages" : [ "javax.validation", "javax.validation.bootstrap", "javax.validation.constraints", "javax.validation.groups", "javax.validation.metadata", "javax.validation.spi" ],
+  "comments" : "",
+  "jsr" : "303"
+}, {
+  "name" : "JavaBeanValidation",
+  "version" : "1.1",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "7" ],
+  "packages" : [ "javax.validation", "javax.validation.bootstrap", "javax.validation.constraints", "javax.validation.constraintvalidation", "javax.validation.executable", "javax.validation.groups", "javax.validation.metadata", "javax.validation.spi" ],
+  "comments" : "Compatible with 1",
+  "jsr" : "349"
+}, {
+  "name" : "JavaCDI",
+  "version" : "1",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "6" ],
+  "packages" : [ "javax.decorator", "javax.enterprise.context", "javax.enterprise.context.spi", "javax.enterprise.event", "javax.enterprise.inject", "javax.enterprise.inject.spi", "javax.enterprise.util" ],
+  "comments" : "",
+  "jsr" : "299"
+}, {
+  "name" : "JavaCDI",
+  "version" : "1.1",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "7" ],
+  "packages" : [ "javax.decorator", "javax.enterprise.context", "javax.enterprise.context.spi", "javax.enterprise.event", "javax.enterprise.inject", "javax.enterprise.inject.spi", "javax.enterprise.util" ],
+  "comments" : "Compatible with 1",
+  "jsr" : "346"
+}, {
+  "name" : "JavaEJB",
+  "version" : "2.1",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ ],
+  "packages" : [ "javax.ejb", "javax.ejb.spi" ],
+  "comments" : "",
+  "jsr" : "153"
+}, {
+  "name" : "JavaEJB",
+  "version" : "3",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ ],
+  "packages" : [ "javax.ejb", "javax.ejb.spi" ],
+  "comments" : "Compatible with 2.1",
+  "jsr" : "220"
+}, {
+  "name" : "JavaEJB",
+  "version" : "3.1",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "6" ],
+  "packages" : [ "javax.ejb", "javax.ejb.embeddable", "javax.ejb.spi" ],
+  "comments" : "Compatible with 2.1, 3",
+  "jsr" : "318"
+}, {
+  "name" : "JavaEJB",
+  "version" : "3.2",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "7" ],
+  "packages" : [ "javax.ejb", "javax.ejb.embeddable", "javax.ejb.spi" ],
+  "comments" : "Compatible with 2.1, 3, 3.1",
+  "jsr" : "345"
+}, {
+  "name" : "JavaEJBLite",
+  "version" : "3.1",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "6" ],
+  "packages" : [ "javax.ejb", "javax.ejb.embeddable", "javax.ejb.spi" ],
+  "comments" : "EJBlite is a subset of the EJB specification. The package content is logically subset. A provider of JavaEJB is required to also provide this contract. A provider of JavaEJBLite is not required to provide JavaEJB.",
+  "jsr" : "318"
+}, {
+  "name" : "JavaEJBLite",
+  "version" : "3.2",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "7" ],
+  "packages" : [ "javax.ejb" ],
+  "comments" : "EJBlite is a subset of the EJB specification. The package content is logically subset. A provider of JavaEJB is required to also provide this contract. A provider of JavaEJBLite is not required to provide JavaEJB. This contract is not backwards compatible with 3.1 because of the removal of javax.ejb.embeddable.",
+  "jsr" : "345"
+}, {
+  "name" : "JavaEnterpriseConcurrency",
+  "version" : "1",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "7" ],
+  "packages" : [ "javax.enterprise.concurrent" ],
+  "comments" : "",
+  "jsr" : "236"
+}, {
+  "name" : "JavaEL",
+  "version" : "2.1",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ ],
+  "packages" : [ "javax.el" ],
+  "comments" : "",
+  "jsr" : "245"
+}, {
+  "name" : "JavaEL",
+  "version" : "2.2",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "6" ],
+  "packages" : [ "javax.el" ],
+  "comments" : "Compatible with 2.1",
+  "jsr" : "245"
+}, {
+  "name" : "JavaEL",
+  "version" : "3",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "7" ],
+  "packages" : [ "javax.el" ],
+  "comments" : "Compatible with 2.2",
+  "jsr" : "341"
+}, {
+  "name" : "JavaInject",
+  "version" : "1",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "7" ],
+  "packages" : [ "javax.inject" ],
+  "comments" : "",
+  "jsr" : "330"
+}, {
+  "name" : "JavaInterceptor",
+  "version" : "1.1",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "6" ],
+  "packages" : [ "javax.interceptor" ],
+  "comments" : "Should this be separate from CDI & EJB???",
+  "jsr" : "318"
+}, {
+  "name" : "JavaInterceptor",
+  "version" : "1.2",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "7" ],
+  "packages" : [ "javax.interceptor" ],
+  "comments" : "Compatible with 1.1 Should this be separate from CDI & EJB???",
+  "jsr" : "318"
+}, {
+  "name" : "JavaJACC",
+  "version" : "1.1",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ ],
+  "packages" : [ "javax.security.jacc" ],
+  "comments" : " ",
+  "jsr" : "115"
+}, {
+  "name" : "JavaJACC",
+  "version" : "1.4",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "6" ],
+  "packages" : [ "javax.security.jacc" ],
+  "comments" : "Compatible with 1.1",
+  "jsr" : "115"
+}, {
+  "name" : "JavaJACC",
+  "version" : "1.5",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "7" ],
+  "packages" : [ "javax.security.jacc" ],
+  "comments" : "Compatible with 1.1 & 1.4",
+  "jsr" : "115"
+}, {
+  "name" : "JavaJASPIC",
+  "version" : "1",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "6" ],
+  "packages" : [ "javax.security.auth.message", "javax.security.auth.message.callback", "javax.security.auth.message.config", "javax.security.auth.message.module" ],
+  "comments" : "",
+  "jsr" : "196"
+}, {
+  "name" : "JavaJASPIC",
+  "version" : "1.1",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "7" ],
+  "packages" : [ "javax.security.auth.message", "javax.security.auth.message.callback", "javax.security.auth.message.config", "javax.security.auth.message.module" ],
+  "comments" : "Compatible with 1",
+  "jsr" : "196"
+}, {
+  "name" : "JavaJAXB",
+  "version" : "2.1",
+  "javaSELevel" : [ "6 (update 4 or later)" ],
+  "javaEELevel" : [ ],
+  "packages" : [ "javax.xml.bind", "javax.xml.bind.annotation", "javax.xml.bind.annotation.adapters", "javax.xml.bind.attachment", "javax.xml.bind.helpers", "javax.xml.bind.util" ],
+  "comments" : "",
+  "jsr" : "222"
+}, {
+  "name" : "JavaJAXB",
+  "version" : "2.2",
+  "javaSELevel" : [ "7", "8" ],
+  "javaEELevel" : [ "6", "7" ],
+  "packages" : [ "javax.xml.bind", "javax.xml.bind.annotation", "javax.xml.bind.annotation.adapters", "javax.xml.bind.attachment", "javax.xml.bind.helpers", "javax.xml.bind.util" ],
+  "comments" : "Compatible with 2.1",
+  "jsr" : "222"
+}, {
+  "name" : "JavaJAXR",
+  "version" : "1",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "6", "7" ],
+  "packages" : [ "javax.xml.registry", "javax.xml.registry.infomodel" ],
+  "comments" : "",
+  "jsr" : "93"
+}, {
+  "name" : "JavaJAXRS",
+  "version" : "1.1",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "6" ],
+  "packages" : [ "javax.ws.rs", "javax.ws.rs.core", "javax.ws.rs.ext" ],
+  "comments" : "",
+  "jsr" : "311"
+}, {
+  "name" : "JavaJAXRS",
+  "version" : "2",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "7" ],
+  "packages" : [ "javax.ws.rs", "javax.ws.rs.core", "javax.ws.rs.ext", "javax.ws.rs.client", "javax.ws.rs.container" ],
+  "comments" : "",
+  "jsr" : "339"
+}, {
+  "name" : "JavaJAXWS",
+  "version" : "2.1",
+  "javaSELevel" : [ "6" ],
+  "javaEELevel" : [ ],
+  "packages" : [ "javax.xml.ws", "javax.xml.ws.handler", "javax.xml.ws.handler.soap", "javax.xml.ws.http", "javax.xml.ws.soap", "javax.xml.ws.spi", "javax.xml.ws.wsaddressing" ],
+  "comments" : "",
+  "jsr" : "224"
+}, {
+  "name" : "JavaJAXWS",
+  "version" : "2.2",
+  "javaSELevel" : [ "7", "8" ],
+  "javaEELevel" : [ "6", "7" ],
+  "packages" : [ "javax.xml.ws javax.xml.ws.handler", "javax.xml.ws.handler.soap", "javax.xml.ws.http", "javax.xml.ws.soap", "javax.xml.ws.spi", "javax.xml.ws.spi.http", "javax.xml.ws.wsaddressing" ],
+  "comments" : "Compatible with 2.1",
+  "jsr" : "224"
+}, {
+  "name" : "JavaJCA",
+  "version" : "1.5",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ ],
+  "packages" : [ "javax.resource", "javax.resource.cci", "javax.resource.spi. javax.resource.spi.endpoint. javax.resource.spi.security", "javax.resource.spi.work" ],
+  "comments" : "",
+  "jsr" : "112"
+}, {
+  "name" : "JavaJCA",
+  "version" : "1.6",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "6" ],
+  "packages" : [ "javax.resource", "javax.resource.cci", "javax.resource.spi", "javax.resource.spi.endpoint", "javax.resource.spi.security", "javax.resource.spi.work" ],
+  "comments" : "Compatible with 1.5",
+  "jsr" : "322"
+}, {
+  "name" : "JavaJCA",
+  "version" : "1.7",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "7" ],
+  "packages" : [ "javax.resource", "javax.resource.cci", "javax.resource.spi", "javax.resource.spi.endpoint", "javax.resource.spi.security", "javax.resource.spi.work" ],
+  "comments" : "Compatible with 1.5 & 1.6",
+  "jsr" : "322"
+}, {
+  "name" : "JavaJMS",
+  "version" : "1.1",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "6" ],
+  "packages" : [ "javax.jms" ],
+  "comments" : "",
+  "jsr" : "914"
+}, {
+  "name" : "JavaJMS",
+  "version" : "2",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "7" ],
+  "packages" : [ "javax.jms" ],
+  "comments" : "Compatible with 1.1",
+  "jsr" : "343"
+}, {
+  "name" : "JavaJPA",
+  "version" : "1",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ ],
+  "packages" : [ "javax.persistence", "javax.persistence.spi" ],
+  "comments" : "",
+  "jsr" : "220"
+}, {
+  "name" : "JavaJPA",
+  "version" : "2",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "6" ],
+  "packages" : [ "javax.persistence", "javax.persistence.criteria", "javax.persistence.metamodel", "javax.persistence.spi" ],
+  "comments" : "Compatible with 1",
+  "jsr" : "317"
+}, {
+  "name" : "JavaJPA",
+  "version" : "2.1",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "7" ],
+  "packages" : [ "javax.persistence", "javax.persistence.criteria", "javax.persistence.metamodel", "javax.persistence.spi" ],
+  "comments" : "Compatible with 1, 2",
+  "jsr" : "338"
+}, {
+  "name" : "JavaJSF",
+  "version" : "2",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "6" ],
+  "packages" : [ "javax.faces", "javax.faces.application", "javax.faces.bean", "javax.faces.component", "javax.faces.component.behavior", "javax.faces.component.html", "javax.faces.component.visit", "javax.faces.context", "javax.faces.convert", "javax.faces.el", "javax.faces.event", "javax.faces.lifecycle", "javax.faces.model", "javax.faces.render", "javax.faces.validator", "javax.faces.view", "javax.faces.view.facelets", "javax.faces.webapp" ],
+  "comments" : "",
+  "jsr" : "314"
+}, {
+  "name" : "JavaJSF",
+  "version" : "2.2",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "7" ],
+  "packages" : [ "javax.faces", "javax.faces.application", "javax.faces.bean", "javax.faces.component", "javax.faces.component.behavior", "javax.faces.component.html", "javax.faces.component.visit", "javax.faces.context", "javax.faces.convert", "javax.faces.el", "javax.faces.event", "javax.faces.flow", "javax.faces.flow.builder", "javax.faces.lifecycle", "javax.faces.model", "javax.faces.render", "javax.faces.validator", "javax.faces.view", "javax.faces.view.facelets", "javax.faces.webapp" ],
+  "comments" : "Compatible with 2.0",
+  "jsr" : "314"
+}, {
+  "name" : "JavaJSONP",
+  "version" : "1",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "7" ],
+  "packages" : [ "javax.json", "javax.json.spi", "javax.json.stream" ],
+  "comments" : "",
+  "jsr" : "353"
+}, {
+  "name" : "JavaJSP",
+  "version" : "2",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ ],
+  "packages" : [ "javax.servlet.jsp", "javax.servlet.jsp.el", "javax.servlet.jsp.tagext" ],
+  "comments" : "",
+  "jsr" : "152"
+}, {
+  "name" : "JavaJSP",
+  "version" : "2.1",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ ],
+  "packages" : [ "javax.servlet.jsp", "javax.servlet.jsp.el", "javax.servlet.jsp.tagext" ],
+  "comments" : "Compatible with 2",
+  "jsr" : "245"
+}, {
+  "name" : "JavaJSP",
+  "version" : "2.2",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "6" ],
+  "packages" : [ "javax.servlet.jsp", "javax.servlet.jsp.el", "javax.servlet.jsp.tagext" ],
+  "comments" : "Compatible with 2, 2.1. I removed javax.servlet.jsp.resources ???",
+  "jsr" : "245"
+}, {
+  "name" : "JavaJSP",
+  "version" : "2.3",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "7" ],
+  "packages" : [ "javax.servlet.jsp", "javax.servlet.jsp.el", "javax.servlet.jsp.tagext" ],
+  "comments" : "Compatible with 2, 2.1, 2.2",
+  "jsr" : "245"
+}, {
+  "name" : "JavaJSTL",
+  "version" : "1",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ ],
+  "packages" : [ "javax.servlet.jsp.jstl.core", "javax.servlet.jsp.jstl.fmt", "javax.servlet.jsp.jstl.sql", "javax.servlet.jsp.jstl.tlv" ],
+  "comments" : "",
+  "jsr" : "52"
+}, {
+  "name" : "JavaJSTL",
+  "version" : "1.1",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ ],
+  "packages" : [ "javax.servlet.jsp.jstl.core", "javax.servlet.jsp.jstl.fmt", "javax.servlet.jsp.jstl.sql", "javax.servlet.jsp.jstl.tlv" ],
+  "comments" : "Compatible with 1",
+  "jsr" : "52"
+}, {
+  "name" : "JavaJSTL",
+  "version" : "1.2",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "6", "7" ],
+  "packages" : [ "javax.servlet.jsp.jstl.core", "javax.servlet.jsp.jstl.fmt", "javax.servlet.jsp.jstl.sql", "javax.servlet.jsp.jstl.tlv" ],
+  "comments" : "Compatible with 1.1",
+  "jsr" : "52"
+}, {
+  "name" : "JavaJTA",
+  "version" : "1.1",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "6" ],
+  "packages" : [ "javax.transaction", "javax.transaction.xa" ],
+  "comments" : " ",
+  "jsr" : "907"
+}, {
+  "name" : "JavaJTA",
+  "version" : "1.2",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "7" ],
+  "packages" : [ "javax.transaction", "javax.transaction.xa" ],
+  "comments" : "Compatible with 1.1",
+  "jsr" : "907"
+}, {
+  "name" : "JavaJTAJRE",
+  "version" : "1.1",
+  "javaSELevel" : [ "6", "7", "8" ],
+  "javaEELevel" : [ ],
+  "packages" : [ "javax.transaction", "javax.transaction.xa" ],
+  "comments" : "This contains a subset of the package javax.transaction. It only contains 3 exceptions. A provider of JavaJTA must also provide this contract. The OSGi system bundle must provide this contract. The creation of JTA 1.2 has so far not affected the SE subset and so there is currently no 1.2 version of this contract.",
+  "jsr" : "907"
+}, {
+  "name" : "JavaMail",
+  "version" : "1.4",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "6" ],
+  "packages" : [ "javax.mail", "javax.mail.event", "javax.mail.internet", "javax.mail.search", "javax.mail.util" ],
+  "comments" : "",
+  "jsr" : "919"
+}, {
+  "name" : "JavaMail",
+  "version" : "1.5",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "7" ],
+  "packages" : [ "javax.mail", "javax.mail.event", "javax.mail.internet", "javax.mail.search", "javax.mail.util" ],
+  "comments" : "Compatible with 1.4",
+  "jsr" : "919"
+}, {
+  "name" : "JavaServlet",
+  "version" : "2.5",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ ],
+  "packages" : [ "javax.servlet", "javax.servlet.http" ],
+  "comments" : "",
+  "jsr" : "154"
+}, {
+  "name" : "JavaServlet",
+  "version" : "3",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "6" ],
+  "packages" : [ "javax.servlet", "javax.servlet.annotation", "javax.servlet.descriptor", "javax.servlet.http" ],
+  "comments" : "Compatible with 2.5",
+  "jsr" : "315"
+}, {
+  "name" : "JavaServlet",
+  "version" : "3.1",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "7" ],
+  "packages" : [ "javax.servlet", "javax.servlet.annotation", "javax.servlet.descriptor", "javax.servlet.http" ],
+  "comments" : "Compatible with 2.5, 3",
+  "jsr" : "340"
+}, {
+  "name" : "JavaWebServicesMetadata",
+  "version" : "2.0",
+  "javaSELevel" : [ "6", "7", "8" ],
+  "javaEELevel" : [ ],
+  "packages" : [ "javax.jws", "javax.jws.soap" ],
+  "comments" : "",
+  "jsr" : "181"
+}, {
+  "name" : "JavaWebServicesMetadata",
+  "version" : "2.1",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "6", "7" ],
+  "packages" : [ "javax.jws", "javax.jws.soap" ],
+  "comments" : "",
+  "jsr" : "181"
+}, {
+  "name" : "JavaWebSockets",
+  "version" : "1",
+  "javaSELevel" : [ ],
+  "javaEELevel" : [ "7" ],
+  "packages" : [ "javax.websocket", "javax.websocket.server" ],
+  "comments" : "",
+  "jsr" : "356"
+} ]
