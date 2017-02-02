@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/*
+ * Copyright (c) OSGi Alliance (2017). All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.osgi.org/xmlns/cdi/v1.0.0"
+	xmlns:cdi="http://www.osgi.org/xmlns/cdi/v1.0.0">
+
+	<complexType name="Tbean">
+		<sequence>
+			<element name="service" maxOccurs="1" minOccurs="0"
+				type="cdi:Tservice" />
+			<any namespace="##other" minOccurs="0" maxOccurs="unbounded"
+				processContents="lax" />
+		</sequence>
+		<attribute name="class" type="token" use="required" />
+		<anyAttribute processContents="lax" />
+	</complexType>
+
+	<complexType name="Tbeans">
+		<sequence>
+			<element name="bean" maxOccurs="unbounded" minOccurs="0"
+				type="cdi:Tbean" />
+			<element name="configuration" type="cdi:Tconfiguration"
+				maxOccurs="unbounded" minOccurs="0" />
+			<element name="reference" maxOccurs="unbounded" minOccurs="0"
+				type="cdi:Treference" />
+			<any namespace="##other" maxOccurs="unbounded" minOccurs="0"
+				processContents="lax" />
+		</sequence>
+		<anyAttribute processContents="lax" />
+	</complexType>
+
+	<complexType name="Tconfiguration">
+		<sequence>
+			<any namespace="##other" minOccurs="0" maxOccurs="unbounded"
+				processContents="lax" />
+		</sequence>
+		<attribute name="pid" type="token" use="required" />
+		<anyAttribute processContents="lax" />
+	</complexType>
+
+	<complexType name="Tproperty">
+		<simpleContent>
+			<extension base="string">
+				<attribute name="name" type="token" use="required" />
+				<attribute name="value" type="token" use="optional" />
+				<attribute default="String" name="type"
+					type="cdi:Tproperty_type" use="optional" />
+				<anyAttribute processContents="lax" />
+			</extension>
+		</simpleContent>
+	</complexType>
+
+	<complexType name="Tprovide">
+		<sequence>
+			<any namespace="##any" processContents="lax"
+				minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+		<attribute name="interface" type="token" use="required" />
+		<anyAttribute processContents="lax" />
+	</complexType>
+
+	<complexType name="Treference">
+		<sequence>
+			<any namespace="##any" processContents="lax"
+				minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+		<attribute name="beanClass" type="token" />
+		<attribute name="target" type="token" use="required" />
+		<anyAttribute processContents="lax" />
+	</complexType>
+
+	<complexType name="Tservice">
+		<sequence>
+			<element name="property" type="cdi:Tproperty"
+				maxOccurs="unbounded" minOccurs="0" />
+			<element name="provide" type="cdi:Tprovide"
+				minOccurs="1" maxOccurs="unbounded" />
+			<any namespace="##other" processContents="lax"
+				minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+		<anyAttribute processContents="lax" />
+	</complexType>
+
+	<simpleType name="Tproperty_type">
+		<restriction base="string">
+			<enumeration value="String" />
+			<enumeration value="Long" />
+			<enumeration value="Double" />
+			<enumeration value="Float" />
+			<enumeration value="Integer" />
+			<enumeration value="Byte" />
+			<enumeration value="Character" />
+			<enumeration value="Boolean" />
+			<enumeration value="Short" />
+		</restriction>
+	</simpleType>
+
+	<element name="beans" type="cdi:Tbeans"></element>
+</schema>
