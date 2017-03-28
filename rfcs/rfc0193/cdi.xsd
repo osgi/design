@@ -7,7 +7,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *			http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -17,9 +17,27 @@
  */
 -->
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:cdi="http://www.osgi.org/xmlns/cdi/v1.0.0"
 	targetNamespace="http://www.osgi.org/xmlns/cdi/v1.0.0"
-	xmlns:cdi="http://www.osgi.org/xmlns/cdi/v1.0.0">
+	elementFormDefault="unqualified"
+	attributeFormDefault="unqualified"
+	version="1.0.0">
 
+	<annotation>
+		<documentation xml:lang="en">
+			This is the XML Schema for OSGi Bean descriptions used by
+			the OSGi CDI Extender. OSGi Bean description documents
+			may be embedded in other XML documents. The OSGi CDI Extender
+			will process all XML documents listed in the osgi.beans
+			attribute of the CDI extender requirement. XML documents containing
+			OSGi Bean descriptions may contain one or more bean, configuration,
+			and/or reference elements embedded in a larger document. Use of
+			the namespace for bean descriptions is mandatory. The attributes
+			and subelements of bean, configuration, and/or reference elements
+			are always unqualified.
+		</documentation>
+	</annotation>
+	<element name="bean" type="cdi:Tbean" />
 	<complexType name="Tbean">
 		<sequence>
 			<element name="service" maxOccurs="1" minOccurs="0"
@@ -31,39 +49,59 @@
 		<anyAttribute processContents="lax" />
 	</complexType>
 
-	<complexType name="Tbeans">
-		<sequence>
-			<element name="bean" maxOccurs="unbounded" minOccurs="0"
-				type="cdi:Tbean" />
-			<element name="configuration" type="cdi:Tconfiguration"
-				maxOccurs="unbounded" minOccurs="0" />
-			<element name="reference" maxOccurs="unbounded" minOccurs="0"
-				type="cdi:Treference" />
-			<any namespace="##other" maxOccurs="unbounded" minOccurs="0"
-				processContents="lax" />
-		</sequence>
-		<anyAttribute processContents="lax" />
-	</complexType>
-
+	<element name="configuration" type="cdi:Tconfiguration" />
 	<complexType name="Tconfiguration">
 		<sequence>
 			<any namespace="##other" minOccurs="0" maxOccurs="unbounded"
 				processContents="lax" />
 		</sequence>
+		<attribute name="beanClass" type="token" use="required" />
 		<attribute name="pid" type="token" use="required" />
 		<anyAttribute processContents="lax" />
 	</complexType>
 
-	<complexType name="Tproperty">
-		<simpleContent>
-			<extension base="string">
-				<attribute name="name" type="token" use="required" />
-				<attribute name="value" type="token" use="optional" />
-				<attribute default="String" name="type"
-					type="cdi:Tproperty_type" use="optional" />
-				<anyAttribute processContents="lax" />
-			</extension>
-		</simpleContent>
+	<element name="reference" type="cdi:Treference" />
+	<complexType name="Treference">
+		<sequence>
+			<any namespace="##any" processContents="lax"
+				minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+		<attribute name="beanClass" type="token" use="required" />
+		<attribute name="target" type="token" use="required" />
+		<anyAttribute processContents="lax" />
+	</complexType>
+
+	<complexType name="Tproperty" mixed="true">
+		<sequence maxOccurs="1">
+			<choice minOccurs="0" maxOccurs="1">
+				<element name="array" type="cdi:Tmulti-value"/>
+				<element name="list" type="cdi:Tmulti-value"/>
+				<element name="set" type="cdi:Tmulti-value"/>
+			</choice>
+			<any namespace="##other" minOccurs="0" maxOccurs="unbounded"
+				processContents="lax" />
+		</sequence>
+		<attribute name="name" type="string" use="required" />
+		<attribute name="value" type="string" use="optional" />
+		<attribute name="value-type" type="cdi:Tvalue-types" default="String" use="optional" />
+		<anyAttribute processContents="lax" />
+	</complexType>
+
+	<complexType name="Tmulti-value">
+		<sequence>
+		<element name="value" minOccurs="0" maxOccurs="unbounded" type="cdi:Tvalue"/>
+		<any namespace="##other" minOccurs="0" maxOccurs="unbounded"
+			processContents="lax" />
+		</sequence>
+		<anyAttribute processContents="lax" />
+	</complexType>
+
+	<complexType name="Tvalue" mixed="true">
+		<sequence>
+		<any namespace="##other" minOccurs="0" maxOccurs="unbounded"
+			processContents="lax" />
+		</sequence>
+		<anyAttribute processContents="lax" />
 	</complexType>
 
 	<complexType name="Tprovide">
@@ -72,16 +110,6 @@
 				minOccurs="0" maxOccurs="unbounded" />
 		</sequence>
 		<attribute name="interface" type="token" use="required" />
-		<anyAttribute processContents="lax" />
-	</complexType>
-
-	<complexType name="Treference">
-		<sequence>
-			<any namespace="##any" processContents="lax"
-				minOccurs="0" maxOccurs="unbounded" />
-		</sequence>
-		<attribute name="beanClass" type="token" />
-		<attribute name="target" type="token" use="required" />
 		<anyAttribute processContents="lax" />
 	</complexType>
 
@@ -97,19 +125,31 @@
 		<anyAttribute processContents="lax" />
 	</complexType>
 
-	<simpleType name="Tproperty_type">
+	<!-- Specifies the data type of a property or of the elements in a multi-value
+			property. Numerical and boolean values are trimmed before they are processed.
+			Simple types are automatically boxed if needed. Only the array data type
+			allows for simple type values. When specifying a simple type on any other
+			type of property it will automatically be boxed. -->
+	<simpleType name="Tvalue-types">
 		<restriction base="string">
 			<enumeration value="String" />
+			<enumeration value="long" />
 			<enumeration value="Long" />
+			<enumeration value="double" />
 			<enumeration value="Double" />
+			<enumeration value="float" />
 			<enumeration value="Float" />
+			<enumeration value="int" />
 			<enumeration value="Integer" />
+			<enumeration value="byte" />
 			<enumeration value="Byte" />
+			<enumeration value="char" />
 			<enumeration value="Character" />
+			<enumeration value="boolean" />
 			<enumeration value="Boolean" />
+			<enumeration value="short" />
 			<enumeration value="Short" />
 		</restriction>
 	</simpleType>
 
-	<element name="beans" type="cdi:Tbeans"></element>
 </schema>
