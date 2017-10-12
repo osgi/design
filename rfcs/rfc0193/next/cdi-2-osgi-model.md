@@ -40,7 +40,7 @@ A DS Component Description
 
 _Root (Component) Model_
 - Has CDI scope `@ApplicationScoped`
-- Has only optional/mandatory configurations
+- Has only optional/mandatory Configurations
 
 ## 2.3. Component Environment
 A DS Component Configuration
@@ -58,16 +58,16 @@ A DS Component Configuration
         `destroyed`
     - `failed`
 - Where state `satisfied` means
-    - All Configurations are satisfied
+    - All Configurations of cardinality `mandatory` are satisfied
     - All References of cardinality `mandatory` or `at-least-one` are satisfied 
-    - It is now possible to create Component Contexts in the Component Model scope
+    - It becomes possible to create Component Contexts in the Component Model scope
         - E.g. when OSGi requires a service object
 - When the _Component Model_ has a multiple cardinality Configuration 
     - As soon as one Component Environment enters `waiting-for-references`
-    - another empty Component Environment is created in `waiting-for-configurations`
-    - to wait for the next configuration instance. 
+    - another Component Environment is created in `waiting-for-configurations`
+    - to wait for the next Configuration object. 
 
-_Root (Component) Environment_
+_Root Component Environment_
 - Controls the lifecycle of the CDI container
     - Creates it on entry in `satisfied`
     - Destroys it on entry in `destroyed`
@@ -77,10 +77,12 @@ _Root (Component) Environment_
 - Controls the lifecycles of other all Component Environments
     - Which can enter `created` only after the root enters `satisfied`
     - Which must transition to `destroyed` when the root enters `destroying` and before the root enters `destroyed`
+- Can only have Configurations cardinality `mandatory` and `optional`
 
 # 3. Consuming Services
 Services consumed by the CDI container are described by _References_
-- Where _Reference_ is part of the _Component Model_
+- Where _Reference_ is part of a _Component Model_
+    - Called the _host_ Component Model
 - Where _Reference Runtime State_ is stored in a _Component Environment_
     - Called the _host_ Component Environment
     - E.g. a `ServiceTracker`
@@ -93,11 +95,16 @@ A static _Reference_
 - Called a _Reference Bean_
 - Which produces _Reference Instances_ from `Bean<T>.create()`
 - Which can be declared in any scope (Mig-1, Ref-6)
-    - Where the Component Model scope must be active when the Reference Bean scope is active
-    - E.g. references defined in the Root Component Model can be `@RequestScoped`, because `@ApplicationScoped` is
-        always active when `@RequestScoped` is active 
+    - Where the host Component Model scope must be active when the Reference Bean scope is active
+        - Note: At runtime the Bean may have to check if the scope of it's host Component Environment is active.
+    - E.g. Reference Beans defined in the Root Component Model can be 
+        `@ApplicationScoped`, `@SessionScoped`, `@RequestScoped`, `@ConversationScoped`, `@Dependent`, 
+        because the Root Component Model has scope `@ApplicationScoped` which is always active.
+    - E.g. Reference Beans defined in a regular Component Model can only be 
+        `@ApplicationScoped` and in the host Component Model scope, but not in `@Dependent`,
+         because the host Component Model scope is not always active when `@Dependent` is active.
 
-The static Reference describes
+The Reference Bean describes
 - Reference **name** (Conf-7)
 - Reference **cardinality** (Ref-2)
 - Reference **policyOption** (Ref-3)
@@ -187,29 +194,31 @@ Service events are also mapped **state transitions**
 
 # 4. Providing Services
 ## 4.1. Model
-A provided OSGi _Service_ is mapped to a **CDI bean** 
+OSGi services provided by the CDI container are described by _Services_
+- Where a _Service_ is part of the Component Model  
+- It is mapped to a **CDI bean** 
 - Called the _Service Bean_
-- Where _Service_ is part of the Component Model
 - Where _Service Runtime State_ is stored in a _Component Environment_
     - Called the _host_ Component Environment
     - E.g. the `org.osgi.framework.ServiceRegistration`
 - Where _Service Instance_ is the object created by `Bean<T>.create()`
 
-The _Service_ describes
+The _Service Model_ describes
 - OSGi **service scope** (Serv-2)
 - OSGi **service properties** (Serv-3)
-- Service Bean **type** (Serv-1)
+- OSGi **service type** (Serv-1)
 
 ## 4.2. Scopes (Serv-2)
 The _Service Bean_ is always declared in the Component Model scope
     - E.g. it is not possible to provide services in `@RequestScoped` or `@Dependent`
 
-A Service can have OSGi scope 
+The Service Model can declare OSGi scope 
 - **bundle**
     - Registered as `org.osgi.framework.ServiceFactory`
     - The use of factory allows lazy-initialization of the service objects
     - But the objects are **effective singletons** within their Component Context.
-        - I.e. once created the same instance is always returned.
+        - I.e. the first call to `ServiceFactory.getService()` add the Service Instance to the Component Context
+        - I.e. subsequent calls to `ServiceFactory.getService()` return the previously created Service Instance 
 - **prototype**
     - Registered as `org.osgi.framework.PrototypeServiceFactory`
 
@@ -262,46 +271,38 @@ On call to `(Prototype)ServiceFactory.ungetService()`
     - The Component Context is removed from the _Service Runtime State_
 
 # 5. Configuration
-A _Configuration_ provided by the `ConfigurationAdmin` is mapped to a **CDI Bean**
-- Called the _Configuration Bean_
-- Where _Configuration_ is part of the _Component Model_
-- Where _Configuration Instance_ is produced from `Bean<T>.create()`
+A _Configuration Model_ is part of the _Component Model_ 
+- Is mapped to a set of `org.osgi.sevice.cm.Configuration` objects with a given **pid**
+- Called Configurations
 
-The _Configuration_ describes
-- Configuration **pid**
-- Bean **type** (Conf-5)
-- Bean **scope** (Conf-4)
-
-## 5.1. Cardinality
 Configurations can have cardinality relative to the CDI container
 - **mandatory** Exactly one Configuration Instance is consumed
 - **optional** At most one Configuration Instance is consumed
 - **multiple** Many Configuration Instances are consumed
 
-Each Component Environment can consume at most one `org.osgi.sevice.cm.Configuration` object per Configuration 
+The _Configuration Model_ describes
+- Configuration **pid**
+- Configuration **cardinality**
+- Configuration **default properties**
+
+Component Models that declare one a multiple cardinality Configuration produce one Component Environment for every
+consumed `org.osgi.service.cm.Configuration` object.  
+
+Each Component Environment can consume at most one `org.osgi.sevice.cm.Configuration` object per Configuration Model
 regardless of the Configuration cardinality.
 
-Component Models that declare on a multiple cardinality Configuration produce one Component Environment for every
-consumed `org.osgi.service.cm.Configuration` object.  
- 
 ## 5.2. Configuration Beans
-A _Configuration_  
+A _Configuration_ is part of the _Component Model_
+- It is mapped to a **CDI Bean**
+- Called a _Configuration Bean_
+- Where the _Configuration Bean_ CDI scope is the Component Model scope
+- Where the _Configuration Bean_ type is converter-compatible with `Dictionary<String, Object>`
+- Where _Configuration Instances_ are produced from `Bean<T>.create()`
 
-- A `org.osgi.service.cm.Configuration` is mapped to a **Component Environment**
-    - Each Configuration with the PID of Component Scope creates a new Component Environment
-- A `org.osgi.service.cm.Configuration` is mapped to **multiple beans** (Conf-5)
-    - Called _Configuration Beans_
-    - Where
-        - _Configuration Bean_ is a static definition obtained from the _Component Scope_
-            - E.g. via annotations
-        - _Configuration Instance_ is a bean instance added to a _Component Context_
-    - Where the _Configuration Bean_ CDI scope is _Component Scope_
-    - Where the _Configuration Bean_ type is converter-compatible with `Dictionary<Stirng, Object>`
-- The Configuration Bean description must provide
-    - Bean **type** (Conf-5)
-    - Bean **name**
-    - Bean **scope** (Conf-4)
-    - Bean **qualifiers**
+The Configuration must provide
+- Configuration **pid**
+- Configuration Bean **type** (Conf-5)
+
 - Configuring provided service properties (Conf-6)
     - The Service Bean description must provide default properties
     - These properties are merged 
