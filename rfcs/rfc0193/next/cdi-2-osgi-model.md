@@ -17,23 +17,23 @@ Levels of structure
     - Root Component
 - Component Context
 
-## 1.2. Configuration
-- Configuration Model
-- Configuration Bean
-- Configuration Instance
-
-## 1.3. Consuming Services
+## 1.2. Consuming Services
 - Reference Model
 - Reference Bean (static)
 - Reference Event (dynamic)
 - Reference Instance
 
-## 1.4. Providing Services
+## 1.3. Providing Services
 - Service Model
 - Service Bean
 - Service Instance
 
-# 2. Components (Conf-2)
+## 1.4. Configuration
+- Configuration Model
+- Configuration Bean
+- Configuration Instance
+
+# 2. Application Structure (Conf-2)
 - *Conf-2* causes the OSGi-CDI integration to be a kind of mapping of Declarative Services onto a CDI container
 - The differences are
     - The Component Instance internal object structure is created via dependency injection
@@ -55,9 +55,9 @@ The Component structure is described by a _Component Model_
 - Which is an **immutable data structure**
 - Which describes
     - CDI scope
-    - Set of Services (entry CDI beans)
-    - Set of Configurations
-    - Set of References
+    - Set of Services (entry application CDI beans)
+    - Set of Configurations (synthetic CDI beans)
+    - Set of References (synthetic CDI beans)
 - Where the entry CDI beans are declared in the CDI scope
 - Where a Component Context is created/updated by instantiating one or more of the entry CDI beans
 - Where the CDI scope
@@ -116,7 +116,7 @@ Services consumed by the CDI container are described by _Reference Models_
     - Called the _host_ Component Model
 - Where _Reference_ is part of a _Component_
     - Called the _host_ Component
-- Where _Reference Instance_ is an OSGi service object added to a _Component Context_
+- Where _Reference Instance_ is an OSGi service object added to the host _Component_
 
 The Reference Model describes
 - Reference **name** (Conf-7)
@@ -137,8 +137,8 @@ Where `T` is the type of the consumed OSGi service.
 Logically a Reference contains a list of services matching it's LDAP filter. The list is ordered by the natural
 OSGi service order. The list is continuously updated as services matching the filter are registered/unregistered/modified.
 
-A Reference can have state `satisfied` or `unsatisfied`. When a Component has an `unsatisfied` Reference it's state is
-`waiting-for-references`.
+A Reference can have state `satisfied` or `unsatisfied`.
+When a Reference becomes `unsatisfied` the host Component must transition to state `waiting-for-services`.
 
 A Reference starts in `unsatisfied` state and an empty service list.
 
@@ -156,7 +156,6 @@ specified Reference Instance type from the OSGi service registry. The Reference 
 Nothing is done
 
 **Case:** Reference `satisfied`, and service added (Ref-2, Ref-3)
-If the 
 The Reference may bind the service depending on it's *policyOption*: 
 - **greedy**: Bind.
 - **reluctant**: Do not bind.
@@ -176,19 +175,19 @@ beginning of the list until the cardinality becomes satisfied. If there are not 
 `unsatisfied` and unbinds all currently bound services.
 
 **Case:** Reference `satisfied`, and service modified (Ref-2)
-A service may change it's service properties, but still match the service list. If the service is bound the Reference
-behaves as if it has a `greedy` policyOption and the service is added to the list. If the service is not bound the
-Reference behaves according to it's policyOption as if the service is added to the list.
+A service may change it's service properties, but still match the LDAP filter. If the service is bound the Reference
+behaves as if it has a `policyOption=greedy` and the service is just added to the list. If the service is not bound the
+Reference behaves according to it's policyOption as if the service is just added to the list.
 
-The Reference `policy` determines if the bind/unbind operations cause the host Component to be re-built or to be 
-dynamically notified of the event (Ref-1).
+The Reference `policy` determines if the bind/unbind operations of that happen while the Reference remains 
+`satisfied` cause the host Component to be re-built or to be dynamically notified of the change (Ref-1).
 - **static**: rebuild
 - **dynamic**: notify
 
 ## 3.2. Static References
-A Reference is _static_ if it has `static` policy.
+A Reference is _static_ if it has `policy=static`.
 
-### 3.2.1. Model
+### 3.2.1. Static Reference Model
 A static _Reference_
 - Is represented within the CDI container by a **CDI bean** 
 - Called a _Reference Bean_
@@ -211,24 +210,22 @@ The Reference Bean type is determined by the Reference cardinality and Reference
     - `List<T>`
     - Where `R` is the Reference Instance type.
 
-### 3.2.2. Service Dynamics (Ref-1)
-Service events are mapped to **state transitions**
-- Of the host Component
-- When the static Reference becomes `unsatisfied` the host Component enters `waiting-for-references`
-- When a static Reference with `greedy` policy rebinds the host Component enters `waiting-for-references` and
-    immediately after that `satisfied`.
+### 3.2.2. Static Reference Policy (Ref-1)
+When a static Reference is in state `satisfied` and binds a new service or re-binds to a new service the host Component
+transitions to `waiting-for-reference` and immediately after that back to `satisfied`. In the process all Services
+are unregistered, all Component Contexts are destroyed and all Services are registered again.
 
 ## 3.2. Dynamic References
-A Reference is _dynamic_ if it has `dynamic` policy.
+A Reference is _dynamic_ if it has `policy=dynamic`.
 
-### 3.2.1. Model
+### 3.2.1. Dynamic Reference Model
 A dynamic _Reference_ 
 - Is represented within the CDI container by patterns of **CDI event dispatches** (Ref-1)
 - With _Reference Event_ payload that allows the receiver
     - To access the _Reference Instance_
     - To determine the service event `type=(added, modified, removed)`
 
-### 3.2.3. Service Dynamics
+### 3.2.3. Dynamic Reference Policy (Ref-1)
 After the host Component creates a Component Context
 1. While the new Component Context is active on the current thread
 2. An `added` event is fired for all stored Reference Instances
@@ -247,8 +244,8 @@ At all other times a service event is handled as follows
 5. The Component Context is deactivated
 
 # 4. Providing Services
-## 4.1. Model
-Services consumed by the CDI container are described by _Service Models_
+## 4.1. Service Model
+Services provided by the CDI container are described by _Service Models_
 - Where _Service Model_ is part of a _Component Model_
     - Called the _host_ Component Model
 - Where _Service_ is part of a _Component_
@@ -259,10 +256,9 @@ Services consumed by the CDI container are described by _Service Models_
  
 The _Service Model_ describes
 - OSGi **service scope** (Serv-2)
-- OSGi **service properties** (Serv-3)
 - OSGi **service type** (Serv-1)
 
-## 4.2. Scopes (Serv-2)
+## 4.2. Service Scopes (Serv-2)
 The _Service Bean_ is always declared in the Component Model scope
     - E.g. it is not possible to provide services in `@RequestScoped` or `@Dependent`
 
@@ -325,59 +321,69 @@ On call to `(Prototype)ServiceFactory.ungetService()`
     - The Component Context is removed from the _Service Runtime State_
 
 # 5. Configuration
-A _Configuration Model_ is part of the _Component Model_ 
-- Is mapped to a set of `org.osgi.sevice.cm.Configuration` objects with a given **pid**
-- Called _Configurations_
-
-Configurations can have cardinality relative to the CDI container
-- **mandatory** Exactly one Configuration Instance is consumed
-- **optional** At most one Configuration Instance is consumed
-- **multiple** Many Configuration Instances are consumed
+Configurations consumed by the CDI container are described by _Configuration Models_
+- Where _Configuration Model_ is part of a _Component Model_
+    - Called the _host_ Component Model
+- Where _Configuration_ is part of a _Component_
+    - Called the _host_ Component
+- Where _Configuration Instance_ is an `org.osgi.service.cm.Configuration` object added to the host Component
 
 The _Configuration Model_ describes
-- Configuration **pid**
-- Configuration **cardinality**
-- Configuration **default properties**
+- Configuration **pid** (Conf-1, Conf-2)
+- Configuration **cardinality** (Conf-1, Conf-2)
+- Configuration **default properties** (Serv-3, Conf-6, Conf-7, Conf-8) 
 
-Component Models that declare one a multiple cardinality Configuration produce one Component for every
-consumed `org.osgi.service.cm.Configuration` object.  
+## 5.1. Configuration Lifecycle
+Logically a Configuration is a dynamic reference to a Configuration Instance with a set PID. The reference is
+continuously updated as matching configurations are added/removed to the `org.osgi.service.cm.ConfigurationAdmin`.
+A Configuration does not distinguish between factory and singleton configurations.
 
-Each Component can consume at most one `org.osgi.sevice.cm.Configuration` object per Configuration Model
-regardless of the Configuration cardinality.
+A Configuration can have state `satisfied` or `unsatisfied`.
+When a Configuration becomes `unsatisfied` the host Component must transition to state `waiting-for-configurations`.
+
+Each Component has a most one Configuration Instance per Configuration. Configurations with `multiple` cardinality
+lead to the creation of new Components from the host Component Model.
+
+**Case:** Configuration is `unsatisfied` and Configuration Instance is added
+If this is the case the Configuration becomes `satisfied`.
+If the Configuration has `multiple` cardinality a new Component is created from the host Component Model. The new
+Component enters state `waiting-for-configurations`.
+
+**Case:** Configuration `satisfied`, and Configuration Instance removed
+If the Configuration 
 
 ## 5.2. Configuration Beans
-A _Configuration_ is part of the _Component Model_
-- It is mapped to a **CDI Bean**
-- Called a _Configuration Bean_
-- Where the _Configuration Bean_ CDI scope is the Component Model scope
+A Configuration
+- Is represented within the CDI container by **one or more CDI beans**
+- Called the _Configuration Beans_
+- Where the _Configuration Bean_ CDI scope is the scope of the host Component Model
 - Where the _Configuration Bean_ type is converter-compatible with `Dictionary<String, Object>`
-- Where _Configuration Instances_ are produced from `Bean<T>.create()`
 
-The Configuration must provide
-- Configuration **pid**
+The Component Bean Model must provide
 - Configuration Bean **type** (Conf-5)
 
-- Configuring provided service properties (Conf-6)
-    - The Service Bean description must provide default properties
-    - These properties are merged 
-        - With those of the host Component configuration
-        - With those of the Root Component configuration
-- Configuring consumed service target filter and cardinality (Conf-7)
-    - Both Reference Beans and Reference Event Dispatcher Descriptions have unique names
-    - Both Reference Beans and Reference Event Dispatcher Descriptions have Component Scopes
-    - It is therefore possible to resolve a Component
-        - For every Reference Event Dispatcher
-        - For every Reference Instance
-    - The Component can contain 
-        - `<ref-name>.target`
-        - `<ref-name>.cardinality`
-- Default PIDS/Names (Conf-8)
-    - The CDI extender must be able to compute a name
-        - For every Reference Bean
-        - For every Reference Event Dispatcher Description
-    - The CDI extender must be able to compute a PID
-        - For the `@ApplicationScoped` configuration
-        - For every `@<A-Component-Scope>` configuration
+## 5.3 Configuring Services (Conf-6)
+- The Service Bean description must provide default properties
+- These properties are merged 
+    - With those of the host Component configuration
+    - With those of the Root Component configuration
+
+## 5.4. Configuring References (Conf-7)
+- Both Reference Beans and Reference Event Dispatcher Descriptions have unique names
+- Both Reference Beans and Reference Event Dispatcher Descriptions have Component Scopes
+- It is therefore possible to resolve a Component
+    - For every Reference Event Dispatcher
+    - For every Reference Instance
+- The Component can contain 
+    - `<ref-name>.target`
+    - `<ref-name>.cardinality`
+
+## 5.6. Configuration defaults (Conf-8)
+- The CDI extender must be able to compute a name
+    - For every Reference Bean
+    - For every Reference Event Dispatcher Description
+- The CDI extender must be able to compute a PID
+    - For the `@ApplicationScoped` configuration
+    - For every `@<A-Component-Scope>` configuration
 - Configuration override order (Conf-8)
     ?
-
