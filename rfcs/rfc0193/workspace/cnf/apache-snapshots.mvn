@@ -1,0 +1,2 @@
+org.apache.aries.cdi:org.apache.aries.javax.cdi-api:0.0.1-SNAPSHOT
+org.apache.aries.cdi:org.apache.aries.javax.inject-api:0.0.1-SNAPSHOT

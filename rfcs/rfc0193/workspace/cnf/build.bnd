@@ -1,0 +1,52 @@
+# Configure Repositories
+
+-plugin.0.MavenLocal: \
+    aQute.bnd.repository.maven.provider.MavenBndRepository;\
+        name='Maven Local';\
+        index=${.}/local.mvn
+
+-plugin.2.Local: \
+	aQute.bnd.deployer.repository.LocalIndexedRepo; \
+		name = Local; \
+		pretty = true; \
+		local = ${build}/local
+
+-plugin.2.Central: \
+    aQute.bnd.repository.maven.provider.MavenBndRepository;\
+        releaseUrl="https://repo1.maven.org/maven2";\
+        index=${.}/central.mvn;\
+        name='Maven Central';\
+        readOnly=true
+
+-plugin.3.Templates: \
+	aQute.bnd.deployer.repository.LocalIndexedRepo; \
+		name = Templates; \
+		pretty = true; \
+		local = ${build}/templates
+
+-plugin.4.Release: \
+	aQute.bnd.deployer.repository.LocalIndexedRepo; \
+		name = Release; \
+		pretty = true; \
+		local = ${build}/release
+
+-plugin.5.OsgiSnapshots: \
+    aQute.bnd.repository.maven.provider.MavenBndRepository;\
+        snapshotUrl="https://oss.sonatype.org/content/repositories/osgi-snapshots/";\
+        index=${.}/osgi-snapshots.mvn;\
+        name='OSGi Snapshots';\
+        readOnly=true
+
+-plugin.6.ApacheSnapshots: \
+    aQute.bnd.repository.maven.provider.MavenBndRepository;\
+        snapshotUrl="https://repository.apache.org/content/repositories/snapshots/";\
+        index=${.}/apache-snapshots.mvn;\
+        name='Apache Snapshots';\
+        readOnly=true
+
+-releaserepo: Release
+-baselinerepo: Release
+
+# JUnit
+junit: org.apache.servicemix.bundles.junit; version=4.12
+

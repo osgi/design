@@ -1,0 +1,7 @@
+-buildpath: \
+	org.apache.aries.javax.cdi-api,\
+	org.apache.aries.javax.inject-api,\
+	org.apache.felix.http.servlet-api,\
+	org.osgi.service.cdi;version=latest,\
+	org.osgi.util.promise,\
+	org.osgi.util.pushstream
