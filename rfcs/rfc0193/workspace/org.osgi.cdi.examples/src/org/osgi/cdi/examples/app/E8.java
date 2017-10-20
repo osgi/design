@@ -10,7 +10,7 @@ import org.osgi.service.cdi.annotations.Properties;
 /*
  * A simple request scoped bean with configuration.
  *
- * Part of the "Application Component" with PIDS = $
+ * Part of the Application Component, with PIDS = $
  *
  * Note that a default for the property "foo" is set here via
  * the @Properties annotation. This could also have been done using

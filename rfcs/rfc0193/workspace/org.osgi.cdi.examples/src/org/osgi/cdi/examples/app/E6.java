@@ -12,7 +12,7 @@ import org.osgi.service.cdi.annotations.ReferenceScope;
 /*
  * This is a bean which defines a producer method.
  *
- * Part of the "Application Component" with PIDS = $
+ * Part of the Application Component, with PIDS = $
  *
  * Note that the parameters of @Producer methods are all injection points.
  *
@@ -27,12 +27,16 @@ import org.osgi.service.cdi.annotations.ReferenceScope;
  *
  * Graph:
  *
- *    @SessionScoped
+ *    @Dependent
  *    E6
  *      \
- *       @ApplicationScoped
- *       @Reference | name = session.function | session.function.target = "" | service.scope = prototype
- *       Function<String, Integer> function
+ *       @Produces
+ *       @SessionScoped
+ *       Function<String, Integer>
+ *          \
+ *           @ApplicationScoped
+ *           @Reference | name = session.function | static | mandatory | reluctant | prototype
+ *           Function<String, Integer> function
  */
 
 public class E6 {

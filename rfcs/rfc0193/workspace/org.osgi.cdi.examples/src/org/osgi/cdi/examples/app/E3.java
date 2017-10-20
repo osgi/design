@@ -12,7 +12,7 @@ import org.osgi.service.cdi.annotations.Service;
 /*
  * An application scoped bean which provides a singleton service.
  *
- * Part of the "Application Component" with PIDS = $
+ * Part of the Application Component, with PIDS = $
  *
  * It declares properties visible to the bean when injected using
  * @Configuration AND as service properties due to use of @Service

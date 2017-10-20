@@ -11,9 +11,9 @@ import org.osgi.service.cdi.annotations.Properties;
 import org.osgi.service.cdi.annotations.Reference;
 
 /*
- * An application scoped bean which has a direct @Reference.
+ * An application scoped bean which has a static, mandatory, reluctant @Reference.
  *
- * Part of the "Application Component" with PIDS = $
+ * Part of the Application Component, with PIDS = $
  *
  * It also declares properties which define the target filter of the reference.
  *
@@ -30,11 +30,11 @@ import org.osgi.service.cdi.annotations.Reference;
  *
  * Graph:
  *
- *    @ApplicationScoped | application.function.target=(foo=fum)
+ *    @ApplicationScoped
  *    E4
  *      \
  *       @ApplicationScoped
- *       @Reference | name = application.function | application.function.target = (foo=fum)
+ *       @Reference | name = application.function | static | mandatory | reluctant
  *       Function<String, Integer>
  */
 @ApplicationScoped
@@ -44,6 +44,25 @@ import org.osgi.service.cdi.annotations.Reference;
 @ApplicationFunctionTarget("(foo=baz)")
 public class E4 {
 
+	// constructor
+	@Inject
+	public E4(
+		@Named("application.function")
+		@Reference(target = "(foo=bar)")
+		Function<String, Integer> function) {}
+
+	// OR
+
+	// method
+	@Inject
+	public void set(
+		@Named("application.function")
+		@Reference(target = "(foo=bar)")
+		Function<String, Integer> function) {}
+
+	// OR
+
+	// field
 	@Inject
 	@Named("application.function")
 	@Reference(target = "(foo=bar)")

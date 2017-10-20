@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 /*
  * A plain session scoped bean.
  *
- * Part of the "Application Component" with PIDS = $
+ * Part of the Application Component, with PIDS = $
  *
  * Note that the only provider of
  * Function<String, Integer> is the ABeanWithReference bean, which
@@ -32,7 +32,7 @@ import javax.servlet.http.HttpSession;
  *       E6
  *         \
  *          @ApplicationScoped
- *          @Reference | name = session.function | session.function.target = "" | service.scope = prototype
+ *          @Reference | name = session.function | static | mandatory | reluctant | prototype
  *          Function<String, Integer> function
  */
 

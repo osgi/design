@@ -8,7 +8,7 @@ import org.osgi.service.cdi.annotations.Service;
 /*
  * An application scoped bean which provides a service.
  *
- * Part of the "Application Component" with PIDS = $
+ * Part of the Application Component, with PIDS = $
  *
  * Note that only @ApplicationScoped and @Singleton beans can provide
  * services from the Application Component.

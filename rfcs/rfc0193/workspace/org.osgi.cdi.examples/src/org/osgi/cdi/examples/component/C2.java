@@ -10,7 +10,7 @@ import org.osgi.service.cdi.annotations.SingletonConfiguration;
 /*
  * A component with specified configuration PID.
  *
- * Part of the "OSGi Component", context name = c2, with PIDS = com.foo
+ * Part of Component "c2", with PIDS = com.foo
  *
  * Since there's a producer method for Function<String, Integer> in
  * @ComponentScoped (i.e. CF) an instance is created in context "c2".

@@ -8,7 +8,7 @@ import javax.inject.Inject;
 /*
  * A simple request scoped bean.
  *
- * Part of the "Application Component" with PIDS = $
+ * Part of the Application Component, with PIDS = $
  *
  * Note that since the only producer for Function<String, Integer>
  * beans is E6, which produces session scoped instances, every E7 instance
@@ -24,7 +24,7 @@ import javax.inject.Inject;
  *       E6
  *         \
  *          @ApplicationScoped
- *          @Reference | name = session.function | session.function.target = "" | service.scope = prototype
+ *          @Reference | name = session.function | static | mandatory | reluctant | prototype
  *          Function<String, Integer> function
  */
 
