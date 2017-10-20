@@ -25,11 +25,13 @@ Beans that can be reached from the Component Entry Beans. "Agree" means that whe
 Component Context it stands a reasonable chance to discover a matching object.
 
 As dependency injection progresses it will hit synthetic beans that will turn to the current Component Context for
-suitable objects. The Reference synthetic beans will always find a suitable because at initialization time they have
-caused each Component Model that reached them to include an identical Reference Model. Configuration Beans do not add
-Configuration Models to the currently built Component Model. Configuration Models are only added by the Entry Beans of
-the Component. Configuration synthetic beans must therefore be compatible with the Configuration Models of all Component
-Models that can reach them. This may not always be verifiable at initialization time.
+suitable objects. The Reference synthetic beans will always find a suitable object because at initialization time they
+have caused each Component Model that reached them to include a Reference Model that will satisfy them.
+Configuration Beans do not add Configuration Models to the currently built Component Model. Configuration Models are
+only added by the Entry Beans of the Component. Configuration Beans must therefore be compatible with the
+Configurations of all Components that can reach them. This may not always be verifiable at initialization time.
+I.e. comparing a Configuration Model to a Configuration synthetic Bean may not always provide meaningful information
+if the Configuration agrees with the Configuration Bean.
 
 # 1.1 Declaring Components
 Entry beans:
