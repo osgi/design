@@ -7,9 +7,9 @@
     - E.g. it is easy for the user to inadvertently declare two reference rather than one by tweaking an injection point annotation.
 
 # 1. Declaring OSGi integration in code
-Beans in @ComponentScope can be **shared** between Components.
-E.g. if a @ComponentScoped bean SB can be reached from component bean CB1 and from component bean CB2, then
-any Component Context created for CB1 or SB will get a dedicated instance of SB.
+Beans in `@ComponentScoped` can be **shared** between Components.
+E.g. if a `@ComponentScoped` bean `SB` can be reached from component bean `CB1` and from component bean `CB2`, then
+any Component Context created for `CB1` or `CB2` will get a dedicated instance of `SB`.
 
 A shared bean can have reference and configuration injection points. Each such injection point has to be satisfied
 by **exactly one** synthetic bean. Otherwise the CDI container will raise an ambiguity definition error. It follows then
@@ -33,26 +33,26 @@ Models that can reach them. This may not always be verifiable at initialization 
 
 # 1.1 Declaring Components
 Entry beans:
-- A bean marked with @Component stereotype is the Entry Bean of a new Component
-- A bean marked with @Named @ComponentScoped is the Entry Bean of a new Component
-- A bean marked with @Service @ApplicationScoped is an Entry Bean in the Root Component
+- A bean marked with `@Component` stereotype is the Entry Bean of a new Component
+- A bean marked with `@Named` `@ComponentScoped` is the Entry Bean of a new Component
+- A bean marked with `@Service` @ApplicationScoped is an Entry Bean in the Root Component
 
 Configurations
-- @Configuration on an entry bean
-- @FactoryConfiguration on an entry bean  
+- `@Configuration` on an entry bean
+- `@FactoryConfiguration` on an entry bean  
 
 Configuration Defaults
-- @Properties on entry bean
+- `@Properties` on entry bean
 - Property-like qualifiers on entry bean
 
 # 1.2. Declaring Services
-An Entry Bean marked with @Service
+An Entry Bean marked with `@Service`
 
 # 1.3. Declaring Reference injections
-An injection point marked with @Reference
+An injection point marked with `@Reference`
 
 # 1.4. Declaring Configuration injections
-An injection point marked with @Configuration
+An injection point marked with `@Configuration`
 
 # 2. Building a CDI bundle Model
 There are many Component Models
