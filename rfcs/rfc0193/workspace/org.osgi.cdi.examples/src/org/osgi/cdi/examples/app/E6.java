@@ -6,6 +6,7 @@ import javax.enterprise.context.SessionScoped;
 import javax.enterprise.inject.Produces;
 import javax.inject.Named;
 
+import org.osgi.service.cdi.ComponentServiceObjects;
 import org.osgi.service.cdi.annotations.Reference;
 import org.osgi.service.cdi.annotations.ReferenceScope;
 
@@ -36,7 +37,7 @@ import org.osgi.service.cdi.annotations.ReferenceScope;
  *          \
  *           @ApplicationScoped
  *           @Reference | name = session.function | static | mandatory | reluctant | prototype
- *           Function<String, Integer> function
+ *           ComponentServiceObjects<Function<String, Integer>>
  */
 
 public class E6 {
@@ -46,9 +47,9 @@ public class E6 {
 	public Function<String, Integer> getFunction(
 		@Named("session.function")
 		@Reference(scope = ReferenceScope.PROTOTYPE_REQUIRED)
-		Function<String, Integer> function) {
+		ComponentServiceObjects<Function<String, Integer>> function) {
 
-		return function;
+		return function.getService();
 	}
 
 }

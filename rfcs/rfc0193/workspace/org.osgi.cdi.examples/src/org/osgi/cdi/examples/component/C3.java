@@ -6,8 +6,8 @@ import javax.inject.Inject;
 
 import org.osgi.cdi.examples.SomeQualifer;
 import org.osgi.service.cdi.annotations.Component;
-import org.osgi.service.cdi.annotations.FactoryConfiguration;
-import org.osgi.service.cdi.annotations.SingletonConfiguration;
+import org.osgi.service.cdi.annotations.FactoryPID;
+import org.osgi.service.cdi.annotations.PID;
 
 /*
  * A component with specified configuration PIDs and Factory PID.
@@ -40,9 +40,9 @@ import org.osgi.service.cdi.annotations.SingletonConfiguration;
  */
 
 @Component
-@SingletonConfiguration(pid = "com.foo")
-@SingletonConfiguration // same as @SingletonConfiguration(pid = Component.NAME)
-@FactoryConfiguration(pid = "com.factory")
+@PID("com.foo")
+@PID // same as @PID(Component.NAME)
+@FactoryPID("com.factory")
 public class C3 {
 
 	@Inject

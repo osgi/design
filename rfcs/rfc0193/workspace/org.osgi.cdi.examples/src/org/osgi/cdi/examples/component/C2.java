@@ -5,7 +5,7 @@ import java.util.function.Function;
 import javax.inject.Inject;
 
 import org.osgi.service.cdi.annotations.Component;
-import org.osgi.service.cdi.annotations.SingletonConfiguration;
+import org.osgi.service.cdi.annotations.PID;
 
 /*
  * A component with specified configuration PID.
@@ -33,7 +33,7 @@ import org.osgi.service.cdi.annotations.SingletonConfiguration;
  */
 
 @Component
-@SingletonConfiguration(pid = "com.foo")
+@PID("com.foo")
 public class C2 {
 
 	@Inject
