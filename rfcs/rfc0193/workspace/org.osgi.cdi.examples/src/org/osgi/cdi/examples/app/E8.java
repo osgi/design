@@ -5,7 +5,7 @@ import javax.inject.Inject;
 
 import org.osgi.cdi.examples.Config;
 import org.osgi.service.cdi.annotations.Configuration;
-import org.osgi.service.cdi.annotations.Properties;
+import org.osgi.service.cdi.annotations.Property;
 
 /*
  * A simple request scoped bean with configuration.
@@ -31,7 +31,7 @@ import org.osgi.service.cdi.annotations.Properties;
  */
 
 @RequestScoped
-@Properties("foo=blurp")
+@Property("foo=blurp")
 public class E8 {
 
 	@Inject

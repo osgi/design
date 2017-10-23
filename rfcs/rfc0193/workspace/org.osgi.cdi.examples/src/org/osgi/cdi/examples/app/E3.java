@@ -6,7 +6,7 @@ import javax.inject.Inject;
 import org.osgi.cdi.examples.Config;
 import org.osgi.cdi.examples.ServiceRanking;
 import org.osgi.service.cdi.annotations.Configuration;
-import org.osgi.service.cdi.annotations.Properties;
+import org.osgi.service.cdi.annotations.Property;
 import org.osgi.service.cdi.annotations.Service;
 
 /*
@@ -36,9 +36,8 @@ import org.osgi.service.cdi.annotations.Service;
 
 @ApplicationScoped
 @Service
-@Properties({
-	"foo=bar", "foo=fum" // these two result in an array
-})
+@Property("foo=bar")
+@Property("foo=fum")
 @ServiceRanking(200)
 public class E3 {
 

@@ -7,7 +7,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.osgi.cdi.examples.ApplicationFunctionTarget;
-import org.osgi.service.cdi.annotations.Properties;
+import org.osgi.service.cdi.annotations.Property;
 import org.osgi.service.cdi.annotations.Reference;
 
 /*
@@ -38,9 +38,7 @@ import org.osgi.service.cdi.annotations.Reference;
  *       Function<String, Integer>
  */
 @ApplicationScoped
-@Properties({
-	"application.function.target=(foo=fum)"
-})
+@Property("application.function.target=(foo=fum)")
 @ApplicationFunctionTarget("(foo=baz)")
 public class E4 {
 
