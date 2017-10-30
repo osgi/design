@@ -16,7 +16,7 @@ import org.osgi.service.cdi.annotations.Component;
  *
  * Part of Component "c1", with PIDS = c1
  *
- * Since there's a producer method for type Function<String, Integer> in
+ * Since there's a bean of type Function<String, Integer> in
  * @ComponentScoped (i.e. CF) an instance is created in context "c1".
  *
  * Note that the configuration injected in the instance of CF is based

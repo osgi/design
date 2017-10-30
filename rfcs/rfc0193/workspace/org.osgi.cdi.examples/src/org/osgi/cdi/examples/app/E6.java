@@ -6,9 +6,9 @@ import javax.enterprise.context.SessionScoped;
 import javax.enterprise.inject.Produces;
 import javax.inject.Named;
 
-import org.osgi.service.cdi.ComponentServiceObjects;
+import org.osgi.service.cdi.ReferenceServiceObjects;
+import org.osgi.service.cdi.annotations.Prototype;
 import org.osgi.service.cdi.annotations.Reference;
-import org.osgi.service.cdi.annotations.ReferenceScope;
 
 /*
  * This is a bean which defines a producer method.
@@ -46,8 +46,9 @@ public class E6 {
 	@SessionScoped
 	public Function<String, Integer> getFunction(
 		@Named("session.function")
-		@Reference(scope = ReferenceScope.PROTOTYPE_REQUIRED)
-		ComponentServiceObjects<Function<String, Integer>> function) {
+		@Reference
+		@Prototype
+		ReferenceServiceObjects<Function<String, Integer>> function) {
 
 		return function.getService();
 	}

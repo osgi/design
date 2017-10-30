@@ -4,35 +4,33 @@ import java.util.function.Function;
 
 import javax.inject.Inject;
 
-import org.osgi.cdi.examples.SomeQualifer;
 import org.osgi.service.cdi.annotations.Component;
 import org.osgi.service.cdi.annotations.FactoryPID;
 import org.osgi.service.cdi.annotations.PID;
 
 /*
- * A component with specified configuration PIDs and Factory PID.
+ * A factory component with specified configuration PIDs.
  *
- * Part of the Component c2, with PIDS = [com.foo, $, com.factory]
+ * Part of the Component c3, with PIDS = [com.foo, $, com.factory]
  *
  * The component specifies a factory pid "com.factory" which means
  * that for every configuration factory instance of "com.factory" a
- * new context c2[x] is created where x is the factory pid.
+ * new context c3[x] is created where x is the factory pid.
  *
- * Since there's a producer method for Function<String, Integer> in
- * @ComponentScoped (i.e. CF) an instance is created in each context c2[x].
+ * Since there's a bean of type Function<String, Integer> in
+ * @ComponentScoped (i.e. CF) an instance is created in each context "c3[x]".
  *
  * Note that the configuration injected in the instance of CF is based
- * on those available in the context c2[x] (a.k.a. PIDS = [com.foo, $, com.factory-x])
+ * on those available in the context c3[x] (a.k.a. PIDS = [com.foo, $, com.factory-x])
  *
  * Graph:
  *
  *    @ComponentScoped
- *    @Component | name = c2 | pids [com.foo, $, com.factory-x]
+ *    @Component | name = c3 | pids [com.foo, $, com.factory-x]
  *    C1
  *      \
  *       @ComponentScoped
- *       @SomeQualifer("one")
- *       CFR
+ *       CF
  *          \
  *           @ComponentScoped
  *           @Configuration
@@ -46,7 +44,6 @@ import org.osgi.service.cdi.annotations.PID;
 public class C3 {
 
 	@Inject
-	@SomeQualifer("one")
 	Function<String, Integer> function;
 
 }
