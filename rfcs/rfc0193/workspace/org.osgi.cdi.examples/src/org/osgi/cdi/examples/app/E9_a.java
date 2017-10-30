@@ -5,7 +5,6 @@ import java.util.function.Function;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.osgi.service.cdi.annotations.Reference;
 
@@ -28,8 +27,7 @@ import org.osgi.service.cdi.annotations.Reference;
 public class E9_a {
 
 	@Inject
-	@Named("application.function")
-	@Reference
+	@Reference(name = "application.function")
 	Optional<Function<String, Integer>> function;
 
 }

@@ -14,6 +14,16 @@ import org.osgi.service.cdi.annotations.Reference;
 public class CR1 {
 
 	@Inject
+	public CR1(@Reference Foo foo) {
+		// stub
+	}
+
+	@Inject
+	void cr1(@Reference Foo foo) {
+		// stub
+	}
+
+	@Inject
 	@Reference
 	Foo foo;
 

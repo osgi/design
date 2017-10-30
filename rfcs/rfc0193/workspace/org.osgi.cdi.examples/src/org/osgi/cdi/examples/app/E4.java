@@ -4,7 +4,6 @@ import java.util.function.Function;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.osgi.cdi.examples.ApplicationFunctionTarget;
 import org.osgi.service.cdi.annotations.Property;
@@ -45,8 +44,7 @@ public class E4 {
 	// constructor
 	@Inject
 	public E4(
-		@Named("application.function")
-		@Reference(target = "(foo=bar)")
+		@Reference(name = "application.function", target = "(foo=bar)")
 		Function<String, Integer> function) {}
 
 	// OR
@@ -54,16 +52,14 @@ public class E4 {
 	// method
 	@Inject
 	public void set(
-		@Named("application.function")
-		@Reference(target = "(foo=bar)")
+		@Reference(name = "application.function", target = "(foo=bar)")
 		Function<String, Integer> function) {}
 
 	// OR
 
 	// field
 	@Inject
-	@Named("application.function")
-	@Reference(target = "(foo=bar)")
+	@Reference(name = "application.function", target = "(foo=bar)")
 	Function<String, Integer> function;
 
 }
