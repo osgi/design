@@ -18,6 +18,16 @@ import org.osgi.service.cdi.annotations.Reference;
 public class CR8 {
 
 	@Inject
+	public CR8(@Greedy @Reference Provider<Optional<Foo>> foo) {
+		// stub
+	}
+
+	@Inject
+	void foo(@Greedy @Reference Provider<Optional<Foo>> foo) {
+		// stub
+	}
+
+	@Inject
 	@Reference
 	@Greedy
 	Provider<Optional<Foo>> foo;

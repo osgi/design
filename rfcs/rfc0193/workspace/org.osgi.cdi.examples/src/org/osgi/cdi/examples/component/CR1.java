@@ -19,7 +19,7 @@ public class CR1 {
 	}
 
 	@Inject
-	void cr1(@Reference Foo foo) {
+	void foo(@Reference Foo foo) {
 		// stub
 	}
 
