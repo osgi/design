@@ -4,4 +4,5 @@
 	org.apache.felix.http.servlet-api,\
 	org.osgi.service.cdi;version=latest,\
 	org.osgi.util.promise,\
-	org.osgi.util.pushstream
+	org.osgi.util.pushstream,\
+	osgi.core
