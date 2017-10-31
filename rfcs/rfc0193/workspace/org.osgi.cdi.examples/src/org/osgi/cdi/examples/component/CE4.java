@@ -6,7 +6,6 @@ import org.osgi.cdi.examples.Foo;
 import org.osgi.cdi.examples.Holder;
 import org.osgi.framework.ServiceReference;
 import org.osgi.service.cdi.ReferenceEvent;
-import org.osgi.service.cdi.ReferenceEventCustomizer;
 import org.osgi.service.cdi.annotations.Component;
 import org.osgi.service.cdi.annotations.Greedy;
 import org.osgi.service.cdi.annotations.Reference;
@@ -18,29 +17,8 @@ import org.osgi.service.cdi.annotations.Reference;
 @Component
 public class CE4 {
 
-	void observeWithCustomizer(@Observes @Greedy @Reference ReferenceEvent<ServiceReference<Foo>> event) {
-		event.dispatch(new ReferenceEventCustomizer<ServiceReference<Foo>, Holder<ServiceReference<Foo>>>() {
-
-			@Override
-			public Holder<ServiceReference<Foo>> adding(ServiceReference<Foo> foo) {
-				return new Holder<>(foo);
-			}
-
-			@Override
-			public void modified(ServiceReference<Foo> foo, Holder<ServiceReference<Foo>> h) {
-				// stub
-			}
-
-			@Override
-			public void removed(ServiceReference<Foo> foo, Holder<ServiceReference<Foo>> h) {
-				// stub
-			}
-
-		});
-	}
-
-	void observeWithCallbacks(@Observes @Greedy @Reference ReferenceEvent<ServiceReference<Foo>> event) {
-		event.dispatch(foo -> new Holder<>(foo), (foo,h) -> {}, (foo,h) -> {});
+	void observeFoos(@Observes @Greedy @Reference(service = Foo.class) ReferenceEvent event) {
+		event.adding((ServiceReference<Foo> foo) -> new Holder<>(foo));
 	}
 
 }

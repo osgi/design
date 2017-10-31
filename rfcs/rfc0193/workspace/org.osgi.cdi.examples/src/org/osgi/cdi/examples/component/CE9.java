@@ -7,7 +7,6 @@ import javax.enterprise.event.Observes;
 import org.osgi.cdi.examples.Foo;
 import org.osgi.cdi.examples.Holder;
 import org.osgi.service.cdi.ReferenceEvent;
-import org.osgi.service.cdi.ReferenceEventCustomizer;
 import org.osgi.service.cdi.annotations.Component;
 import org.osgi.service.cdi.annotations.Reference;
 
@@ -18,29 +17,8 @@ import org.osgi.service.cdi.annotations.Reference;
 @Component
 public class CE9 {
 
-	void observeWithCustomizer(@Observes @Reference(service = Foo.class) ReferenceEvent<Map<String, ?>> event) {
-		event.dispatch(new ReferenceEventCustomizer<Map<String, ?>, Holder<Map<String, ?>>>() {
-
-			@Override
-			public Holder<Map<String, ?>> adding(Map<String, ?> foo) {
-				return new Holder<>(foo);
-			}
-
-			@Override
-			public void modified(Map<String, ?> foo, Holder<Map<String, ?>> h) {
-				// stub
-			}
-
-			@Override
-			public void removed(Map<String, ?> foo, Holder<Map<String, ?>> h) {
-				// stub
-			}
-
-		});
-	}
-
-	void observeWithCallbacks(@Observes @Reference(service = Foo.class) ReferenceEvent<Map<String, ?>> event) {
-		event.dispatch(foo -> new Holder<>(foo), (foo,h) -> {}, (foo,h) -> {});
+	void observeFoos(@Observes @Reference(service = Foo.class) ReferenceEvent event) {
+		event.adding((Map<String, ?> foo) -> new Holder<>(foo));
 	}
 
 }
