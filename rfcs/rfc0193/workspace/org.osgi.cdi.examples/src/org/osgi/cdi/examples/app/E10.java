@@ -5,6 +5,7 @@ import java.util.function.Function;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import org.osgi.service.cdi.annotations.Reference;
 
@@ -28,7 +29,8 @@ public class E10 {
 	// constructor
 	@Inject
 	public E10(
-		@Reference(name = "application.function")
+		@Named("application.function")
+		@Reference
 		AtomicReference<Function<String, Integer>> function) {}
 
 	// OR
@@ -36,14 +38,16 @@ public class E10 {
 	// method
 	@Inject
 	public void set(
-		@Reference(name = "application.function")
+		@Named("application.function")
+		@Reference
 		AtomicReference<Function<String, Integer>> function) {}
 
 	// OR
 
 	// field
 	@Inject
-	@Reference(name = "application.function")
+	@Named("application.function")
+	@Reference
 	AtomicReference<Function<String, Integer>> function;
 
 }

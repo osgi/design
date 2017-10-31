@@ -4,6 +4,7 @@ import java.util.Map;
 
 import javax.enterprise.event.Observes;
 
+import org.osgi.cdi.examples.Foo;
 import org.osgi.cdi.examples.Holder;
 import org.osgi.service.cdi.ReferenceEvent;
 import org.osgi.service.cdi.ReferenceEventCustomizer;
@@ -17,7 +18,7 @@ import org.osgi.service.cdi.annotations.Reference;
 @Component
 public class CE9 {
 
-	void observeWithCustomizer(@Observes @Reference ReferenceEvent<Map<String, ?>> event) {
+	void observeWithCustomizer(@Observes @Reference(service = Foo.class) ReferenceEvent<Map<String, ?>> event) {
 		event.dispatch(new ReferenceEventCustomizer<Map<String, ?>, Holder<Map<String, ?>>>() {
 
 			@Override
@@ -38,7 +39,7 @@ public class CE9 {
 		});
 	}
 
-	void observeWithCallbacks(@Observes @Reference ReferenceEvent<Map<String, ?>> event) {
+	void observeWithCallbacks(@Observes @Reference(service = Foo.class) ReferenceEvent<Map<String, ?>> event) {
 		event.dispatch(foo -> new Holder<>(foo), (foo,h) -> {}, (foo,h) -> {});
 	}
 
