@@ -11,8 +11,9 @@ import org.osgi.service.cdi.annotations.Service;
  * interface Function<String, Integer>
  */
 
+@Prototype
 @Component
-public class C7 implements @Service @Prototype Function<String, Integer> {
+public class C7 implements @Service Function<String, Integer> {
 
 	@Override
 	public Integer apply(String t) {

@@ -4,7 +4,6 @@ import java.util.function.Function;
 
 import org.osgi.service.cdi.annotations.Bundle;
 import org.osgi.service.cdi.annotations.Component;
-import org.osgi.service.cdi.annotations.Property;
 import org.osgi.service.cdi.annotations.Service;
 
 /*
@@ -15,7 +14,7 @@ import org.osgi.service.cdi.annotations.Service;
 @Component
 @Service
 @Bundle
-@Property("foo=bar")
+@Foo("bar")
 public class C12 implements Comparable<C12>, Function<String, Integer> {
 
 	@Override

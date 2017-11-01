@@ -1,12 +1,16 @@
 package org.osgi.cdi.examples.app;
 
+import java.lang.annotation.Repeatable;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.inject.Qualifier;
 
 import org.osgi.cdi.examples.Config;
 import org.osgi.cdi.examples.ServiceRanking;
 import org.osgi.service.cdi.annotations.Configuration;
-import org.osgi.service.cdi.annotations.Property;
 import org.osgi.service.cdi.annotations.Service;
 
 /*
@@ -34,10 +38,21 @@ import org.osgi.service.cdi.annotations.Service;
  *       Config
  */
 
+@Qualifier
+@Retention(RetentionPolicy.RUNTIME)
+@Repeatable(Foos.class)
+@interface Foo {
+	String value();
+}
+@Retention(RetentionPolicy.RUNTIME)
+@interface Foos {
+	Foo[] value();
+}
+
 @ApplicationScoped
 @Service
-@Property("foo=bar")
-@Property("foo=fum")
+@Foo("bar")
+@Foo("fum")
 @ServiceRanking(200)
 public class E3 {
 

@@ -1,9 +1,12 @@
 package org.osgi.cdi.examples.component;
 
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.util.function.Function;
 
+import javax.inject.Qualifier;
+
 import org.osgi.service.cdi.annotations.Component;
-import org.osgi.service.cdi.annotations.Property;
 import org.osgi.service.cdi.annotations.Prototype;
 import org.osgi.service.cdi.annotations.Service;
 
@@ -12,10 +15,16 @@ import org.osgi.service.cdi.annotations.Service;
  * implemented interfaces with properties.
  */
 
+@Qualifier
+@Retention(RetentionPolicy.RUNTIME)
+@interface Foo {
+	String value();
+}
+
 @Component
 @Service
 @Prototype
-@Property("foo=bar")
+@Foo("bar")
 public class C11 implements Comparable<C11>, Function<String, Integer> {
 
 	@Override

@@ -11,8 +11,9 @@ import org.osgi.service.cdi.annotations.Service;
  * interface Function<String, Integer>
  */
 
+@Bundle
 @Component
-public class C8 implements @Service @Bundle Function<String, Integer> {
+public class C8 implements @Service Function<String, Integer> {
 
 	@Override
 	public Integer apply(String t) {

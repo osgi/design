@@ -5,7 +5,6 @@ import java.util.Map;
 import javax.enterprise.event.Observes;
 
 import org.osgi.cdi.examples.Foo;
-import org.osgi.cdi.examples.Holder;
 import org.osgi.service.cdi.ReferenceEvent;
 import org.osgi.service.cdi.annotations.Component;
 import org.osgi.service.cdi.annotations.Reference;
@@ -17,8 +16,9 @@ import org.osgi.service.cdi.annotations.Reference;
 @Component
 public class CE11 {
 
-	void observeFoos(@Observes @Reference(service = Foo.class) ReferenceEvent event) {
-		event.adding((Map.Entry<Map<String, ?>, Foo> foo) -> new Holder<>(foo));
+	void observeFoos(@Observes @Reference ReferenceEvent<Foo> event) {
+		Foo foo = event.getService();
+		Map<String, ?> serviceProperties = event.getServiceProperties();
 	}
 
 }
