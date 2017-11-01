@@ -4,7 +4,7 @@ import javax.enterprise.event.Observes;
 
 import org.osgi.cdi.examples.Foo;
 import org.osgi.framework.ServiceReference;
-import org.osgi.service.cdi.ReferenceEvent;
+import org.osgi.service.cdi.AddingEvent;
 import org.osgi.service.cdi.annotations.Component;
 import org.osgi.service.cdi.annotations.Reference;
 
@@ -15,7 +15,7 @@ import org.osgi.service.cdi.annotations.Reference;
 @Component
 public class CE3 {
 
-	void observeFoos(@Observes @Reference ReferenceEvent<Foo> event) {
+	void observeFoos(@Observes @Reference AddingEvent<Foo> event) {
 		ServiceReference<Foo> serviceReference = event.getServiceReference();
 	}
 
