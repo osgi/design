@@ -16,61 +16,102 @@
 
 package org.osgi.service.cdi.annotations;
 
-import java.lang.annotation.Annotation;
+import static java.lang.annotation.ElementType.*;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
+import static org.osgi.namespace.extender.ExtenderNamespace.EXTENDER_NAMESPACE;
+import static org.osgi.service.cdi.CdiConstants.*;
 import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.util.Nonbinding;
+import javax.enterprise.util.AnnotationLiteral;
 import javax.inject.Qualifier;
+import org.osgi.annotation.bundle.Requirement;
 
 /**
  * Annotation used to annotate a CDI injection point informing the CDI container
  * that the injection should apply a service obtained from the OSGi registry.
+ * <p>
+ * This annotation must be used in conjunction with {@link javax.inject.Named}
+ * which must specify a value.
+ *
+ * @author $Id$
  */
-@Qualifier
-@Target(value = { ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER, ElementType.TYPE })
-@Retention(value = RetentionPolicy.RUNTIME)
 @Documented
-// @Requirement(
-// namespace = ExtenderNamespace.EXTENDER_NAMESPACE,
-// name = CdiConstants.CDI_CAPABILITY_NAME,
-// version = CdiConstants.CDI_SPECIFICATION_VERSION)
+@Qualifier
+@Requirement(namespace = EXTENDER_NAMESPACE, name = CDI_CAPABILITY_NAME, version = CDI_SPECIFICATION_VERSION)
+@Retention(RUNTIME)
+@Target({FIELD, METHOD, PARAMETER, TYPE})
 public @interface Reference {
-    // /**
-    // * Used @Named instead
-    // *
-    // * {@link #name()} and {@link #fromScope()} and uniquely identify the
-    // synthetic
-    // * bean within the CDI container. Can be used as configuration key for the
-    // * target filter.
-    // *
-    // * @return
-    // */
-    // String name();
 
-    /**
-     * Scope where the synthetic bean will be created.
-     *
-     * @return
-     */
-    Class<? extends Annotation> fromScope() default ApplicationScoped.class;
+	/**
+	 * Support inline instantiation of the {@link Reference} annotation.
+	 */
+	public static final class Literal extends AnnotationLiteral<Reference> implements Reference {
 
-    /**
-     * Only needed for {@link ReferenceCardinality#AT_LEAST_ONE}
-     *
-     * @return
-     */
-    @Nonbinding
-    ReferenceCardinality cardinality() default ReferenceCardinality.NOT_SPECIFIED;
+		private static final long serialVersionUID = 1L;
 
-    /**
-     *
-     * @return
-     */
-    @Nonbinding
-    ReferencePolicyOption policyOption() default ReferencePolicyOption.NOT_SPECIFIED;
+		/**
+		 * @param service
+		 * @param target
+		 * @return instance of {@link Reference}
+		 */
+		public static final Literal of(
+				Class<?> service,
+				String target) {
+
+			return new Literal(service, target);
+		}
+
+		private Literal(
+				Class<?> service,
+				String target) {
+			_service = service;
+			_target = target;
+		}
+
+		@Override
+		public Class<?> service() {
+			return _service;
+		}
+
+		@Override
+		public String target() {
+			return _target;
+		}
+
+		private final Class<?>				_service;
+		private final String				_target;
+
+	}
+
+	/**
+	 * The type of the service for this reference.
+	 * <p>
+	 * If not specified, the type of the service for this reference is based upon
+	 * how this annotation is used:
+	 * <ul>
+	 * <li>Annotated field - TODO The type of the service is based upon the type of
+	 * the field being annotated. The type of the field must be one of
+	 * {@code java.util.Collection}, {@code java.util.List}, or a subtype of
+	 * {@code java.util.Collection} so the type of the service is the generic type
+	 * of the collection. Otherwise, the type of the service is the type of the
+	 * field.</li>
+	 * <li>Annotated constructor or method parameter - TODO The type of the service
+	 * is based upon the type of the parameter being annotated. The type of the
+	 * parameter must be one of {@code java.util.Collection},
+	 * {@code java.util.List}, or a subtype of {@code java.util.Collection} so the
+	 * type of the service is the generic type of the collection. Otherwise, the
+	 * type of the service is the type of the parameter.</li>
+	 * </ul>
+	 */
+	Class<?> service() default Object.class;
+
+	/**
+	 * The target property for this reference.
+	 *
+	 * <p>
+	 * If not specified, no target property is set.
+	 */
+	String target() default "";
+
 }

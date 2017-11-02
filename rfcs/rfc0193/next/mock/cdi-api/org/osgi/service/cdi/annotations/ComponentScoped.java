@@ -1,5 +1,5 @@
 /*
- * Copyright (c) OSGi Alliance (2016, 2017). All Rights Reserved.
+ * Copyright (c) OSGi Alliance (2017). All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,59 +16,45 @@
 
 package org.osgi.service.cdi.annotations;
 
-import static java.lang.annotation.ElementType.TYPE;
+import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import static org.osgi.namespace.extender.ExtenderNamespace.EXTENDER_NAMESPACE;
 import static org.osgi.service.cdi.CdiConstants.*;
 import java.lang.annotation.Documented;
+import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
-import javax.enterprise.inject.Stereotype;
 import javax.enterprise.util.AnnotationLiteral;
-import javax.inject.Named;
+import javax.inject.Scope;
 import org.osgi.annotation.bundle.Requirement;
 
 /**
- * Identify the annotated CDI bean class as a Service Component.
+ * This scope is used to define a bean as a CDI component. To trigger this it
+ * must be used in conjunction with the {@link javax.inject.Named} annotation
+ * which must specify a value.
  *
  * @author $Id$
  */
-@ComponentScoped
 @Documented
-@Named
+@Inherited
 @Requirement(namespace = EXTENDER_NAMESPACE, name = CDI_CAPABILITY_NAME, version = CDI_SPECIFICATION_VERSION)
 @Retention(RUNTIME)
-@Stereotype
-@Target(TYPE)
-public @interface Component {
+@Scope
+@Target({FIELD, METHOD, TYPE})
+public @interface ComponentScoped {
 
 	/**
-	 * Support inline instantiation of the {@link Component} annotation.
+	 * Support inline instantiation of the {@link ComponentScoped} annotation.
 	 */
-	public static final class Literal extends AnnotationLiteral<Component> implements Component {
+	public static final class Literal extends AnnotationLiteral<ComponentScoped> implements ComponentScoped {
 
 		/**
 		 * Default instance.
 		 */
-		public static final Component	INSTANCE			= new Literal();
+		public static final ComponentScoped	INSTANCE			= new Literal();
 
-		private static final long		serialVersionUID	= 1L;
+		private static final long			serialVersionUID	= 1L;
 
 	}
-
-	/**
-	 * Special string representing the name of this Component.
-	 *
-	 * <p>
-	 * This string can be used in {@link PID#value()} OR
-	 * {@link FactoryPID#value()} to specify the name of the component or in
-	 * the case of the non-components the CDI container id as a configuration PID.
-	 * For example:
-	 *
-	 * <pre>
-	 * &#64;SingletonConfiguration(pid = Component.NAME)
-	 * </pre>
-	 */
-	String NAME = "$";
 
 }

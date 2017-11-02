@@ -14,16 +14,29 @@
  * limitations under the License.
  */
 
-package org.osgi.service.cdi;
+package org.osgi.service.cdi.dto.model;
+
+import org.osgi.dto.DTO;
 
 /**
- * A CdiListener object can be registered in the OSGi registry.
+ * Description of a CDI container.
+ *
+ * @NotThreadSafe
+ * @author $Id$
  */
-public interface CdiListener {
+public class CdiContainerModelDTO extends DTO {
     /**
-     * Receives CDI events.
-     *
-     * @param event
+     * The id of the CDI container.
      */
-    void cdiEvent(CdiEvent event);
+    public String id;
+
+    /**
+     * The extension dependencies of this CDI container.
+     */
+    public ExtensionModelDTO[] extensions;
+
+    /**
+     * The components defined in this CDI container.
+     */
+    public ComponentModelDTO[] components;
 }

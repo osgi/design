@@ -1,23 +1,19 @@
 package org.osgi.service.cdi.dto;
 
 import org.osgi.framework.dto.ServiceReferenceDTO;
+import org.osgi.service.cdi.dto.model.ReferenceModelDTO;
 
 public class ReferenceDTO extends DependencyDTO {
     /**
-     * The name of the reference.
+     *
      */
-    public String name;
+    ReferenceModelDTO model;
 
     /**
-     * Indicates a target filter used in addition to the {@link #serviceType} to
-     * match services.
+     * Indicates the runtime target filter used in addition to the
+     * {@link ReferenceModelDTO#serviceType model.serviceType} to match services.
      */
     public String target;
-
-    /**
-     * Indicates the type of service matched by the reference.
-     */
-    public String serviceType;
 
     /**
      * The set of services that match this reference.

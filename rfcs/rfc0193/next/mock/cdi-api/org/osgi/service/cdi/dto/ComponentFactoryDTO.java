@@ -17,29 +17,39 @@
 package org.osgi.service.cdi.dto;
 
 import org.osgi.dto.DTO;
+import org.osgi.service.cdi.dto.model.ComponentModelDTO;
+import org.osgi.service.cdi.dto.model.DependencyModelDTO;
 
 /**
- * Description of a CDI configuration factory dependency.
+ * Description of a CDI configuration factory. This is a pure runtime structure
+ * (i.e. has no formal model) that manages the instances of a given component as
+ * described by it's {@link ComponentModelDTO model}. Handles the
+ * {@link ComponentModelDTO#configurations}
  *
  * @NotThreadSafe
  * @author $Id$
  */
 public class ComponentFactoryDTO extends DTO {
     /**
-     * The component name
+     * Model of the components this factory creates
      */
-    public String name;
+    public ComponentModelDTO model;
 
     /**
-     * A most one configuration with multiple cardinality.
-     * Many configurations with singleton cardinality.
-     * 
-     * There is always at lest one (default) singleton configuration.
+     * The configuration dependencies.
+     * <p>
+     * Must never be null.
+     * <p>
+     * May contain many {@link DependencyModelDTO.MaximumCardinality#ONE singleton}
+     * configurations.
+     * <p>
+     * May contain at most one {@link DependencyModelDTO.MaximumCardinality#MANY
+     * factory} configurations.
      */
     public ConfigurationDTO[] configurations;
 
     /**
-     *
+     * All instances created by this factory
      */
     public ComponentDTO[] instances;
 }

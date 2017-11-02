@@ -2,18 +2,23 @@ package org.osgi.service.cdi.dto;
 
 import java.util.Map;
 
+import org.osgi.service.cdi.dto.model.ConfigurationModelDTO;
+import org.osgi.service.cdi.dto.model.DependencyModelDTO;
+
 public class ConfigurationDTO extends DependencyDTO {
     /**
-     * The pid of the Configuration object.
-     * <p>
-     * The value must not be null.
+     *
      */
-    public String pid;
+    ConfigurationModelDTO model;
 
     /**
-     * The properties as found in the configuration dictionary.
+     * The properties to which this configuration dependency is currently resolved.
      * <p>
-     * A null value indicates no configuration object is available.
+     * Must never be null.
+     * <p>
+     * Can contain multiple values when {@link DependencyModelDTO#maximumCardinality
+     * model.maximumCardinality} is
+     * {@link DependencyModelDTO.MaximumCardinality#MANY MANY}.
      */
-    public Map<String, Object> properties;
+    public Map<String, Object>[] properties;
 }

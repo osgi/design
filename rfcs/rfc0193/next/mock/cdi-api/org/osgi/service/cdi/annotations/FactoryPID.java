@@ -29,7 +29,8 @@ import javax.inject.Named;
 import org.osgi.annotation.bundle.Requirement;
 
 /**
- * Identify the annotated CDI bean class as a Service Component.
+ * Annotation used in collaboration with {@link ComponentScoped} to specify a
+ * factory configuration.
  *
  * @author $Id$
  */
@@ -40,35 +41,52 @@ import org.osgi.annotation.bundle.Requirement;
 @Retention(RUNTIME)
 @Stereotype
 @Target(TYPE)
-public @interface Component {
+public @interface FactoryPID {
 
 	/**
-	 * Support inline instantiation of the {@link Component} annotation.
+	 * Support inline instantiation of the {@link FactoryPID} annotation.
 	 */
-	public static final class Literal extends AnnotationLiteral<Component> implements Component {
+	public static final class Literal extends AnnotationLiteral<FactoryPID> implements FactoryPID {
+
+		private static final long serialVersionUID = 1L;
 
 		/**
-		 * Default instance.
+		 * @param pid the factory configuration pid
+		 * @return an instance of {@link FactoryPID}
 		 */
-		public static final Component	INSTANCE			= new Literal();
+		public static final Literal of(String pid) {
+			return new Literal(pid);
+		}
 
-		private static final long		serialVersionUID	= 1L;
+		private Literal(String pid) {
+			_pid = pid;
+		}
+
+		@Override
+		public String value() {
+			return _pid;
+		}
+
+		private final String _pid;
 
 	}
 
 	/**
-	 * Special string representing the name of this Component.
+	 * The configuration PID for the configuration of this Component.
 	 *
 	 * <p>
-	 * This string can be used in {@link PID#value()} OR
-	 * {@link FactoryPID#value()} to specify the name of the component or in
-	 * the case of the non-components the CDI container id as a configuration PID.
-	 * For example:
+	 * The value specifies a configuration PID who's configuration properties are
+	 * available at injection points in the component.
+	 *
+	 * <p>
+	 * A special string (<code>"$"</code>) can be used to specify the name of the
+	 * component as a configuration PID. The {@link Component#NAME} constant holds
+	 * this special string. For example:
 	 *
 	 * <pre>
-	 * &#64;SingletonConfiguration(pid = Component.NAME)
+	 * &#64;FactoryConfiguration(pid = Component.NAME)
 	 * </pre>
 	 */
-	String NAME = "$";
+	String value() default Component.NAME;
 
 }
