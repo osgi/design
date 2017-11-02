@@ -42,7 +42,9 @@ public class CdiContainerDTO extends DTO {
     public ExtensionDTO[] extensions;
 
     /**
-     * The factory components defined in this CDI container.
+     * The component factories.
+     * 
+     * There is always exactly one factory of type APPLICATION.
      */
     public ComponentFactoryDTO[] componentFactories;
 }

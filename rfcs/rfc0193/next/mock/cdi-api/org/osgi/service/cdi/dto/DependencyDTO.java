@@ -2,7 +2,7 @@ package org.osgi.service.cdi.dto;
 
 import org.osgi.dto.DTO;
 
-public class DependencyDTO extends DTO {
+public abstract class DependencyDTO extends DTO {
     /**
      * Defines the possible values for {@link #maximumCardinality}
      */

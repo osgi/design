@@ -31,10 +31,10 @@ public class ComponentFactoryDTO extends DTO {
     public String name;
 
     /**
-     * The singleton configuration dependencies of this component factory.
-     * <p>
-     * The value cannot be null. The array will be empty if there are no singleton
-     * configuration dependencies.
+     * A most one configuration with multiple cardinality.
+     * Many configurations with singleton cardinality.
+     * 
+     * There is always at lest one (default) singleton configuration.
      */
     public ConfigurationDTO[] configurations;
 
