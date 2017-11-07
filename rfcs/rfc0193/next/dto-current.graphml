@@ -450,12 +450,12 @@ components have a ComponentFactoryDTO.
 
 When the referenced ComponentModelDTO
 has type APPLICATION the ComponentFactoryDTO
-can have 0..N singleton ConfiguratinDTO.
+can have 0..N singleton ConfigurationDTO.
 
 When the referenced ComponentModelDTO
 has type COMPONENT the ComponentFactoryDTO
-can have 0..N singleton ConfiguratinDTO and
-0..1 factory ConfiguratinDTO.
+can have 0..N singleton ConfigurationDTO and
+0..1 factory ConfigurationDTO.
 
 0..N singleton ConfigurationDTO each with
 0..1 matching Map
@@ -491,13 +491,13 @@ ConfigurationDTO there will be 0..N ComponentDTO.<y:LabelModel>
           <y:Geometry height="168.0" width="332.0" x="-74.5" y="567.5"/>
           <y:Fill color="#FFFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="136.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="235.474609375" x="48.2626953125" y="15.8447265625">Contains the exact set of Maps that are
-used by this component instance.
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="136.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="258.14453125" x="36.927734375" y="15.8447265625">Contains the exact set of Maps that are used by
+this component instance.
 Does not contain the ConfigurationDTOs.
 
-MANY Maps with service.pid
+0..N Maps with service.pid
 
-ONE Map with service.factoryPid.
+0..1 Map with service.factoryPid.
 The map selected by the parent component
 factory to build this component instance.<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
