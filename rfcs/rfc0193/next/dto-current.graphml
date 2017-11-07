@@ -15,7 +15,6 @@
   <graph edgedefault="directed" id="G">
     <data key="d0"/>
     <node id="n0">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="268.0" width="579.0" x="831.5" y="765.5"/>
@@ -27,7 +26,6 @@
       </data>
     </node>
     <node id="n1">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="643.0" width="536.0" x="242.0" y="71.0"/>
@@ -39,7 +37,6 @@
       </data>
     </node>
     <node id="n2">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="643.0" width="474.0" x="847.0" y="71.0"/>
@@ -51,7 +48,6 @@
       </data>
     </node>
     <node id="n3">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="68.0" width="163.0" x="315.0" y="296.0"/>
@@ -70,7 +66,6 @@
       </data>
     </node>
     <node id="n4">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="68.0" width="163.0" x="578.5" y="296.0"/>
@@ -89,7 +84,6 @@
       </data>
     </node>
     <node id="n5">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="68.0" width="163.0" x="315.0" y="487.0"/>
@@ -108,7 +102,6 @@
       </data>
     </node>
     <node id="n6">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="68.0" width="163.0" x="578.5" y="421.5"/>
@@ -127,7 +120,6 @@
       </data>
     </node>
     <node id="n7">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="68.0" width="163.0" x="321.0" y="176.0"/>
@@ -146,7 +138,6 @@
       </data>
     </node>
     <node id="n8">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="68.0" width="163.0" x="578.5" y="176.0"/>
@@ -165,7 +156,6 @@
       </data>
     </node>
     <node id="n9">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="68.0" width="163.0" x="578.5" y="547.0"/>
@@ -184,7 +174,6 @@
       </data>
     </node>
     <node id="n10">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="68.0" width="163.0" x="876.0" y="296.0"/>
@@ -203,7 +192,6 @@
       </data>
     </node>
     <node id="n11">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="68.0" width="163.0" x="1117.0" y="421.5"/>
@@ -222,7 +210,6 @@
       </data>
     </node>
     <node id="n12">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="68.0" width="163.0" x="876.0" y="421.5"/>
@@ -241,7 +228,6 @@
       </data>
     </node>
     <node id="n13">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="68.0" width="163.0" x="1111.5" y="176.0"/>
@@ -260,7 +246,6 @@
       </data>
     </node>
     <node id="n14">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="68.0" width="163.0" x="876.0" y="176.0"/>
@@ -279,7 +264,6 @@
       </data>
     </node>
     <node id="n15">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="68.0" width="163.0" x="876.0" y="547.0"/>
@@ -298,7 +282,6 @@
       </data>
     </node>
     <node id="n16">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="68.0" width="163.0" x="1039.5" y="806.0"/>
@@ -318,7 +301,6 @@ DependencyModelDTO<y:LabelModel>
       </data>
     </node>
     <node id="n17">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="68.0" width="163.0" x="428.5" y="806.0"/>
@@ -338,7 +320,6 @@ DependencyDTO<y:LabelModel>
       </data>
     </node>
     <node id="n18">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="68.0" width="163.0" x="1039.5" y="920.0"/>
@@ -357,7 +338,6 @@ DependencyDTO<y:LabelModel>
       </data>
     </node>
     <node id="n19">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="68.0" width="163.0" x="1237.0" y="920.0"/>
@@ -376,7 +356,6 @@ DependencyDTO<y:LabelModel>
       </data>
     </node>
     <node id="n20">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="68.0" width="163.0" x="847.0" y="920.0"/>
@@ -395,7 +374,6 @@ DependencyDTO<y:LabelModel>
       </data>
     </node>
     <node id="n21">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="68.0" width="163.0" x="428.5" y="920.0"/>
@@ -414,7 +392,6 @@ DependencyDTO<y:LabelModel>
       </data>
     </node>
     <node id="n22">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="68.0" width="163.0" x="615.0" y="920.0"/>
@@ -433,7 +410,6 @@ DependencyDTO<y:LabelModel>
       </data>
     </node>
     <node id="n23">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="68.0" width="163.0" x="231.0" y="920.0"/>
@@ -452,7 +428,6 @@ DependencyDTO<y:LabelModel>
       </data>
     </node>
     <node id="n24">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="268.0" width="579.0" x="215.0" y="765.5"/>
@@ -465,21 +440,41 @@ DependencyDTO<y:LabelModel>
     </node>
     <node id="n25">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLNoteNode>
-          <y:Geometry height="168.0" width="292.0" x="-34.5" y="169.5"/>
+          <y:Geometry height="467.5" width="332.0" x="-74.5" y="49.75"/>
           <y:Fill color="#FFFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="136.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="271.48046875" x="10.259765625" y="15.8447265625">MANY singleton ConfigurationDTO each with
-ONE matching Map
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="445.03515625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="302.125" x="14.9375" y="11.232421875">Both the application component and the regular
+components have a ComponentFactoryDTO.
 
-ONE factory ConfigurationDTO with
-MANY mathcing Maps
+When the referenced ComponentModelDTO
+has type APPLICATION the ComponentFactoryDTO
+can have 0..N singleton ConfiguratinDTO.
+
+When the referenced ComponentModelDTO
+has type COMPONENT the ComponentFactoryDTO
+can have 0..N singleton ConfiguratinDTO and
+0..1 factory ConfiguratinDTO.
+
+0..N singleton ConfigurationDTO each with
+0..1 matching Map
+
+0..1 factory ConfigurationDTO with
+0..N mathcing Maps.
 
 1. For every Map of the factory ConfigurationDTO
 2. Add the Maps of all singleton ConfigurationDTO
-3. Build a ComponentDTO with the resulting set<y:LabelModel>
+3. Build a ComponentDTO with the resulting set
+
+Therefore for type APPLICATION there will always be
+1 ComponentDTO.
+
+Therefore for type COMPONENT without a factory
+ConfigurationDTO there will always be 1 CompnentDTO
+
+Threfore for type COMPONENT with a factory
+ConfigurationDTO there will be 0..N ComponentDTO.<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -491,13 +486,12 @@ MANY mathcing Maps
     </node>
     <node id="n26">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLNoteNode>
-          <y:Geometry height="168.0" width="285.5" x="-34.5" y="456.0"/>
+          <y:Geometry height="168.0" width="332.0" x="-74.5" y="567.5"/>
           <y:Fill color="#FFFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="136.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="235.474609375" x="25.0126953125" y="15.8447265625">Contains the exact set of Maps that are
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="136.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="235.474609375" x="48.2626953125" y="15.8447265625">Contains the exact set of Maps that are
 used by this component instance.
 Does not contain the ConfigurationDTOs.
 
@@ -516,7 +510,6 @@ factory to build this component instance.<y:LabelModel>
       </data>
     </node>
     <edge id="e0" source="n3" target="n4">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -535,7 +528,6 @@ factory to build this component instance.<y:LabelModel>
       </data>
     </edge>
     <edge id="e1" source="n3" target="n5">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="5.0" sy="0.0" tx="5.0" ty="0.0"/>
@@ -554,7 +546,6 @@ factory to build this component instance.<y:LabelModel>
       </data>
     </edge>
     <edge id="e2" source="n7" target="n3">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="6.0" ty="-19.0"/>
@@ -573,7 +564,6 @@ factory to build this component instance.<y:LabelModel>
       </data>
     </edge>
     <edge id="e3" source="n7" target="n8">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -592,7 +582,6 @@ factory to build this component instance.<y:LabelModel>
       </data>
     </edge>
     <edge id="e4" source="n5" target="n6">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="53.5" sy="-12.0" tx="0.0" ty="0.0">
@@ -613,7 +602,6 @@ factory to build this component instance.<y:LabelModel>
       </data>
     </edge>
     <edge id="e5" source="n5" target="n9">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="53.5" sy="16.0" tx="0.0" ty="6.0">
@@ -634,7 +622,6 @@ factory to build this component instance.<y:LabelModel>
       </data>
     </edge>
     <edge id="e6" source="n11" target="n12">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -653,7 +640,6 @@ factory to build this component instance.<y:LabelModel>
       </data>
     </edge>
     <edge id="e7" source="n11" target="n15">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="-41.5" sy="24.5" tx="0.0" ty="0.0">
@@ -674,7 +660,6 @@ factory to build this component instance.<y:LabelModel>
       </data>
     </edge>
     <edge id="e8" source="n13" target="n11">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="-5.5" ty="-11.0"/>
@@ -693,7 +678,6 @@ factory to build this component instance.<y:LabelModel>
       </data>
     </edge>
     <edge id="e9" source="n11" target="n10">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="-41.5" sy="-20.0" tx="0.0" ty="0.0">
@@ -714,7 +698,6 @@ factory to build this component instance.<y:LabelModel>
       </data>
     </edge>
     <edge id="e10" source="n13" target="n14">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -733,7 +716,6 @@ factory to build this component instance.<y:LabelModel>
       </data>
     </edge>
     <edge id="e11" source="n8" target="n14">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -752,7 +734,6 @@ factory to build this component instance.<y:LabelModel>
       </data>
     </edge>
     <edge id="e12" source="n4" target="n10">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -771,7 +752,6 @@ factory to build this component instance.<y:LabelModel>
       </data>
     </edge>
     <edge id="e13" source="n6" target="n12">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -790,7 +770,6 @@ factory to build this component instance.<y:LabelModel>
       </data>
     </edge>
     <edge id="e14" source="n9" target="n15">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -809,7 +788,6 @@ factory to build this component instance.<y:LabelModel>
       </data>
     </edge>
     <edge id="e15" source="n7" target="n13">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -831,7 +809,6 @@ factory to build this component instance.<y:LabelModel>
       </data>
     </edge>
     <edge id="e16" source="n3" target="n11">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -854,7 +831,6 @@ factory to build this component instance.<y:LabelModel>
       </data>
     </edge>
     <edge id="e17" source="n18" target="n16">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -865,7 +841,6 @@ factory to build this component instance.<y:LabelModel>
       </data>
     </edge>
     <edge id="e18" source="n20" target="n16">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="-74.5" ty="2.0">
@@ -878,7 +853,6 @@ factory to build this component instance.<y:LabelModel>
       </data>
     </edge>
     <edge id="e19" source="n19" target="n16">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -891,7 +865,6 @@ factory to build this component instance.<y:LabelModel>
       </data>
     </edge>
     <edge id="e20" source="n21" target="n17">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -902,7 +875,6 @@ factory to build this component instance.<y:LabelModel>
       </data>
     </edge>
     <edge id="e21" source="n23" target="n17">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -915,7 +887,6 @@ factory to build this component instance.<y:LabelModel>
       </data>
     </edge>
     <edge id="e22" source="n22" target="n17">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -928,7 +899,6 @@ factory to build this component instance.<y:LabelModel>
       </data>
     </edge>
     <edge id="e23" source="n25" target="n3">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -939,7 +909,6 @@ factory to build this component instance.<y:LabelModel>
       </data>
     </edge>
     <edge id="e24" source="n26" target="n5">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
