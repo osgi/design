@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.osgi.cdi.examples.ApplicationFunctionTarget;
+import org.osgi.service.cdi.annotations.Filter;
 import org.osgi.service.cdi.annotations.Reference;
 
 /*
@@ -43,7 +44,8 @@ public class E4 {
 	@Inject
 	public E4(
 		@Named("application.function")
-		@Reference(target = "(foo=bar)")
+		@Filter("(foo=bar)")
+		@Reference
 		Function<String, Integer> function) {}
 
 	// OR
@@ -52,7 +54,8 @@ public class E4 {
 	@Inject
 	public void set(
 		@Named("application.function")
-		@Reference(target = "(foo=bar)")
+		@Filter("(foo=bar)")
+		@Reference
 		Function<String, Integer> function) {}
 
 	// OR
@@ -60,7 +63,8 @@ public class E4 {
 	// field
 	@Inject
 	@Named("application.function")
-	@Reference(target = "(foo=bar)")
+	@Filter("(foo=bar)")
+	@Reference
 	Function<String, Integer> function;
 
 }

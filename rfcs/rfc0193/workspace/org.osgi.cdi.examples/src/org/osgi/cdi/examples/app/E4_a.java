@@ -6,6 +6,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.osgi.service.cdi.annotations.Filter;
 import org.osgi.service.cdi.annotations.Reference;
 
 /*
@@ -40,7 +41,8 @@ public class E4_a {
 
 	@Inject
 	@Named("application.function")
-	@Reference(target = "(foo=bar)")
+	@Filter("(foo=bar)")
+	@Reference
 	Function<String, Integer> function;
 
 }
