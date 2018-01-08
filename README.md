@@ -6,7 +6,7 @@ The documents in this repository are non-final specification design work which e
 
 Readers are expected to be familiar with OSGi Technology and the currently published OSGi specification documents. Readers should refer to <https://www.osgi.org/developer/> for more information on the OSGi Technology. There readers can find a description of the OSGi Technology, as well as links to whitepapers and the OSGi specification documents, which are all available for download.
 
-Lists of RFCs and RFPs in this repository are at [RFP and RFC Status](wiki/RFP-and-RFC-Status) The list is maintained by the OSGi community and may not always be up to date.
+Lists of RFCs and RFPs in this repository are at [RFP and RFC Status](https://github.com/osgi/design/wiki/RFP-and-RFC-Status) The list is maintained by the OSGi community and may not always be up to date.
 
 # License
 
