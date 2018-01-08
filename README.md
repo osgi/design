@@ -4,13 +4,13 @@ This repository holds OSGi RFP and RFC documents. RFP documents are requirements
 
 The documents in this repository are non-final specification design work which either propose to modify existing published OSGi specifications from the OSGi specification documents or propose new specifications to potentially be incorporated in future OSGi specification documents.
 
-Readers are expected to be familiar with OSGi Technology and the currently published OSGi specification documents. Readers should refer to <http://www.osgi.org/Technology/HomePage> for more information on the OSGi Technology. There readers can find a description of the OSGi Technology, as well as links to whitepapers and the OSGi specification documents, which are all available for download.
+Readers are expected to be familiar with OSGi Technology and the currently published OSGi specification documents. Readers should refer to <https://www.osgi.org/developer/> for more information on the OSGi Technology. There readers can find a description of the OSGi Technology, as well as links to whitepapers and the OSGi specification documents, which are all available for download.
 
-Lists of RFCs and RFPs in this repository are at [http://wiki.osgi.org/wiki/RFCs](http://wiki.osgi.org/wiki/RFCs) and [http://wiki.osgi.org/wiki/RFPs](http://wiki.osgi.org/wiki/RFPs) respectively. The lists have links to the documents in the [GitHub mirror](https://github.com/osgi/design). The lists are maintained by the OSGi community and may not always be up to date.
+Lists of RFCs and RFPs in this repository are at [RFP and RFC Status](wiki/RFP-and-RFC-Status) The list is maintained by the OSGi community and may not always be up to date.
 
 # License
 
-The contents of this repository are made available to the public under the terms of the [OSGi Distribution and Feedback License](http://www.osgi.org/Main/OSGiDistributionAndFeedbackLicense) which is reproduced below.
+The contents of this repository are made available to the public under the terms of the [OSGi Distribution and Feedback License](https://www.osgi.org/distribution-and-feedback-license/) which is reproduced below.
 
 > ##OSGi DISTRIBUTION AND FEEDBACK LICENSE, Version 2.0
 > 
