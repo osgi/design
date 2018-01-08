@@ -28,4 +28,4 @@ The contents of this repository are made available to the public under the terms
 
 # Feedback
 
-Pursuant to the [OSGi Distribution and Feedback License](http://www.osgi.org/Main/OSGiDistributionAndFeedbackLicense), the OSGi Alliance welcomes your feedback on the documents in this repository. Feedback can be provided by opening a bug in the [OSGi Public Bugzilla system](https://www.osgi.org/bugzilla/enter_bug.cgi?product=OSGi%20Specification).
+Pursuant to the [OSGi Distribution and Feedback License](https://www.osgi.org/distribution-and-feedback-license/), the OSGi Alliance welcomes your feedback on the documents in this repository. Feedback can be provided by opening a bug in the [OSGi Public Bugzilla system](https://osgi.org/bugzilla/enter_bug.cgi?product=OSGi%20Specification).
