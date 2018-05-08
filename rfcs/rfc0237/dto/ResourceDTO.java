@@ -5,7 +5,7 @@ public class ResourceDTO extends org.osgi.dto.DTO{
 	
 	// Universal Attribute, which can be held by all resources.
 	@javax.xml.bind.annotation.XmlElement( required  = true)
-	public ResourceType resourceType;
+	public Integer resourceType;
 	@javax.xml.bind.annotation.XmlElement( required  = true)
 	public String resourceID;
 	@javax.xml.bind.annotation.XmlElement( required  = true)

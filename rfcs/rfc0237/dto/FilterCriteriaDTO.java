@@ -13,7 +13,7 @@ public class FilterCriteriaDTO extends org.osgi.dto.DTO{
 	public String expireBefore;
 	public String expireAfter;
 	public List<String> labels;
-	public EnumSet<ResourceType> resourceType;
+	public List<Integer> resourceType;
 	@javax.xml.bind.annotation.XmlElement( required  = false)
 	public Integer sizeAbove;
 	@javax.xml.bind.annotation.XmlElement( required  = false)

@@ -11,7 +11,7 @@ public class RequestPrimitiveDTO extends org.osgi.dto.DTO {
 	@javax.xml.bind.annotation.XmlElement(required = true)
 	public String requestIdentifier;
 	@javax.xml.bind.annotation.XmlElement(required = false)
-	public ResourceType resourceType;
+	public Integer resourceType;
 	public PrimitiveContentDTO primitiveContent;
 	public List<String> roleIDs;
 	public String originatingTimestamp;
