@@ -20,23 +20,23 @@ Use the OSGi Resolver to assemble a self-contained OSGi application:  JRE + Fram
 # Requirements
 
 ## Req-1
-Must resolve OSGi bundles against Java modules without using the Java module identity
+**Must** resolve OSGi bundles against Java modules without using the Java module identity
 - At least the Java module packages must be published under the `osgi.wiring.package` namespace
 
 ## Req-2
 
-Must resolve Java modules against other Java modules and produce a valid set according to the JPMS restrictions
+**Must** resolve Java modules against other Java modules and **May** produce a valid set according to the JPMS restrictions
 
-- Module requires other module by ID
+- Module requires other module by name
 - Modules may expose packages to a select set of friend modules
-- No two modules expose the same package
+- No two modules contain (export or not) the same package
 - No cycles
 
-Or at least as many of these as possible
+**Or at least as many of these as possible**
 
 ## Req-3
 
-Should support version ranges on Java module requirements
+**Should** support version ranges on Java module requirements
 
 - Publish the module version set at compile time
 - Read the compile time versions of the module dependencies
@@ -46,14 +46,14 @@ Should support version ranges on Java module requirements
 
 ## Req-4
 
-Should use as many of the existing namespaces as possible
+**Should** use as many of the existing namespaces as possible
 
 - Service Loader specification namespaces for the Java module services
 - `osgi.wiring.bundle` for Java module requirements
 - Prefer additional attributes on existing capabilities/requirements rather than new namespaces
 
 ## Req-5
-May use bundle annotations on Java modules to handle dependencies that can not be captured by `module-info.java`
+**May** use bundle annotations on Java modules to handle dependencies that can not be captured by `module-info.java`
 
  `@Target(ElementType.MODULE)`
 
@@ -69,10 +69,10 @@ module com.bar.jpa {
 ```
 ## Req-6
 
-Must be able to resolve third party Java modules and expose their packages within the OSGi framework
+**Must** be able to resolve third party Java modules and expose their packages within the OSGi framework
 
 - At lest specify how `org.osgi.framework.packages.extra` should work
 
 ## Req-7
 
-May specify runtime representation for the Java modules
+**May** specify runtime representation for the Java modules
