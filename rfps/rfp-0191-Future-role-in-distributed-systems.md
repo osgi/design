@@ -217,21 +217,23 @@ The last named individual in this history is currently responsible for this docu
 		- ...
 	- [RFC-240: Compute Management Service](https://github.com/osgi/design/blob/master/rfcs/rfc0240/rfc-0240-Compute-Management-Service.pdf)
 		- Prototype is about top-down calls from OSGi to CaaS to create/destroy containers etc.
-			- I.e. OSGi is part of the control plane
+			- I.e. OSGi is part of the *control plane*
 		- Extend with bottom-up API for OSGi to CaaS to pull/push performance/discovery data.
-			- I.e. OSGi is part of the distributed application
+			- I.e. OSGi participates in the *data plane*
 - Adapt to "brute force" approach (without RSA?)
 	- Explore if/how this reduces the value of the service layer
 		- E.g. service dynamics do not matter: containers are static, remote endpoints too.
 		- E.g. but service dynamics still free you from doing the start/stop order of modules manually
 		- E.g. but service layer is still a good abstraction to hook modules together
-- Adapt to https://opentracing.io/
 - Integrate with modern distributed ecosystem
+	- **Question:** Should we target the CNCF ecosystem as something of near-standard stability?
 	- *Impl:* Not clear if there is anything to specify
 		- These are moving targets rather than long-lived standards, we may specify SPIs to plug them into RSA...
+	- RSA adoption of https://opentracing.io/
 	- RSA discovery for Consul, Eureka, .. K8S API server?
-		- **Question** Is it worth doing this or just give up since sidecar loadbalancing (e.g. Envoy) seems to take over?
+		- **Question:** Is it worth doing this or just give up since sidecar loadbalancing (e.g. Envoy) seems to take over?
 			- Sidecar load balancing does not propagate cluster topology changes back to app - no distributed lifecycle.
+		- [Ribbon](https://medium.com/netflix-techblog/announcing-ribbon-tying-the-netflix-mid-tier-services-together-a89346910a62)
 	- RSA distribution providers for gRPC, thrift, etc.
 	- RSA/PuthStreams distribution providers for AMQP, MQTT, etc.
 	- RSA topology manager with...? K8S API server?
@@ -287,3 +289,98 @@ The last named individual in this history is currently responsible for this docu
 ### OSGi future
 - *New RFC:* General purpose messaging service (probably based on PushStreams)
 - *New RFC:* Actors
+
+# Appendix
+
+## Hystrix
+Hystrix is a library that adds certain measure of resilience to distributed applications where the prevailing 
+communication mechanism is point-to-point synchronous calls (e.g. HTTP requests).
+
+At present it is succeeded by [ressilience4j](https://github.com/resilience4j/resilience4j), which is inspired
+by it's design and offers the same core patterns.
+
+Here we explore the design of Hystrix to find analogies with the current OSGi specifications and pinpoint potential
+improvements to OSGi for R8.
+
+[Hystrix](https://github.com/Netflix/Hystrix/wiki/How-it-Works)
+[Hystrix Diagram](https://raw.githubusercontent.com/wiki/Netflix/Hystrix/images/hystrix-command-flow-chart.png)
+
+- **Question**: What is it for?
+	- Distributed application resilience to calls to remote dependencies
+	- It is purely a client-side library
+	- Tuned for the Netflix use case:
+		- E.g. each node has a large number of remote dependency nodes to load balance
+	- *NOTE:* Our conditions are probably different
+		- Not a humongous scale
+		- But saturation of a limited compute pool that may change rapidly
+			- E.g. add/remove new nodes to CaaS to handle spikes in load
+			- E.g. CaaS shuffles containers aggressively around the current nodes to saturate them better
+		- **Question:** Does Hystrix help there?
+		
+- **Question**: How does Hystrix relate to the other Netflix projects (Ribbon, Eureka, Archieus)?
+	- It only implements the circuit breaking behavior
+	- It uses Ribbon for client side load balancing
+	- Ribbon uses Eureka for discovery
+	- Ribbon/Hystrix use Archius for configuration.
+	- ...
+	
+### Design assumption: Most network access is performed synchronously
+- **Question**: Do all the patterns built around this work for other communication patterns?
+	- Event driven?
+	- Note that event driven may be built on top of sync calls to queues for example.
+
+### Design assumption: Failure and latency can occur in the client-side code as well, not just in the network call
+- Client side degradation is managed through a local thread pool that can reject incoming calls once full: *shedding load*
+- Server side failures are managed through *circuit breaker*, *health tracking*, *timeouts*. 
+- Server side degradation is managed indirectly through *shedding load* too.
+	- It doesn't matter if a remote call is slow to respond or the local client is overloaded.
+
+### Design implementation: convert sync remote calls to async
+- Built around making async "command" wrappers on top of arbitrary sync call
+- It is assumed that within the "command" block the user makes a remote call via an arbitrary client library. E.,g.: http, grpc, soap
+- *NOTE:* Similar to the `AsyncService` wrapping an RSA endpoint
+- *NOTE:* This can be used to gain resilience in other parts of the system. E.g. local disk access. 
+
+### Design implementation: programming model
+- Each "command" provides an `rx.Observlable` back to the caller
+- `rx.Observable`: [HystrinxCommand.observe()](http://netflix.github.io/Hystrix/javadoc/com/netflix/hystrix/HystrixCommand.html#observe--)
+	- *NOTE:* Similar to a `PushStream`
+- `java.util.concurrent.Future`: [HystrixCommand.queue()](http://netflix.github.io/Hystrix/javadoc/com/netflix/hystrix/HystrixCommand.html#queue--)
+	- In reality backed by the `rx.Observable`
+	- *NOTE:* Similar to a `Promise`. Can convert back to sync, via `Promise.getValue()`
+- **Question:** When does a command return multiple results to the `rx.Observable`?
+	- It seems the user can design a command that either emits one value or many
+
+### Design implementation: hook alternative behavior
+- User overrides methods on `HystrixCommand`
+- `HystrixCommand.getFallback()`: returns one value immediately
+	- *NOTE:* Similar to `Promise.fallbackTo(Promise fallback)`
+- `HystrixCommand.resumeWithFallback()`: returns an `rx.Observable` which emits one or more values.
+	- *NOTE:* Similar to `Promise.recoverWith(Function<Promise, Promise> recovery)`
+- *NOTE:* Uniquely OSGi can also hook lifecycle changes as a fallback behavior
+	- E.g. RSA detects all endpoints are unhealthy or missing: take down service rather than `circuit breaker`
+
+### Design implementation: discovery
+- Ribbon has pluggable discovery
+- *NOTE:* RSA has pluggable discovery too: e.g. call K8S master for the pods, rather than zookeeper
+	
+### Design implementation: load balancing
+- Hidden inside the Hystrix impl is Ribbon that does the load balancing, maybe health monitoring, etc.
+- *NOTE:* OSGi invisible to app: RSA can do internal load balancing behind one service endpoint
+- *NOTE:* OSGi visible to app: RSA can provide all endpoints and app can create a load balancing wrapper
+	- Similarly to how `AsyncService` is applied to an existing service.
+	- Maybe even an extension to `AsyncService`
+	- Maybe extensions to RSA to decorate endpoints with metrics so the extended `AsyncService` can make decisions.
+
+### Design implementation: threading
+- Each command has it's own thread pool
+- If thread pool is exhausted "load shedding" is applied: commands are failed immediately.
+- *NOTE:* Similar to a `PushStream` impl or a `Promise` impl with it's own executor
+- **Question:** A command is a one-shot thing while the thread pool must remain. How are they hooked?
+
+### Design implementation: status/monitoring
+- `HystrixCommand` is stuffed with informative methods
+	- E.g. why a certain result happened: circuit breaking, load shedding, timeout, local cache hit, called through to remote side
+	- E.g. log of the circuit breaker
+- *NOTE:* The best OSGi has is `Promise.isDone()`, `Promise.getFailure()` (with special exceptions?)
+- *NOTE:* It is not clear how much of that API is for the application and how much for other tools.
