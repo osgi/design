@@ -108,7 +108,7 @@ The last named individual in this history is currently responsible for this docu
 - **Problem: Where does OSGi fit?**
 - **OSGi app shape:**
 	- App code in simple bundles: annotation driven 
-		- Especially singe OSGi R7: DS, Bundle annotations, ...
+		- Especially since OSGi R7: DS, Bundle annotations, ...
 	- Managing infrastructure on board: `RSA` + `DS` + `ConfigAdmin` + ...
 		- Rather than in the Orchestrator
 - **OSGi app traits:**
@@ -153,7 +153,7 @@ The last named individual in this history is currently responsible for this docu
 		- Diverges into a different topic: what to do if Java moves to JPMS and abandons OSGi.
 		- Must make sure these still work: extender pattern, whiteboard pattern, requirement/capability/wiring/resource runtime model
 - Adapt to Substrate VM
-	- *New RFP:* Make sure the OSGi core can compile: remove modular layer?
+	- *New RFP:* Make sure the OSGi core can compile: remove modular layer? (Is there already an RFP for this? If not, can we open one?)
 - Push for light weight components
 	- **Conjecture:** Go, node.js, etc. are efficient because they don't have the Java heavyweight libraries.
 	- Programming model: (lambda/async over)? DS over CDI
