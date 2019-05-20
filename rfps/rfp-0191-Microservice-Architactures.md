@@ -1,8 +1,8 @@
-# RFP-191: OSGi's future role in distributed systems 
+# RFP-191: Microservice Architectures
 
 ## Abstract
 
-Due to the prevalence of distributed systems in computing, it is essential to reflect which aspects, if any, are missing from the OSGi ecosystem. This document is a broad review of the state of the art and is meant as a summary of idioms, terminology and pre-existing technologies. It is not a normative document and does not declare any position or opinions by the OSGi Alliance or any members in any way.
+In the last few years the Microservices architectural style increasingly dominates the enterprise IT space. It is a mix of operational practices and application logic distribution patterns. It is increasingly clear that in order to move forward into the future enterprise OSGi has to embrace this architecture. Of particular importance is the packaging of applications into multiple small immutable units. This document is a summary of ideas and discussions on how to better align the OSGi technology with the microservices architecture. It is not a normative document and does not declare any concrete position of the OSGi Alliance nor it's individual members.
 
 ## License
 
@@ -58,33 +58,53 @@ The last named individual in this history is currently responsible for this docu
 | ------------ | ----------- | ------------------------------------------------------------ |
 | 0.1          | Oct 08 2018 | Initial version based on rough notes and discussions within CPEG <br />Todor Boev, Software AG, <todor.boev@softwareag.com> |
 | 0.2          | Nov 19 2018 | Add front matter<br />Raymond Auge, Liferay Inc., <raymond.auge@liferay.com> |
-
-
-  
+| 0.3          | May 20 2019 | Focus on microservice architectures <br />Todor Boev, Software AG, <todor.boev@softwareag.com> |
 
 # Application Domain
 
-## Applications are becoming...
-- **Distributed:** From an architecture point of view
-	- System is always in flux and partial failure
-- **Multilingual:** From a development point of view
-	- System designed as protocols, data formats, communication patterns.
-	- Not as language APIs
-- **Containerized:** From an operations point of view
-	- Generic, but restricted interface: posix
+## Basic traits of the Microservies Architecture
+
+**From an application logic development perspective:**
+- Comprised of small, *immutable*, highly focused, loosely coupled units called microservices,
+- ... ran as separate processes,
+- ... communicating via language agnostic mechanisms,
+- ... potentially developed in different programming languages.
+
+**From a data encapsulation perspective:**
+- Application logic is *domain specific* and *stateless*
+- State is accessed only through the public interface of the application process
+- State is maintained separately in a *generic* backend store,
+- ... which may be non-SQL if this is more appropriate for the concrete microservice.
+
+**From an operational perspective:**
+- Microservices are scaled elastically by automation,
+- ... driven by configuration maintained as source code,
+- ... rather than directly by human operators.
+- System is always in flux and potentially partial failure
+- ... as service are updated independently.
+- Microservies are typically packaged into [docker container images](https://en.wikipedia.org/wiki/Docker_(software))
+
+The style of application logic development is sometimes referred to as a [12 factor application](https://12factor.net/).
+
+One new emerging trend is to build event driven microservices architectures
+- Communication is restricted to asynchronous message passing
+- Data is stored in a non-SQL event log: event sourcing
 
 ## How it works
 - **Leverage containers**
 	- They allow multilingual apps
 	- They allow resource control
+	
 - **To move as much function as possible...**
 	- Away from the application code
 	- Into "Orchestrators"
 		- Shield the app form the "fallacies of distributed computing"
-	- Ultimately we get to FaaS
+	- Ultimately get to FaaS
+	
 - **Orchestrator enforces particular...**
 	- Shape of the app: what it can do
 	- Assumptions about what it needs
+	
 - **CaaS (K8S, Swarm):**
 	- Apps
 		- Stateful
@@ -93,6 +113,7 @@ The last named individual in this history is currently responsible for this docu
 	- Orchestrator 
 		- Tries to make the environment look as static as possible
 		- Tries to keep at least one instance running
+		
 - **FaaS (OpenWhisk, Fn):**
 	- Apps
 		- Stateless
@@ -104,36 +125,48 @@ The last named individual in this history is currently responsible for this docu
 		- Container exposes a strictly defined call interface to Orchestrator
 			- E.g. `/init` to inject the application code and `/call` to make a function call.
 
-## Problem Description
-- **Problem: Where does OSGi fit?**
-- **OSGi app shape:**
-	- App code in simple bundles: annotation driven 
-		- Especially singe OSGi R7: DS, Bundle annotations, ...
-	- Managing infrastructure on board: `RSA` + `DS` + `ConfigAdmin` + ...
-		- Rather than in the Orchestrator
-- **OSGi app traits:**
-	- Can be deployed on a wide array of operational infrastructure: `os` -> `vm` -> `container`
-	- Module layer provides: building low footprint apps (for a Java app)
-	- Service layer provides: adaptive apps (killer feature?)
-	- Merge/Split depending on scaling needs:
-		- E.g. run my components on the same JVM for dev and in container-per-subsystem in prod.
-		- E.g. redistribute components between JVMs to improve performance/locality.
-- **Solution: approach**
-	- Find OSGI's natural place in today's distributed systems as a peer to the other technologies
-	- **Do not try to match feature-for-feature...**
-		- Other Java platforms: Spring(Boot), Microprofile
-		- Other languages: node.js, Go
-	- **Try to find the problems OSGi solves in a unique way**
-		- If someone solves them better - then see if competition make sense.
+# Problem Description
+**Problem: **
+- Does OSGi fit into microservie architectures?
+- Where does OSGi's unique features provide benefits in microservice architectures?
+- How to integrate OSGi better in a microservice architecture?
+
+**Approach:**
+- **Assume OSGi is a peer to other technologies**
+	- Even though it is possible to design a pure-OSGi stack
+- **Do not try to match feature-for-feature...**
+	- Other Java platforms: Spring(Boot), Microprofile
+	- Other languages: node.js, Go
+- **Try to find the problems OSGi solves in a unique way**
+	- If someone solves them better - then see if competition make sense.
 
 # Requirements
 
 - An open discussion on OSGi's future yielded the lines of inquiry described below.
 - These are not final, we hope to get as much additional suggestions, questions and corrections as possible.
 
-## CaaS, FaaS deployment:
-- **Not strictly "distribution", but relevant**
+## Modern OSGi traits to build on
 
+### Application shape
+- App code in simple bundles: annotation driven 
+	- Especially since OSGi R7: DS, Bundle annotations, ...
+- Has more management infrastructure on board: `RSA` + `ConfigAdmin` + ...
+	- Rather than in the Orchestrator
+- **Module layer:** enables the building low footprint Java apps
+- **Service layer:** enables adaptive apps *(killer feature?)*
+		
+### Architectural agility
+- **Logic distribution agility:**
+	- Build a modular monolith
+	- Break down into microservices
+	- Merge/split depending on scaling needs:
+		- E.g. run my components on the same JVM for dev and in container-per-microservice in prod.
+		- E.g. redistribute components between microservices to improve performance/locality.
+- **Deployment agility:** 
+	- Same application code can be adapted to a wide array of operational infrastructure: `os` -> `vm` -> `container`
+	- Wrap in more/less infrastructural bundles
+
+## CaaS, FaaS deployment:
 - **Pressure on Java to...**
 	- Reduce footprint: disk, (more important) memory 
 	- Reduce startup time
@@ -153,7 +186,11 @@ The last named individual in this history is currently responsible for this docu
 		- Diverges into a different topic: what to do if Java moves to JPMS and abandons OSGi.
 		- Must make sure these still work: extender pattern, whiteboard pattern, requirement/capability/wiring/resource runtime model
 - Adapt to Substrate VM
-	- *New RFP:* Make sure the OSGi core can compile: remove modular layer?
+	- *New RFP:* Make sure the minimal functional OSGi system can compile
+		- OSGi core: remove module layer?
+		- DS: extend bnd to produce substrate reflection call metadata from component xml-sale
+		- ConfigAdmin: ?
+		- Logging: ?
 - Push for light weight components
 	- **Conjecture:** Go, node.js, etc. are efficient because they don't have the Java heavyweight libraries.
 	- Programming model: (lambda/async over)? DS over CDI
@@ -162,15 +199,14 @@ The last named individual in this history is currently responsible for this docu
 		- Do not use REST within a distributed cluster
 	- Persistence:
 		- ?
-		- Persistent Actors
 	- Tracing
 		- ?
 	- ... what else?
 
 ## CaaS communication model
 - CaaS (K8S, Swarm) tend to use a "brute force" approach to shield the application 
-	- Cluster every distributed component
-	- Play with network to keep every component accessible through a static name
+	- (Re)Configure network to keep every component accessible through a static name
+	- Cluster every component to guarantee a remote call will eventually be routed to a functional instance
 	
 ### OSGi now
 - RSA enables a app to handle the true distributed environment dynamics
@@ -189,12 +225,12 @@ The last named individual in this history is currently responsible for this docu
 		2. A component will start when a service with a DB URL property it can use appears
 		3. A component will stop when the DB goes away and restart/recover when it comes back
 	- *NOTE:*  Seems to enable actor-like behavior where components can reset to initial state when remote calls fail
-- **Question:** Can/Should the app react to changes to global system state?
+- **Question:** Can/Should the app react to changes in global system state?
 	- E.g. start processing requests when the entire system is ready?
 		- Rather than just the immediately visible remote endpoints
 	- E.g. user publishes remote endpoints as global signals?
-- *NOTE:* Tie ourselves to "reactive" as in "reactive manifesto" 
-	- But it's more about async message passing, than our type of "reactive"
+- *NOTE:* Tie OSGi to "reactive" as in "reactive manifesto" 
+	- But it's more about async message passing, than the OSGi reactive self-assembly.
 	
 ### OSGi future
 - Adapt RSA to CaaS
@@ -209,7 +245,7 @@ The last named individual in this history is currently responsible for this docu
 		- RSA talks to CaaS to get instance information?
 		- RSA talks to CaaS to get endpoint information?
 	- *Impl or RFP:* Load Balancing Topology Manager
-		- *NOTE:* Compare with what others are doing: Eureka, Envoy, ...
+		- *NOTE:* Compare with what others are doing: Ribbon, Envoy, ...
 		- The distribution provider only distributes
 		- Load balancing decisions should be made by the topology manager: controls the service hook.
 		- Specify at least a name other than `promiscuous` for the topology manager
@@ -263,10 +299,10 @@ The last named individual in this history is currently responsible for this docu
 - Apply OSGi Resolver to distribute bundles between runtimes.
 - *NOTE:* Related to [RFP-188: Features](https://github.com/osgi/design/blob/master/rfps/rfp-0188-Features.pdf)
 
-## Asynchronous programming
+## Asynchronous/event driven programming
 - **Conjecture**: 
-	- Not used in enterprise, because container Orchestrators promise to solve it through brute force scaling.
-	- Used in IoT where the operator has no control over the network.
+	- Not dominant in enterprise, because container Orchestrators try to solve all distributed app issues.
+	- Used in IoT where the operator has no control over the deployment or the network.
 
 - **Helps to express concurrency:**
 	- Improve quality: 
@@ -281,14 +317,24 @@ The last named individual in this history is currently responsible for this docu
 		- Async infrastructure enables access to the fine grained tasks
 	- **Question:** Do OSGi services provide benefits to the async programming model?
 		- No: Promises and PushStreams are libraries
-		- Yes: AsyncService together with RSA
+		- Yes: Async service together with RSA
 
 ### OSGi now
-- AsyncService, Promises, PushStreams
+- Async service, Promises, PushStreams
 	
 ### OSGi future
-- *New RFC:* General purpose messaging service (probably based on PushStreams)
-- *New RFC:* Actors
+- Event based programming models
+- Has broad applications beyond microservices
+
+- [RFP-192 Messaging](https://github.com/osgi/design/blob/master/rfps/rfp-0192-Messaging.pdf)
+	- Integrate OSGi with message queues (MQTT, AMQP) and event logs (Kafka)
+	- Build apps as data pipelines: OSGi service listens to events, digests events, sends events.
+	- Help with event sourcing: dispatch state change events to event log.
+- [RFP-195 Actor Runtime](https://github.com/osgi/design/blob/master/rfps/rfp-0195-Actor-Runtime.pdf)
+	- Move one step up from data pipelines: 
+		- Event processing network is dynamic: actors create/destroy/wire other actors
+		- Enables intuitive representation of state
+	- Help with event sourcing: actor state changes in distinct atomic steps
 
 # Appendix
 
@@ -302,8 +348,8 @@ by it's design and offers the same core patterns.
 Here we explore the design of Hystrix to find analogies with the current OSGi specifications and pinpoint potential
 improvements to OSGi for R8.
 
-[Hystrix](https://github.com/Netflix/Hystrix/wiki/How-it-Works)
-[Hystrix Diagram](https://raw.githubusercontent.com/wiki/Netflix/Hystrix/images/hystrix-command-flow-chart.png)
+- [Hystrix](https://github.com/Netflix/Hystrix/wiki/How-it-Works)
+- [Hystrix Diagram](https://raw.githubusercontent.com/wiki/Netflix/Hystrix/images/hystrix-command-flow-chart.png)
 
 - **Question**: What is it for?
 	- Distributed application resilience to calls to remote dependencies
