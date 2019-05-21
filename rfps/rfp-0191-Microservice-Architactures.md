@@ -2,7 +2,7 @@
 
 ## Abstract
 
-In the last few years the Microservices architectural style increasingly dominates the enterprise IT space. It is a mix of operational practices and application logic distribution patterns. It is increasingly clear that in order to move forward into the future enterprise OSGi has to embrace this architecture. Of particular importance is the packaging of applications into multiple small immutable units. This document is a summary of ideas and discussions on how to better align the OSGi technology with the microservices architecture. It is not a normative document and does not declare any concrete position of the OSGi Alliance nor it's individual members.
+In the last few years the Microservices architectural style increasingly dominates the enterprise IT space. It is a mix of operational practices and application logic distribution patterns. It is increasingly clear that in order to move forward into the future enterprise OSGi has to embrace this architecture. Of particular importance is the packaging of applications into multiple small immutable processes. This document is a summary of ideas and discussions on how to better align the OSGi technology with the microservices architecture. This is not a normative document and does not declare any concrete position of the OSGi Alliance nor it's individual members.
 
 ## License
 
@@ -71,6 +71,7 @@ The last named individual in this history is currently responsible for this docu
 - ... potentially developed in different programming languages.
 
 **From a data encapsulation perspective:**
+
 - Application logic is *domain specific* and *stateless*
 - State is accessed only through the public interface of the application process
 - State is maintained separately in a *generic* backend store,
@@ -84,7 +85,7 @@ The last named individual in this history is currently responsible for this docu
 - ... as service are updated independently.
 - Microservies are typically packaged into [docker container images](https://en.wikipedia.org/wiki/Docker_(software))
 
-The style of application logic development is sometimes referred to as a [12 factor application](https://12factor.net/).
+The general shape of a microservice is sometimes referred to as a [12 factor application](https://12factor.net/).
 
 One new emerging trend is to build event driven microservices architectures
 - Communication is restricted to asynchronous message passing
@@ -92,14 +93,15 @@ One new emerging trend is to build event driven microservices architectures
 
 ## How it works
 - **Leverage containers**
-	- They allow multilingual apps
-	- They allow resource control
+	- They enable uniform deployment of multilingual apps
+	- They enable uniform monitoring/scaling/resource control
 	
 - **To move as much function as possible...**
 	- Away from the application code
 	- Into "Orchestrators"
-		- Shield the app form the "fallacies of distributed computing"
-	- Ultimately get to FaaS
+		- Which rely on the strong encapsulation and common, language agnostic container interface of all microservices.
+		- To shield the app form the "fallacies of distributed computing"
+	- Ultimately this leads to FaaS
 	
 - **Orchestrator enforces particular...**
 	- Shape of the app: what it can do
@@ -109,16 +111,16 @@ One new emerging trend is to build event driven microservices architectures
 	- Apps
 		- Stateful
 		- Long running
-		- Weak at handling changes in environment
+		- Weak at handling changes in distributed environment
 	- Orchestrator 
 		- Tries to make the environment look as static as possible
-		- Tries to keep at least one instance running
-		
+		- Tries to keep at least one instance per microservice running
+	
 - **FaaS (OpenWhisk, Fn):**
 	- Apps
 		- Stateless
 		- Short running
-		- Unaware of environment
+		- Unaware of distributed environment
 	- Orchestrator
 		- Wraps application code into an executor container
 			- E.g. a container with `node.js`
@@ -127,11 +129,13 @@ One new emerging trend is to build event driven microservices architectures
 
 # Problem Description
 **Problem: **
+
 - Does OSGi fit into microservie architectures?
 - Where does OSGi's unique features provide benefits in microservice architectures?
 - How to integrate OSGi better in a microservice architecture?
 
 **Approach:**
+
 - **Assume OSGi is a peer to other technologies**
 	- Even though it is possible to design a pure-OSGi stack
 - **Do not try to match feature-for-feature...**
@@ -177,13 +181,13 @@ One new emerging trend is to build event driven microservices architectures
 	- Java frameworks and libraries have to adapt first (especially to Substrate VM)
 
 ### OSGi now
-- Reduce footprint with the requirement/capability based component assembly.
+- Reduce footprint with the high precision requirement/capability based component assembly
 
 ### OSGi future
 - Adapt to JPMS
 	- [RFP-190: Resource encoding for Java Modules](https://github.com/osgi/design/blob/master/rfps/rfp-0190-Resource%20encoding%20for%20Java%20Modules.odt)
 	- [RFP-143: OSGi connect: remove modular layer](https://osgi.org/svn/documents/trunk/rfps/rfp-0143-OSGiConnect.pdf)
-		- Diverges into a different topic: what to do if Java moves to JPMS and abandons OSGi.
+		- Diverges into a different topic: what to do if the java world moves to JPMS and has to abandon OSGi.
 		- Must make sure these still work: extender pattern, whiteboard pattern, requirement/capability/wiring/resource runtime model
 - Adapt to Substrate VM
 	- *New RFP:* Make sure the minimal functional OSGi system can compile
@@ -229,8 +233,8 @@ One new emerging trend is to build event driven microservices architectures
 	- E.g. start processing requests when the entire system is ready?
 		- Rather than just the immediately visible remote endpoints
 	- E.g. user publishes remote endpoints as global signals?
-- *NOTE:* Tie OSGi to "reactive" as in "reactive manifesto" 
-	- But it's more about async message passing, than the OSGi reactive self-assembly.
+- **Question:** Tie OSGi to "reactive" as in "reactive manifesto"?
+	- Not really: the manifesto it more about async message passing, than OSGi's reactive lifecycle.
 	
 ### OSGi future
 - Adapt RSA to CaaS
@@ -295,9 +299,9 @@ One new emerging trend is to build event driven microservices architectures
 ### OSGi future
 - Automate the distribution decisions.
 - Discover cut lines using the requirements/capability model
-	- E.g. at the remotable services
-- Apply OSGi Resolver to distribute bundles between runtimes.
-- *NOTE:* Related to [RFP-188: Features](https://github.com/osgi/design/blob/master/rfps/rfp-0188-Features.pdf)
+	- E.g. apply the OSGi Resolver to build self-contained subsets.
+	- E.g. by stopping resolution at requirements that bind to remotable service capabilities
+- *NOTE:* Related to [RFC-241: Features](https://github.com/osgi/design/tree/master/rfcs/rfc0241)
 
 ## Asynchronous/event driven programming
 - **Conjecture**: 
@@ -320,8 +324,7 @@ One new emerging trend is to build event driven microservices architectures
 		- Yes: Async service together with RSA
 
 ### OSGi now
-- Async service, Promises, PushStreams
-	
+- `Async` service, `Promises`, `PushStreams`
 ### OSGi future
 - Event based programming models
 - Has broad applications beyond microservices
@@ -339,14 +342,11 @@ One new emerging trend is to build event driven microservices architectures
 # Appendix
 
 ## Hystrix
-Hystrix is a library that adds certain measure of resilience to distributed applications where the prevailing 
-communication mechanism is point-to-point synchronous calls (e.g. HTTP requests).
+Hystrix is a library that adds certain measure of resilience to distributed applications where the prevailing communication mechanism is point-to-point synchronous calls (e.g. HTTP requests).
 
-At present it is succeeded by [ressilience4j](https://github.com/resilience4j/resilience4j), which is inspired
-by it's design and offers the same core patterns.
+At present it is succeeded by [ressilience4j](https://github.com/resilience4j/resilience4j), which is inspired by it's design and offers the same core patterns.
 
-Here we explore the design of Hystrix to find analogies with the current OSGi specifications and pinpoint potential
-improvements to OSGi for R8.
+Here we explore the design of Hystrix to find analogies with the current OSGi specifications and pinpoint potential improvements to OSGi for R8.
 
 - [Hystrix](https://github.com/Netflix/Hystrix/wiki/How-it-Works)
 - [Hystrix Diagram](https://raw.githubusercontent.com/wiki/Netflix/Hystrix/images/hystrix-command-flow-chart.png)
@@ -362,7 +362,7 @@ improvements to OSGi for R8.
 			- E.g. add/remove new nodes to CaaS to handle spikes in load
 			- E.g. CaaS shuffles containers aggressively around the current nodes to saturate them better
 		- **Question:** Does Hystrix help there?
-		
+	
 - **Question**: How does Hystrix relate to the other Netflix projects (Ribbon, Eureka, Archieus)?
 	- It only implements the circuit breaking behavior
 	- It uses Ribbon for client side load balancing
