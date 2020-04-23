@@ -1,0 +1,122 @@
+<HTML>
+<HEAD>
+<META Name="Generator" Content="Lotus Word Pro"></META>
+<TITLE>RFP-0004 HTTP Service RFP (1999-09-16)</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF">
+
+
+<CENTER>
+<TABLE CELLSPACING="0" CELLPADDING="0" WIDTH="719">
+	<TR>
+		<TD ALIGN="LEFT" VALIGN="MIDDLE">Java Expert Group   </TD>
+		<TD ALIGN="LEFT" VALIGN="MIDDLE">&nbsp;  </TD>
+		<TD ALIGN="LEFT" VALIGN="MIDDLE">Hargrave  </TD></TR>
+
+	<TR>
+		<TD ALIGN="LEFT" VALIGN="MIDDLE">Request for Proposal: 0004   </TD>
+		<TD ALIGN="LEFT" VALIGN="MIDDLE">&nbsp;  </TD>
+		<TD ALIGN="LEFT" VALIGN="MIDDLE">IBM Corporation  </TD></TR>
+
+	<TR>
+		<TD ALIGN="LEFT" VALIGN="MIDDLE">Expires 20 days after: 16-Sep-1999  </TD>
+		<TD ALIGN="LEFT" VALIGN="MIDDLE">&nbsp;  </TD>
+		<TD ALIGN="LEFT" VALIGN="MIDDLE">1999-09-16  </TD></TR>
+
+	<TR>
+		<TD ALIGN="LEFT" VALIGN="MIDDLE">rfc-0004.html   </TD>
+		<TD ALIGN="LEFT" VALIGN="MIDDLE">&nbsp;  </TD>
+		<TD ALIGN="LEFT" VALIGN="MIDDLE">&nbsp;  </TD></TR>
+
+</TABLE></CENTER>
+
+<H2 ALIGN="CENTER">Java HTTP Service RFP</H2>
+<H3>Status of this Memo </H3>
+<P>This document suggests the following extension to the OSGi specification for the Open Services Gateway Initiative, and requests discussion. Distribution of this document is unlimited. 
+<P>
+<H3>Abstract </H3>
+<P>A highly useful and desirable service to operate in the Open Services Gateway Initiative Services Framework[1] is an HTTP Service which will provide a Java API to allow Java programs running in the Framework to register Java Servlets and other resources so that they may be accessible via the HTTP protocol. This RFP provides some general goals and guidelines and solicits technical submissions that will lead to defining an HTTP Service API for the Services Framework. 
+<P>
+<H3>Acknowledgment </H3>
+<P>The author wants to acknowledge the contributions of the members of the Connected Alliance and OSGi.&nbsp; 
+<P>
+<H3>Introduction </H3>
+<P>The HTTP Service API defines the set of capabilities needed for the dynamic registration and unregistration of Java Servlets and other resources by Java programs written to run in the Services Framework. 
+<P>
+<H3>Motivation and Rational </H3>
+<P>Devices running the Services Framework will need a simple protocol to allow communication with other devices and renders. A service which supports the ubiquitous HTTP protocol and the Java Servlet programming model will allow Java programs written to run on the Services Framework to provide a user interface that may be rendered on the same or different device by a rendering program, such as a web browser. 
+<P>
+<H3>Technical Discussion </H3>
+<P>The HTTP Service must provide, at a minimum, the following capabilities and features: 
+	<UL TYPE="disc">
+		<LI>Java Servlet API (a.k.a. &quot;servlet.jar&quot;) which provides the definition of the Java Servlet API Java interfaces and classes at the Java Servlet 2.1 API[2] specification level. 
+		<LI>Java Servlet Engine which provides the runtime environment (and thus the implementation of the Java Servlet API) for Java Servlets which conform to the Java Servlet 2.1 API. 
+		<LI>Support for HTTP/1.0[3] or HTTP/1.1[4] protocol. HTTP/1.0 is a &quot;smaller&quot; protocol and thus is more suited for embedded devices. Implementations of the HTTP/1.0 protocol may wish to consider supporting the Keep-Alive feature of HTTP/1.1 as a performance enhancement. 
+		<LI>Java API to allow Java programs written to run in the Services Framework to dynamically register and unregister Java Servlets and other resources into the URI namespace of the HTTP Service.
+		<LI>Java API to allow Java programs written to run in the Services Framework to control the HTTP authentication for access to registered Java Servlets and resources.
+	</UL>
+
+<H3>Security Considerations </H3>
+<P>As a request for specification proposals, this document has no direct security considerations.&nbsp; However, the resulting HTTP Service API may undergo a security review before approval of the API. 
+<P>
+<H3>References </H3>
+<P>[1] Jim Mathis, &quot;Services Framework RFP&quot;, OSGi RFP-0001, 1999-09-16, rfp-0001.html 
+<P>[2] Sun Microsystems, &quot;Java Servlet 2.1 API&quot;, 1999-05-30, <A HREF="http://java.sun.com/products/servlet/2.1/index.html" TARGET="_top">http://java.sun.com/products/servlet/2.1/index.html</A> 
+<P>[3] IETF, &quot;<FONT SIZE="3">Hypertext Transfer Protocol -- HTTP/1.0</FONT>&quot;, 1996-05, <A HREF="http://www.ics.uci.edu/pub/ietf/http/rfc1945.html" TARGET="_top">http://www.ics.uci.edu/pub/ietf/http/rfc1945.html</A>
+<P>[4] IETF, &quot;<FONT SIZE="3">Hypertext Transfer Protocol -- HTTP/1.1</FONT>&quot;, 1999-06, <A HREF="http://www.ics.uci.edu/pub/ietf/http/rfc2616.txt" TARGET="_top">http://www.ics.uci.edu/pub/ietf/http/rfc2616.txt</A>
+<H3>Author's Address </H3>
+<H3></H3>
+<TABLE CELLSPACING="0" CELLPADDING="5" WIDTH="440">
+	<TR>
+		<TD WIDTH="231" ALIGN="LEFT" VALIGN="TOP">First Name:</TD>
+		<TD WIDTH="179" ALIGN="LEFT" VALIGN="TOP"> BJ </TD></TR>
+
+	<TR>
+		<TD ALIGN="LEFT" VALIGN="TOP">Last Name: </TD>
+		<TD ALIGN="LEFT" VALIGN="TOP">Hargrave</TD></TR>
+
+	<TR>
+		<TD ALIGN="LEFT" VALIGN="TOP">Company Name: </TD>
+		<TD ALIGN="LEFT" VALIGN="TOP">IBM Corporation</TD></TR>
+
+	<TR>
+		<TD ALIGN="LEFT" VALIGN="TOP">Company Division: </TD>
+		<TD ALIGN="LEFT" VALIGN="TOP">Pervasive Computing</TD></TR>
+
+	<TR>
+		<TD ALIGN="LEFT" VALIGN="TOP">Street Address: </TD>
+		<TD ALIGN="LEFT" VALIGN="TOP">11400 Burnet Road</TD></TR>
+
+	<TR>
+		<TD ALIGN="LEFT" VALIGN="TOP">City, State, Country, Postal Code: </TD>
+		<TD ALIGN="LEFT" VALIGN="TOP">Austin, TX USA 78758</TD></TR>
+
+	<TR>
+		<TD ALIGN="LEFT" VALIGN="TOP">voice: </TD>
+		<TD ALIGN="LEFT" VALIGN="TOP">+1 512 838 9938</TD></TR>
+
+	<TR>
+		<TD ALIGN="LEFT" VALIGN="TOP">fax: </TD>
+		<TD ALIGN="LEFT" VALIGN="TOP">+1 512 838 2087</TD></TR>
+
+	<TR>
+		<TD ALIGN="LEFT" VALIGN="TOP">e-mail:</TD>
+		<TD ALIGN="LEFT" VALIGN="TOP">hargrave@us.ibm.com</TD></TR>
+
+</TABLE>
+<H3></H3>
+<H3>Full Copyright Statement </H3>
+<P>Copyright (C) The Open Services Gateway Initiative (1999).
+<P>All Rights Reserved.
+<P>This document and translations of it may be copied and furnished to others, and derivative works that comment on or otherwise explain it may be prepared, copied, published and distributed, in whole or in part, without restriction of any kind, provided that the above copyright notice and this paragraph are included on all such copies and derivative works. However, this document itself may not be modified in any way, such as by removing the copyright notice or references to the Open Services Gateway Initiative. 
+<P>The limited permissions granted above are perpetual and will not be revoked by the Open Services Gateway Initiative or its successors or assigns. 
+<P>This document and the information contained herein is provided on an &quot;AS IS&quot; basis and THE OPEN SERVICES GATEWAY INITIATIVE DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT THE USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY RIGHTS OR ANY IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE. 
+<HR>
+<P>Expires 20 days after: 1999-09-16 
+
+
+</BODY>
+
+</HTML>

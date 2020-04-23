@@ -1,0 +1,301 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+  
+<HEAD>
+<TITLE>Position API RFP RFP</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff">
+<CENTER>
+      
+<TABLE WIDTH=90% BORDER="0" CELLSPACING="0" CELLPADDING="0">
+          
+<TR>
+<TD ALIGN=left WIDTH=30%> &nbsp;</TD>
+<TD ALIGN=left WIDTH=50%> &nbsp;</TD>
+<TD ALIGN=left> &nbsp; </TD>
+          </TR>
+<TR>
+<TD ALIGN=> OSGi Vehicle Expert Group</TD>
+<TD ALIGN=> &nbsp;</TD>
+<TD ALIGN=> Vos </TD>
+          </TR>
+          
+<TR>
+            
+<TD ALIGN=left> Request for Proposal: 0001</TD>
+            
+<TD ALIGN=left> &nbsp;</TD>
+            
+<TD ALIGN=left> Acunia </TD>
+          </TR>
+
+          
+<TR>
+            
+<TD ALIGN=left> Expires 20 days after:</TD>
+            
+<TD ALIGN=left> &nbsp;</TD>
+            
+<TD ALIGN=left> 28 Dec 2000 </TD>
+          </TR>
+
+          
+<TR>
+            
+<TD ALIGN=left> rfp-0001.html</TD>
+            
+<TD ALIGN=left> &nbsp;</TD>
+            
+<TD ALIGN=left> &nbsp;</TD>
+          </TR>
+
+          
+<TR>
+            
+<TD ALIGN=left> &nbsp;</TD>
+            
+<TD ALIGN=left> &nbsp;</TD>
+            
+<TD ALIGN=left> &nbsp; </TD>
+          </TR>
+
+        
+</TABLE>
+        
+</CENTER>
+
+        
+<CENTER>
+          
+<H2>Position API RFP</H2>
+        
+</CENTER>
+
+        
+<CENTER>
+        
+<TABLE WIDTH=90% BORDER="0" CELLSPACING="0" CELLPADDING="0">
+          
+<TR>
+            
+<TD ALIGN=left WIDTH=100%>
+              
+<DL>
+                
+<DT>                  Status of this Memo
+                
+</DT>
+                
+<DD>
+This document suggests the following extension to the OSGi specification for 
+the Open Services Gateway Initiative, and requests discussion. Distribution 
+of this document is unlimited.
+</DD>
+
+                
+<DT>&nbsp;
+</DT>
+<DD>&nbsp;</DD>
+
+                
+<DT>Abstract
+</DT>
+                
+<DD>
+In the case of an OSGi Gateway in a moving vehicle, applications may want
+to use the position of the vehicle. This RFP provides an overview of what 
+common position-dependent applications need to know, and it discusses the
+capabilities a position device and a position service should offer.
+</DD>
+
+                
+<DT>&nbsp;
+</DT>
+<DD>&nbsp;</DD>
+
+                
+<DT>&nbsp;
+</DT>
+<DD>&nbsp;</DD>
+
+                
+<DT>                  Introduction
+                
+</DT>
+                
+<DD>
+The Position API provides a standard approach both for position information
+providers as well as for position information consumers.
+</DD>
+
+                
+<DT>&nbsp;
+</DT>
+<DD>&nbsp;</DD>
+
+                
+<DT>                  Motivation and Rational (Optional)
+                
+</DT>
+                
+<DD>
+The activity of many in-vehicle applications is dependent on the location
+of the vehicle. Common examples are navigation services, fleet management and
+relevant traffic information. All applications that need position information
+should have a common approach in order to retrieve this position information.
+On the other hand, different devices delivering position information may
+exist. A Position API defines how applications can retrieve position 
+information and how devices should deliver position information.
+</DD>
+                
+<DT>&nbsp;
+</DT>
+<DD>&nbsp;</DD>
+
+                
+<DT>                  Technical Discussion
+                
+</DT>
+                
+<DD>
+The Position API has to provide a Service that can be used to
+<UL>
+<LI>retrieve the current position of the vehicle
+<LI>retrieve additional information in case this information is available
+<LI>obtain the accuracy of the delivered information
+</UL>
+A Position Service receives its information from one or many Position Devices.
+Different Position Devices exist, each with their own specifications. 
+The Position API defines a generic Position Device that provides information
+towards a Position Service.
+Applications that are interested in position information should be able to
+register this interest. Therefore, the Position Service has to provide 
+a white board approach.
+</DD>
+
+                
+<DT>&nbsp;
+</DT>
+<DD>&nbsp;</DD>
+
+                
+<DT>                  Security Considerations
+                
+</DT>
+                
+<DD>
+Not all applications should have access to the Position Service. The
+OSGi Framework Security Model can be used to restrict access to the 
+Position Service.
+</DD>
+
+                
+<DT>&nbsp;
+</DT>
+<DD>&nbsp;</DD>
+
+                
+                
+<DT>&nbsp;
+</DT>
+<DD>&nbsp;</DD>
+
+                
+<DT>                  Author's Address
+                
+</DT>
+                
+<DD>Johan </DD> 
+<DD>Vos </DD>
+                
+<DD>Acunia </DD>
+                
+<DD>Vanden Tymplestraat </DD>
+                
+<DD>3000 Leuven</DD>
+<DD>Belgium</DD>
+                
+<DD>&nbsp;</DD>
+                
+<DD>voice: +32 16310020 </DD>
+                
+<DD>fax: +32 16310029 </DD>
+                
+<DD>email: <a href="mailto:johan.vos@acunica.com">johan.vos@acunia.com</a></DD>
+
+                
+<DT>&nbsp;
+</DT>
+<DD>&nbsp;</DD>
+
+                
+<DT>                  Full Copyright Statement
+                
+</DT>
+                
+<DD>
+                Copyright (C) The Open Services Gateway Initiative 
+(2000).
+<BR>
+                All Rights Reserved.
+                
+<P>
+                This document and translations of it may be copied and
+                furnished to others, and derivative works that comment 
+on
+                or otherwise explain it may be prepared, copied, 
+published
+                and distributed, in whole or in part, without 
+restriction
+                of any kind, provided that the above copyright notice
+                and this paragraph are included on all such copies and
+                derivative works. However, this document itself may not
+                be modified in any way, such as by removing the 
+copyright
+                notice or references to the Open Services Gateway 
+Initiative.
+                
+<P>
+                The limited permissions granted above are perpetual and
+                will not be revoked by the Open Services Gateway 
+Initiative or its
+                successors or assigns.
+                
+<P>
+                This document and the information contained herein is
+                provided on an "AS IS" basis and THE OPEN SERVICES 
+GATEWAY INITIATIVE
+                DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING
+                BUT NOT LIMITED TO ANY WARRANTY THAT THE USE OF THE
+                INFORMATION HEREIN WILL NOT INFRINGE ANY RIGHTS OR ANY
+                IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A
+                PARTICULAR PURPOSE.
+                
+</DD>
+
+                
+<DT>&nbsp;
+</DT>
+<DD>&nbsp;</DD>
+
+              
+</DL>
+            
+</TD>
+          </TR>
+        
+</TABLE>
+        
+</CENTER>
+
+    
+<HR>
+
+<!-- hhmts start -->
+<BR>
+Expires 20 days after: 28 Dec 2000
+<!-- hhmts end -->
+  
+</BODY>
+</HTML>

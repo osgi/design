@@ -1,0 +1,211 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Generator" content="Lotus Word Pro">
+   <meta name="GENERATOR" content="Mozilla/4.6 [en] (WinNT; I) [Netscape]">
+   <title>RFP-0003 Log Service RFP (1999-09-16)</title>
+</head>
+<body bgcolor="#FFFFFF">
+&nbsp;
+<center><table CELLSPACING=0 CELLPADDING=0 WIDTH="719" >
+<tr>
+<td ALIGN=LEFT VALIGN=CENTER WIDTH="29%">&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=CENTER WIDTH="43%">&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=CENTER>&nbsp;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=CENTER>Java Expert Group&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=CENTER>&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=CENTER>Hargrave&nbsp;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=CENTER>Request for Proposal: 0003&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=CENTER>&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=CENTER>IBM Corporation&nbsp;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=CENTER>Expires 20 days after: (tbd)&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=CENTER>&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=CENTER>1999-09-16&nbsp;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=CENTER>rfc-0003.html&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=CENTER>&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=CENTER>&nbsp;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=CENTER>&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=CENTER>&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=CENTER>&nbsp;</td>
+</tr>
+</table></center>
+
+<center>
+<h2>
+Java Log Service RFP</h2></center>
+
+<h3>
+Status of this Memo</h3>
+This document suggests the following extension to the OSGi specification
+for the Open Services Gateway Initiative, and requests discussion. Distribution
+of this document is unlimited.
+<h3>
+Abstract</h3>
+A key component of the Open Services Gateway Initiative Services Framework[1]
+is a Log Service which will provide a Java API to allow Java programs running
+in the Framework to write information to the log and also to read entries
+from the log. This RFP provides some general goals and guidelines and solicits
+technical submissions that will lead to defining a Log Service API for
+the Services Framework.
+<h3>
+Acknowledgment</h3>
+The author wants to acknowledge the contributions of the members of the
+Connected Alliance and OSGi.
+<h3>
+Introduction</h3>
+The Log Service API defines the set of capabilities needed to allow Java
+programs written to run in the Services Framework to write entries to the
+log containing various information and for entries to be read from the
+log.
+<h3>
+Motivation and Rational</h3>
+For diagnostic and reliability purposes, Java programs written to run on
+the Services Framework will wish to write information to a log that can
+be examined, if necessary, for problem determination.
+<h3>
+Technical Discussion</h3>
+The Log Service must provide, at a minimum, the following capabilities
+and features:
+<ul TYPE="disc">
+<li>
+Ability to record the system time in a log entry.</li>
+
+<li>
+Ability to record severity levels in a log entry.</li>
+
+<li>
+Ability to record a text message in a log entry.</li>
+
+<li>
+Ability to record a Java Throwable object in a log entry.</li>
+
+<li>
+Ability to record the identity of the Java program running in the Services
+Framework that is related to a log entry.</li>
+
+<li>
+The Log Service must provide the ability to read entries from the log by
+enumeration and/or subscription.</li>
+
+<li>
+The Log Service must capture and convert Services Framework events into
+log entries.</li>
+</ul>
+
+<h3>
+Security Considerations</h3>
+As a request for specification proposals, this document has no direct security
+considerations.&nbsp; However, the resulting Log Service API may undergo
+a security review before approval of the API.
+<h3>
+References</h3>
+[1] Jim Mathis, "Services Framework RFP", OSGi RFP-0001, 1999-09-16, rfp-0001.html
+<h3>
+Author's Address</h3>
+
+<table CELLSPACING=0 CELLPADDING=5 WIDTH="440" >
+<tr>
+<td ALIGN=LEFT VALIGN=TOP WIDTH="231">First Name:</td>
+
+<td ALIGN=LEFT VALIGN=TOP WIDTH="179">BJ&nbsp;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>Last Name:&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP>Hargrave</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>Company Name:&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP>IBM Corporation</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>Company Division:&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP>Pervasive Computing</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>Street Address:&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP>11400 Burnet Road</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>City, State, Country, Postal Code:&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP>Austin, TX USA 78758</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>voice:&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP>+1 512 838 9938</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>fax:&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP>+1 512 838 2087</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>e-mail:</td>
+
+<td ALIGN=LEFT VALIGN=TOP>hargrave@us.ibm.com</td>
+</tr>
+</table>
+
+<h3>
+Full Copyright Statement</h3>
+Copyright (C) The Open Services Gateway Initiative (1999).
+<p>All Rights Reserved.
+<p>This document and translations of it may be copied and furnished to
+others, and derivative works that comment on or otherwise explain it may
+be prepared, copied, published and distributed, in whole or in part, without
+restriction of any kind, provided that the above copyright notice and this
+paragraph are included on all such copies and derivative works. However,
+this document itself may not be modified in any way, such as by removing
+the copyright notice or references to the Open Services Gateway Initiative.
+<p>The limited permissions granted above are perpetual and will not be
+revoked by the Open Services Gateway Initiative or its successors or assigns.
+<p>This document and the information contained herein is provided on an
+"AS IS" basis and THE OPEN SERVICES GATEWAY INITIATIVE DISCLAIMS ALL WARRANTIES,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT THE
+USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY RIGHTS OR ANY IMPLIED
+WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.&nbsp;
+<hr>
+<p>Expires 20 days after: (tbd)
+</body>
+</html>

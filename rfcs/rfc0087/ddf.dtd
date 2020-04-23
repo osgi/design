@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT MgmtTree (VerDTD, Man?, Mod?, Node+)>
+<!-- For this version of the DTD, the value is "1.1.1" -->
+<!ELEMENT VerDTD (#PCDATA)>
+<!ELEMENT Man (#PCDATA)>
+<!ELEMENT Mod (#PCDATA)>
+<!-- The node element is recursive, a Node with a Value tag MUST always terminate the recursion. It is possible for a Node to omit both the next recursive Node and a Value, this means that the hierarchy of Nodes continues elsewhere. This can be used to increase readability of very deep trees.-->
+<!ELEMENT Node (NodeName, comment?, Path?, RTProperties?, DFProperties, (Node* | Value?))>
+<!--NodeName MUST be present but may be empty. If empty this means that the name is set when the node is created-->
+<!ELEMENT NodeName (#PCDATA|spec)*>
+<!--Path may be omitted. If omitted it means that the actual Path MUST be constructed from the Path and NodeName values of all ancestral nodes.-->
+<!ELEMENT Path (#PCDATA)>
+<!ELEMENT Value (#PCDATA)>
+<!--RTProperties=Run Time Properties. Properties that exists at run-time in a device. Each node may have a different set of RTProperties. A node that only supports the mandatory properties and does not need any default values for any property and may omit the RTProperties-->
+<!ELEMENT RTProperties (ACL, Format, Name, Size?, Title?, TStamp?, Type, 
+	VerNo?)>
+<!--It is possible to indicate that a property has a default value by inserting the value as PCDATA. This does not apply to the Format property, which MUST use one of the enumerated values. The presence of a property tag, with or without value, indicates that this property is supported. -->
+<!ELEMENT ACL (#PCDATA)>
+<!ELEMENT Format (b64 | bool | chr | int | node | null | xml)>
+<!ELEMENT b64 EMPTY>
+<!ELEMENT bool EMPTY>
+<!ELEMENT chr EMPTY>
+<!ELEMENT int EMPTY>
+<!ELEMENT node EMPTY>
+<!ELEMENT null EMPTY>
+<!ELEMENT xml EMPTY>
+<!ELEMENT Name (#PCDATA)>
+<!ELEMENT Size (#PCDATA)>
+<!ELEMENT Title (#PCDATA)>
+<!ELEMENT TStamp (#PCDATA)>
+<!--For leaf nodes The Type element contains the MIME type of the node. When the Type element is used in the DFProperties element, it may contain a list of several MIME types that the node can support at runtime. At run-time the Type property can only have one value at a time. For interior nodes the Type element MAY contain the name of a DDF document describing the object rooted at this location. If it does not contain a DDF document name the value MUST be null.-->
+<!ELEMENT Type (MIME | DDFName)>
+<!ELEMENT MIME (#PCDATA)>
+<!ELEMENT DDFName (#PCDATA)>
+<!ELEMENT VerNo (#PCDATA)>
+<!--DFProperties=Description Framework Properties. Properties that the node has only in the description framework. These are not explicit at run-time in a device.-->
+<!ELEMENT DFProperties (AccessType, DefaultValue?, Description?, DFFormat, 
+	Occurrence?, Scope?, DFTitle?, DFType)>
+<!ELEMENT AccessType (Add?, Copy?, Delete?, Exec?, Get?, Replace?)>
+<!ELEMENT Add EMPTY>
+<!ELEMENT Copy EMPTY>
+<!ELEMENT Delete EMPTY>
+<!ELEMENT Exec EMPTY>
+<!ELEMENT Get EMPTY>
+<!ELEMENT Replace EMPTY>
+<!ELEMENT DefaultValue (#PCDATA)>
+<!ELEMENT Description (#PCDATA)>
+<!--DFFormat uses the same child elements as Format-->
+<!ELEMENT DFFormat (b64 | bool | chr | int | node | null | xml)>
+<!--Occurrence indicates how many instances of a node that can be created. Note that each node instance MUST have its own unique URI.-->
+<!ELEMENT Occurrence (One | ZeroOrOne | ZeroOrMore | OneOrMore | ZeroOrN | 
+	OneOrN)>
+<!ELEMENT One EMPTY>
+<!ELEMENT ZeroOrOne EMPTY>
+<!ELEMENT ZeroOrMore EMPTY>
+<!ELEMENT OneOrMore EMPTY>
+<!--The two ...OrN tags are used when an definite upper limit of node instances needs to be specified. Note that N > 1.-->
+<!ELEMENT ZeroOrN (#PCDATA)>
+<!ELEMENT OneOrN (#PCDATA)>
+<!ELEMENT Scope (Permanent | Dynamic)>
+<!ELEMENT Permanent EMPTY>
+<!ELEMENT Dynamic EMPTY>
+<!ELEMENT DFTitle (#PCDATA)>
+<!ELEMENT DFType (MIME+ | DDFName)>
+<!ELEMENT comment (#PCDATA)>

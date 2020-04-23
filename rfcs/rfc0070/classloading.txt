@@ -1,0 +1,197 @@
+Classloading model
+
+Introduction
+This article tries to formulate a more formal model of classloading to
+address the requirements that are raised in RFP 44 and further
+discussed in RFC 70. The current RFC addresses the "modules/units" and
+fragments as new features of the classloading mechanism, this text
+attempts to unify these concepts with the existing classloading model.
+
+This unification is important because new concepts like fragments
+and units/modules will otherwise wreak havoc on the existing spec.
+The primary goal of this text is to define units and fragments 
+as a modification of the current classloading model to keep 
+changes to the existing spec to a minimum. Therefore, this text
+tries to define the new requiremenst for Fragments and Units/Modules into
+the semantic of the current model, instead of adding new concepts.
+
+Classloading in Framework R4
+Each bundle installed in the Framework can access a set of classes. These
+classes can come from the following sources:
+
+  System classpath			SYSTEM
+  Shared Class space		PUBLIC
+  From its JAR				PRIVATE
+
+These sources are defined as "class spaces" in this text. Class
+spaces have the following features:
+
+    name uniqueness within a class space (i.e. a class space is a
+    set of resources where each resource has a unique name)
+
+    They can find a the bytes of a resource given a name
+
+    They can turn a resource into a Class object
+
+The name uniqueness of a class space is achieved differently
+by the different types of class spaces (SYSTEM, PUBLIC, PRIVATE). For this
+to define, two concepts need definition.
+
+"sealed" is the concept that classes from a single package must come
+from the same JAR file. This is necessary for the security model (two
+classes from the same package, but different class loaders will get
+security exceptions), but also prevents some problems with versioning. 
+However, unsealed packages are very useful for i18n support, language
+resources must reside in the same package as the original. Also testing
+may leverage the unsealed model to allow access to package protected
+classes and members.
+
+Sealed can be indicated in the manifest and is than an aspect of the
+Package class, or, it can be implicit by the class space due to its
+organization.
+
+"shared" is the concept that a class space shares classes between
+different bundles. It is also possible to only deliver resources
+to a bundle which then uses its own classloader to make these
+resources into classes. In the latter case, each bundle will have
+its own copy of a class. This improves isolation (e.g. static
+fields are no longer shared) but reduces collaboration possibilities
+because of class casts.
+
+"dynamic" indicates that the class space can be changed during 
+run time by adding/removing classes.
+
+Taking these features into account for the current class spaces, we have
+the following table.
+
+          exported                 sealed          shared      dynamic
+          ===============================================================
+SYSTEM    from classpath or        manifest        yes         no
+          optional packages 
+PUBLIC    from exporting bundle    implicit        yes         yes
+PRIVATE   Bundle classpath         implicit        no          no
+
+Fragments and Units
+The key requirement for R4 is to share classes between bundles without 
+using/polluting the PUBLIC namespace. The following use cases indicate
+this:
+
+  - Provide i18n resources to a bundle (this requires loading the i18n
+    resources from another bundle than the implementation, i.e. 
+    requires unsealed packages).
+  - Support a bundle that depends on the implementation of  another
+    bundle. This is necessary when a bundle has no well specified
+    interface.
+
+Solution
+The new requirements introduce new class spaces (This is a big step because
+so far all the class spaces were implicit and could not be enumerated). It
+will mean that it must be possible to name a class space. If a class-space
+has a name, the Import-Package, and Export-Package can subsequently be used to specify
+the features of the class space. The default class space can be called
+PUBLIC, so that existing Import/Export clauses maintain their current meaning.
+
+Rules:
+
+- These new namespaces are "dynamic" because, just like the PUBLIC
+  class space, their resources come from bundles that can be (un)installed.
+- When searching for a class, the named class spaces must be searched at the
+  end of the chain
+
+    SYSTEM, PUBLIC, PRIVATE, (named class spaces)
+
+  Named class spaces are ordered:
+    - in order of their appearance in the
+      Import-Package clause. 
+    - Within a class space, exporters are
+      ordered on bundle-ID
+- Named class spaces are never sealed (#?). PRIVATE is also defined 
+  as unsealed (this used to be undetectable because PRIVATE was the
+  last on the chain).
+- An exporter may indicate that classes should not be shared, this
+  requires the importer to define those classes in its own
+  class loader. The purpose is mainly to allow certain bundles to
+  not require a class loader. 
+- The same package name may be exported multiple times into different
+  named class spaces. This must be done with different clauses.
+- (Dynamically) imported packages may be exported again.
+- Multiple bundles may contribute to the same class-space. 
+  These bundles will be searched in bundle ID order.
+- Imported packages will stay around as long as the bundle
+  has references to them. Refresh packages must work with the
+  same rules as the PUBLIC namespace.
+- Import/Export must be resolved for class-spaces before the
+  bundle is resolved.
+
+Combining this, the Import/Export clause will have the following
+syntax:
+
+    Import-Package: package-description ( ',' import-package-description ) *
+    package-description ::= <package-name> ( ';' import-parameter ) *
+    import-modifier	 ::= specification-version | class-space | implementation-version 
+    specification-version ::= 'specification-version' '=' <version>
+    class-space ::= 'class-space' '=' <name>
+    implementation-version ::= 'implementation-version' '=' <version>
+
+    Export-Package: export-package-description ( ',' export-package-description ) *
+    export-package-description ::= <package-name> ( ';' export-modifier ) *
+    export-modifier	 ::= specification-version | class-space | implementation-version 
+    specification-version ::= 'specification-version' '=' <version>
+    class-space ::= 'class-space' '=' <name>
+    implementation-version ::= 'implementation-version' '=' <version>
+    shared ::= 'shared' '=' ('true' | 'false')
+
+    DynamicImport-Package: <dyn-package-description> [, <dyn-package-description> ]
+    dyn-package-description ::= (package-name| partial-package-name '.*') ( ';' import-modifier ) *
+    
+Fragments
+The new syntax can be used to implement fragments. Assume the following case.
+Bundle A has a package com.a that it wants to support i18n resource
+loading for. Bundle A.du supports the dutch resources for this package.
+
+    A:
+        Import-Package: com.a;class-space='A'
+
+    A.du:
+        Export-Package: com.a;class-space='A';implementation-version=1.6;shared=false
+
+Units
+Units are shared class-spaces between bundles. Assume the following case.
+bundle U has a lazy developer and it requires all classes that are
+exported from bundle V version 1.2.3.
+
+    U:
+      DynamicImport-Package: *;class-space='V';implementation-version=1.2.3
+
+    V: 
+      Export-Package: com.v;class-space='V';implementation-version=1.2.3
+
+Another example. JMF is using Class.forName to create plugins. This means that
+plugin bundles should be exported into the JMF class name.
+
+    P1:
+        Export-Package: com.p1;class-space='JMF';implementation-version='1.2'
+    P2:
+        Export-Package: com.p2;class-space='JMF';implementation-version='1.2'
+
+    JMF:
+        DynamicImport-Package: *;class-space='JMF';implementation-version='1.2'
+
+
+Analysis
+Multiple class spaces introduce clashes that must be carefully analyzed.
+
+ - What happens when a class-space is exported by A as shared and exported
+   by B as unshared?
+   * Obey the instruction of the source, meaning that
+     within a package, one class can be loaded shared and another
+     unshared
+ 
+Later loading of class spaces
+named class spaces must be searched at the end. There exists interesting use cases
+where the loading might be interesting to do before PRIVATE, however, this creates
+the opportunities that a PRIVATE class becomes shadowed by a name class space class
+afterwards. This is a sure way to create package access problems and indeterminism.
+
+...
+

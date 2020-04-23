@@ -1,0 +1,159 @@
+<HTML>
+<HEAD>
+<META Name="Generator" Content="Lotus Word Pro"></META>
+<TITLE>RFP-0005 Services Framework Remote Administration (1999-09-17)</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF">
+
+
+<CENTER>
+<TABLE CELLSPACING="0" CELLPADDING="0" WIDTH="719">
+	<TR>
+		<TD WIDTH="29%" ALIGN="LEFT" VALIGN="MIDDLE">&nbsp;  </TD>
+		<TD WIDTH="43%" ALIGN="LEFT" VALIGN="MIDDLE">&nbsp;  </TD>
+		<TD ALIGN="LEFT" VALIGN="MIDDLE">&nbsp;  </TD></TR>
+
+	<TR>
+		<TD ALIGN="LEFT" VALIGN="MIDDLE">Java Expert Group   </TD>
+		<TD ALIGN="LEFT" VALIGN="MIDDLE">&nbsp;  </TD>
+		<TD ALIGN="LEFT" VALIGN="MIDDLE">Carter/Grimm  </TD></TR>
+
+	<TR>
+		<TD ALIGN="LEFT" VALIGN="MIDDLE">Request for Proposal: 0005   </TD>
+		<TD ALIGN="LEFT" VALIGN="MIDDLE">&nbsp;  </TD>
+		<TD ALIGN="LEFT" VALIGN="MIDDLE">IBM Corporation  </TD></TR>
+
+	<TR>
+		<TD ALIGN="LEFT" VALIGN="MIDDLE">Expires 20 days after: 17-Sep-1999  </TD>
+		<TD ALIGN="LEFT" VALIGN="MIDDLE">&nbsp;  </TD>
+		<TD ALIGN="LEFT" VALIGN="MIDDLE">1999-09-17  </TD></TR>
+
+	<TR>
+		<TD ALIGN="LEFT" VALIGN="MIDDLE">rfc-0005.html   </TD>
+		<TD ALIGN="LEFT" VALIGN="MIDDLE">&nbsp;  </TD>
+		<TD ALIGN="LEFT" VALIGN="MIDDLE">&nbsp;  </TD></TR>
+
+	<TR>
+		<TD ALIGN="LEFT" VALIGN="MIDDLE">&nbsp;   </TD>
+		<TD ALIGN="LEFT" VALIGN="MIDDLE">&nbsp;  </TD>
+		<TD ALIGN="LEFT" VALIGN="MIDDLE">&nbsp;  </TD></TR>
+
+</TABLE></CENTER>
+
+<H2 ALIGN="CENTER">Services Framework Remote Administration RFP</H2>
+<H3>Status of this Memo </H3>
+<P>This document suggests the following extension to the OSGi specification for the Open Services Gateway Initiative, and requests discussion. Distribution of this document is unlimited.
+<P>
+<H3>Abstract </H3>
+<P>A key aspect of the Open Services Gateway Initiative Services Framework[1] is the ability to administrate the framework under the control of a remote managing system. This RFP provides some general goals and guidelines and solicits technical submissions that will lead to defining an administration capability and API for the Services Framework.
+<P>
+<H3>Acknowledgment </H3>
+<P>The author wants to acknowledge the contributions of the members of the Connected Alliance and OSGi.&nbsp;
+<P>
+<H3>Introduction </H3>
+<P>The Remote Administration API enables a managing system to remotely manage and configure the bundles and services on a target device.
+<P>
+<H3>Motivation and Rational </H3>
+<P>The primary goal of the Remote Administration API is to remotely manage and configure bundles and services on a target device.  The Remote Administration API should meet this goal as follows.  First, it should provide a consistent application programming interface (API) to use during development of device management applications.  Second, it should provide the flexibility for implementors to "plug-in" different device management protocols below the Remote Administration API.
+<P>
+<P>Another goal of the Remote Administration API is to enable implementors to deploy implementations in a variety of devices; the different hardware characteristics of the devices affect the amount of code that can run on these devices.  Therefore, the Remote Administration API should require a minimum of components on the managed device; however, an implementor has the flexibility to utilize additional components in devices that can accommodate these components.
+<P>
+<H3>Technical Discussion </H3>
+<P>Administration of the Services Framework must provide, at a minimum, the following capabilities and features:
+<P>
+<UL TYPE="disc">
+	<LI>Remotely administer the Services Framework
+	<LI>Remotely configure services on a managed device.
+	<LI>Minimize the software requirements for a managed device.
+        <ul>
+	<LI>The framework should only require the Java profile[2] for the Services Framework.
+	<LI>Enable services to share common configuration properties.
+        </ul>
+      	<LI>Scalable for mass deployment and configuration.
+        <ul>
+      	<LI>Services must be remotely configurable without a user interface.
+      	<LI>Services may be remotely configurable with a user interface.
+      	<LI>Enables configuration of services when the Services Framework on the target device is down or unavailable.
+      	<LI>Enables an administrator to configure properties en masse for groups of devices.
+      	<LI>Does not require downloading of communication classes from every managed device.
+        </ul>
+      	<LI>Upward compatible.
+        <ul>
+      	<LI>De-couples the configuration state from services.
+      	<LI>Does not require serialization because a serialized object might not be compatible with all current or future JVM's.
+        </ul>
+      	<LI>Protocol neutral.
+</UL>
+<P>
+<H3>Security Considerations </H3>
+<P>As a request for specification proposals, this document has no direct security considerations.&nbsp; However, the resulting Administration capability and API should undergo a security review before approval of the API.
+<P>
+<H3>References </H3>
+<P>[1] Jim Mathis, &quot;Services Framework RFP&quot;, OSGi RFP-0001, 1999-09-16, rfp-0001.html
+<P>[2] Jim Mathis, "Services Framework J2ME Profile RFP", OSGi RFP-0006, 1999-09-17, rfp-0006.html
+<P>[3] Keith Carter/Jon Grimm, "Services Framework Configuration RFP", OSGi RFP-0007, 1999-09-17, rfp-0007.html
+<H3>Author's Address </H3>
+<H3></H3>
+<TABLE CELLSPACING="0" CELLPADDING="5" WIDTH="636">
+	<TR>
+		<TD WIDTH="231" ALIGN="LEFT" VALIGN="TOP">First Name:</TD>
+		<TD WIDTH="179" ALIGN="LEFT" VALIGN="TOP">Keith</TD>
+		<TD WIDTH="182" ALIGN="LEFT" VALIGN="TOP">Jon</TD></TR>
+
+	<TR>
+		<TD ALIGN="LEFT" VALIGN="TOP">Last Name: </TD>
+		<TD ALIGN="LEFT" VALIGN="TOP">Carter</TD>
+		<TD ALIGN="LEFT" VALIGN="TOP">Grimm</TD></TR>
+
+	<TR>
+		<TD ALIGN="LEFT" VALIGN="TOP">Company Name: </TD>
+		<TD ALIGN="LEFT" VALIGN="TOP">IBM Corporation</TD>
+		<TD ALIGN="LEFT" VALIGN="TOP">IBM Corporation</TD></TR>
+
+	<TR>
+		<TD ALIGN="LEFT" VALIGN="TOP">Company Division: </TD>
+		<TD ALIGN="LEFT" VALIGN="TOP">Pervasive Computing</TD>
+		<TD ALIGN="LEFT" VALIGN="TOP">Pervasive Computing</TD></TR>
+
+	<TR>
+		<TD ALIGN="LEFT" VALIGN="TOP">Street Address: </TD>
+		<TD ALIGN="LEFT" VALIGN="TOP">11400 Burnet Road</TD>
+		<TD ALIGN="LEFT" VALIGN="TOP">11400 Burnet Road</TD></TR>
+
+	<TR>
+		<TD ALIGN="LEFT" VALIGN="TOP">City, State, Country, Postal Code: </TD>
+		<TD ALIGN="LEFT" VALIGN="TOP">Austin, TX USA 78758</TD>
+		<TD ALIGN="LEFT" VALIGN="TOP">Austin, TX USA 78758</TD></TR>
+
+	<TR>
+		<TD ALIGN="LEFT" VALIGN="TOP">voice: </TD>
+		<TD ALIGN="LEFT" VALIGN="TOP">+1 512 838 2155</TD>
+		<TD ALIGN="LEFT" VALIGN="TOP">+1 512 838 9203</TD></TR>
+
+	<TR>
+		<TD ALIGN="LEFT" VALIGN="TOP">fax: </TD>
+		<TD ALIGN="LEFT" VALIGN="TOP">+1 512 838 0169</TD>
+		<TD ALIGN="LEFT" VALIGN="TOP">+1 512 838 0169</TD></TR>
+
+	<TR>
+		<TD ALIGN="LEFT" VALIGN="TOP">e-mail:</TD>
+		<TD ALIGN="LEFT" VALIGN="TOP"><A HREF="mailto:carterk@us.ibm.com" TARGET="_top">carterk@us.ibm.com</A></TD>
+		<TD ALIGN="LEFT" VALIGN="TOP"><A HREF="mailto:jgrimm@us.ibm.com" TARGET="_top">jgrimm@us.ibm.com</A></TD></TR>
+
+</TABLE>
+<H3></H3>
+<H3>Full Copyright Statement </H3>
+<P>Copyright (C) The Open Services Gateway Initiative (1999).
+<P>All Rights Reserved.
+<P>This document and translations of it may be copied and furnished to others, and derivative works that comment on or otherwise explain it may be prepared, copied, published and distributed, in whole or in part, without restriction of any kind, provided that the above copyright notice and this paragraph are included on all such copies and derivative works. However, this document itself may not be modified in any way, such as by removing the copyright notice or references to the Open Services Gateway Initiative.
+<P>The limited permissions granted above are perpetual and will not be revoked by the Open Services Gateway Initiative or its successors or assigns.
+<P>This document and the information contained herein is provided on an &quot;AS IS&quot; basis and THE OPEN SERVICES GATEWAY INITIATIVE DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT THE USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY RIGHTS OR ANY IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
+<HR>
+<P>Expires 20 days after: 1999-09-17
+
+
+</BODY>
+
+</HTML>

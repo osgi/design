@@ -1,0 +1,281 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.6 [en] (WinNT; I) [Netscape]">
+   <title>RF-0002 - Device Access RFP</title>
+</head>
+<body bgcolor="#FFFFFF">
+&nbsp;
+<center><table BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="90%" >
+<tr>
+<td ALIGN=LEFT WIDTH="30%">&nbsp;</td>
+
+<td ALIGN=LEFT WIDTH="50%">&nbsp;</td>
+
+<td ALIGN=LEFT>&nbsp;</td>
+</tr>
+
+<tr>
+<td>Java Expert Group&nbsp;</td>
+
+<td>&nbsp;</td>
+
+<td>Mathis</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT>Request for Proposal: 0002</td>
+
+<td ALIGN=LEFT>&nbsp;</td>
+
+<td ALIGN=LEFT>Motorola&nbsp;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT>Expires 20 days after: (tbd)</td>
+
+<td ALIGN=LEFT>&nbsp;</td>
+
+<td ALIGN=LEFT>16 Sept 1999&nbsp;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT>rfp-0002.html</td>
+
+<td ALIGN=LEFT>&nbsp;</td>
+
+<td ALIGN=LEFT>&nbsp;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT>&nbsp;</td>
+
+<td ALIGN=LEFT>&nbsp;</td>
+
+<td ALIGN=LEFT>&nbsp;</td>
+</tr>
+</table></center>
+
+<center>
+<h2>
+Device Access RFP</h2></center>
+
+<center><table BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="90%" >
+<tr>
+<td ALIGN=LEFT WIDTH="100%">
+<dl>
+<dt>
+Status of this Memo&nbsp;</dt>
+
+<dd>
+This document suggests the following improvement to the OSGi specification
+for the Open Services Gateway Initiative, and requests discussion. Distribution
+of this document is unlimited.&nbsp;</dd>
+
+<dt>
+&nbsp;</dt>
+
+<dd>
+&nbsp;</dd>
+
+<dt>
+Abstract&nbsp;</dt>
+
+<dd>
+A key component of the Open Services Gateway initiative is an open framework
+that defines how services access devices attached to the gateway, either
+directly or via a local network..&nbsp; This RFP provides some general
+goals and guidelines and solicits technical submissions that will lead
+to defining a Java-based device access API.</dd>
+
+<dt>
+&nbsp;</dt>
+
+<dd>
+&nbsp;</dd>
+
+<dt>
+Acknowledgment&nbsp;</dt>
+
+<dd>
+The author wants to acknowledge the contributions of the members of the
+Connected Alliance.&nbsp;</dd>
+
+<dt>
+&nbsp;</dt>
+
+<dd>
+&nbsp;</dd>
+
+<dt>
+Introduction&nbsp;</dt>
+
+<dd>
+The device framework Java API defines a basic set of capabilities needed
+for on-demand dynamically loaded services for devices, appliances and network
+hardware attached to an open service gateway.&nbsp; Examples of such devices
+include security systems, sensors, coffee makers, remotely controlled appliances,
+TV set top boxes, and personal computers.&nbsp; The API must support both
+devices attached directly to the gateway and devices accessed from the
+gateway via a local communications network.&nbsp; The API must not require
+any specific network architecture and must work with a diverse set of wired
+and wireless local network technologies.&nbsp; The device APIs&nbsp; must
+work in&nbsp; resource constrained devices and should leverage as best
+possible existing Java APIs, tools, and techniques.</dd>
+
+<dt>
+&nbsp;</dt>
+
+<dd>
+While device access APIs for other languages and runtime environments may
+be useful in the future, this RFP is focused explicitly only on a Java
+language API running in conjunction with a services framework API [1].</dd>
+
+<dt>
+&nbsp;</dt>
+
+<dd>
+&nbsp;</dd>
+
+<dt>
+Technical Discussion&nbsp;</dt>
+
+<dd>
+The device framework Java API must provide, at a minimum, the following
+capabilities and features:</dd>
+
+<ul>
+<li>
+On-demand loading of device and network services using the services framework
+Java API.</li>
+
+<li>
+Independence from any specific network architecture.</li>
+
+<li>
+Compatible with any of the emerging local networking standards, including
+HomeRF and Bluetooth.</li>
+
+<li>
+Independence from any specific device characteristics.</li>
+
+<li>
+Automatic addition and deletion of devices when supported by the underlying
+communication mechanisms.</li>
+
+<li>
+Manual configuration of legacy local networks and their attached devices.</li>
+</ul>
+
+<dd>
+Additional feature and capability requirements may be found in the Market
+Requirements document currently being developed.&nbsp; Other attributes
+and capabilities of the device access API may be defined during the course
+of the development of the API specification.</dd>
+
+<dt>
+&nbsp;</dt>
+
+<dd>
+&nbsp;</dd>
+
+<dt>
+Security Considerations&nbsp;</dt>
+
+<dd>
+As a request for technical proposals, this document has no direct security
+considerations.&nbsp; However, the resulting device access API may significantly
+impact the security of services running within a gateway and a security
+review is needed before approval of the API.</dd>
+
+<dt>
+&nbsp;</dt>
+
+<dd>
+&nbsp;</dd>
+
+<dt>
+References&nbsp;</dt>
+
+<dd>
+[1] Mathis, J., "Services Framework RFP", RFP-0001, September 16, 1999.&nbsp;</dd>
+
+<dt>
+&nbsp;</dt>
+
+<dd>
+&nbsp;</dd>
+
+<dt>
+Author's Address&nbsp;</dt>
+
+<dd>
+First Name: Jim</dd>
+
+<dd>
+Last Name: Mathis</dd>
+
+<dd>
+Company Name: Motorola</dd>
+
+<dd>
+Company Division: Personal Networking Group</dd>
+
+<dd>
+Street Address: 50 E. Commerce Drive</dd>
+
+<dd>
+City, State, Country, Postal Code: Schaumburg IL, USA 60173</dd>
+
+<dd>
+&nbsp;</dd>
+
+<dd>
+voice: + 1-847-576-0674</dd>
+
+<dd>
+fax: + 1-847-538-4253</dd>
+
+<dd>
+email: <a href="mailto:jim.mathis@motorola.com">jim.mathis@motorola.com</a></dd>
+
+<dt>
+&nbsp;</dt>
+
+<dd>
+&nbsp;</dd>
+
+<dt>
+Full Copyright Statement&nbsp;</dt>
+
+<dd>
+Copyright (C) The Open Services Gateway Initiative (1999).</dd>
+
+<br>All Rights Reserved.&nbsp;
+<p>This document and translations of it may be copied and furnished to
+others, and derivative works that comment on or otherwise explain it may
+be prepared, copied, published and distributed, in whole or in part, without
+restriction of any kind, provided that the above copyright notice and this
+paragraph are included on all such copies and derivative works. However,
+this document itself may not be modified in any way, such as by removing
+the copyright notice or references to the Open Services Gateway Initiative.&nbsp;
+<p>The limited permissions granted above are perpetual and will not be
+revoked by the Open Services Gateway Initiative or its successors or assigns.&nbsp;
+<p>This document and the information contained herein is provided on an
+"AS IS" basis and THE OPEN SERVICES GATEWAY INITIATIVE DISCLAIMS ALL WARRANTIES,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT THE
+USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY RIGHTS OR ANY IMPLIED
+WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.&nbsp;
+<dt>
+&nbsp;</dt>
+
+<dd>
+&nbsp;</dd>
+</dl>
+</td>
+</tr>
+</table></center>
+
+<hr><!-- hhmts start -->
+<br>Expires 20 days after: (tbd)<!-- hhmts end -->

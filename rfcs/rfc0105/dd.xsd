@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.osgi.org/xmlns/dd/v.1.0" xmlns:md="http://www.osgi.org/xmlns/dd/v.1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xsd:element name="environment" >
+		<xsd:complexType>
+			<xsd:attribute name="envtype" type="xsd:anyURI" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

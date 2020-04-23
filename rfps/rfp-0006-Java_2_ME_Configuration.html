@@ -1,0 +1,307 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.6 [en] (WinNT; I) [Netscape]">
+   <title>RFP-0006 - Java 2 Micro Edition Configuration RFP</title>
+</head>
+<body bgcolor="#FFFFFF">
+&nbsp;
+<center><table BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="90%" >
+<tr>
+<td ALIGN=LEFT WIDTH="30%">&nbsp;</td>
+
+<td ALIGN=LEFT WIDTH="50%">&nbsp;</td>
+
+<td ALIGN=LEFT>&nbsp;</td>
+</tr>
+
+<tr>
+<td>Java Expert Group&nbsp;</td>
+
+<td>&nbsp;</td>
+
+<td>Mathis</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT>Request for Proposal: 0006</td>
+
+<td ALIGN=LEFT>&nbsp;</td>
+
+<td ALIGN=LEFT>Motorola&nbsp;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT>Expires 20 days after: 20-Sep-1999</td>
+
+<td ALIGN=LEFT>&nbsp;</td>
+
+<td ALIGN=LEFT>20 Sept 1999&nbsp;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT>rfp-0006.html</td>
+
+<td ALIGN=LEFT>&nbsp;</td>
+
+<td ALIGN=LEFT>&nbsp;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT>&nbsp;</td>
+
+<td ALIGN=LEFT>&nbsp;</td>
+
+<td ALIGN=LEFT>&nbsp;</td>
+</tr>
+</table></center>
+
+<center>
+<h2>
+Java 2 Micro Edition Configuration RFP</h2></center>
+
+<center><table BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="90%" >
+<tr>
+<td ALIGN=LEFT WIDTH="100%">
+<dl>
+<dt>
+Status of this Memo&nbsp;</dt>
+
+<dd>
+This document suggests the following improvement to the OSGi specification
+for the Open Services Gateway Initiative, and requests discussion. Distribution
+of this document is unlimited.&nbsp;</dd>
+
+<dt>
+&nbsp;</dt>
+
+<dd>
+&nbsp;</dd>
+
+<dt>
+Abstract&nbsp;</dt>
+
+<dd>
+An important target for OSGi implementations is constrained resource devices
+where the Java 2 Micro Edition technology is more appropriate than the
+full PersonalJava environment. This RFP provides some general goals and
+guidelines and solicits technical submissions that will lead to either
+selecting one of the predefined J2ME configurations (such as limited or
+connected device) or defining a new J2ME configuration specific for OSGi.</dd>
+
+<dt>
+&nbsp;</dt>
+
+<dd>
+&nbsp;</dd>
+
+<dt>
+Introduction&nbsp;</dt>
+
+<dd>
+To promote the portability of 3rd party services amongst independently
+developed implementations of the OSGi specification, it is necessary to
+specify the minimum Java execution environment that can be assumed available
+on any OSGi platform.&nbsp; The Java 2 Micro Edition technology has the
+smallest resource requirements of any standard Java environment and is
+upwards compatible with other Java runtime environments such as PersonalJava
+and desktop and enterprise versions of Java.&nbsp; Thus some form of J2ME
+is an appropriate base.&nbsp;</dd>
+
+<dt>
+&nbsp;</dt>
+
+<dd>
+&nbsp;</dd>
+
+<dt>
+Technical Discussion&nbsp;</dt>
+
+<dd>
+The J2ME architecture is modular and scalable and supports the kind of
+flexible deployment needed by the OSGi gateway market. While the KVM of
+J2ME is targeted at devices containing 16- or 32-bit processors and a total
+memory footprint of approximately 256K bytes, the KVM can be deployed flexibly
+to address a range of trade-offs between space and functionality. In addition,
+J2ME provides a range of virtual machine technologies, each optimized for
+different processor types and memory footprints.</dd>
+
+<dt>
+&nbsp;</dt>
+
+<dd>
+The J2ME architecture defines a small core API which must be fully implemented
+in every J2ME compatible device. Beyond the core, J2ME can be deployed
+in several configurations. Each configuration addresses a particular "class"
+of device and specifies a set of APIs and Java virtual machine features
+that users and content providers can assume are present on those devices.
+Application developers and content providers must design their code to
+stay within the bounds of the Java virtual machine features and APIs specified
+by that configuration. In this way, interoperability can be guaranteed
+among the various applications and devices in a particular class.</dd>
+
+<dt>
+&nbsp;</dt>
+
+<dd>
+Sun and the Java community is in the process of defining two standard J2ME
+configurations, one for connected devices (JSR-000036)[1] and one for limited
+connectivity devices (JSR-000030)[2].&nbsp; The JSR and CAFE for Limited,
+Connected Devices is closed.&nbsp; The JSR comment period for JSR-000036
+has closed and the call for experts is expected soon.&nbsp; While it is
+too early to determine if either of these configurations will be suitable
+for OSGi, picking a standard configuration is highly desirable in terms
+of exploiting the larger installed developer base that comes from using
+a standard configuration.</dd>
+
+<dt>
+&nbsp;</dt>
+
+<dd>
+Participants in this effort are expected to keep apprised of, and possibly
+participate in, the work of defining the standard Connected Device J2ME
+configuration.</dd>
+
+<dt>
+&nbsp;</dt>
+
+<dd>
+The OSGi adopted Java 2 Micro Edition configuration should provide the
+following:</dd>
+
+<ul>
+<li>
+Smallest practical memory footprint.</li>
+
+<li>
+Suitably rich environment for bundle developers.</li>
+
+<li>
+Support for service aggregators that can resell rebundle services developed
+by 3rd parties.</li>
+
+<li>
+Support the packages defined as required in the OSGi profile.&nbsp; Required
+packages may include the service framework, device access,&nbsp; remote
+administration and others.</li>
+
+<li>
+Provide sufficient JDK 1.2 security classes to provide the required gateway
+security.</li>
+</ul>
+
+<dd>
+Additional feature and capability requirements may be found in the Market
+Requirements document currently being developed.&nbsp;</dd>
+
+<dt>
+&nbsp;</dt>
+
+<dd>
+&nbsp;</dd>
+
+<dt>
+Security Considerations&nbsp;</dt>
+
+<dd>
+As a request for technical proposals, this document has no direct security
+considerations.&nbsp; However, the resulting runtime environment will contain
+security APIs that will impact the security of services running within
+a gateway and a security review is needed before approval of the configuration.</dd>
+
+<dt>
+&nbsp;</dt>
+
+<dd>
+&nbsp;</dd>
+
+<dt>
+References&nbsp;</dt>
+
+<dd>
+[1] Russell, K, "JSR-000036 J2ME Connected Device Configuration",&nbsp;
+<a href="http://java.sun.com/aboutJava/communityprocess/jsr/jsr_036_j2mecd.html">JSR-000036</a>.</dd>
+
+<dd>
+[2] Brenner, A, "JSR-000030 J2ME Connected, Limited Device Configuration",
+<a href="http://java.sun.com/aboutJava/communityprocess/jsr/jsr_030_j2melc.html">JSR-000030</a>.</dd>
+
+<dt>
+&nbsp;</dt>
+
+<dd>
+&nbsp;</dd>
+
+<dt>
+Author's Address&nbsp;</dt>
+
+<dd>
+First Name: Jim</dd>
+
+<dd>
+Last Name: Mathis</dd>
+
+<dd>
+Company Name: Motorola</dd>
+
+<dd>
+Company Division: Personal Networking Group</dd>
+
+<dd>
+Street Address: 50 E. Commerce Drive</dd>
+
+<dd>
+City, State, Country, Postal Code: Schaumburg IL, USA 60173</dd>
+
+<dd>
+&nbsp;</dd>
+
+<dd>
+voice: + 1-847-576-0674</dd>
+
+<dd>
+fax: + 1-847-538-4253</dd>
+
+<dd>
+email: <a href="mailto:jim.mathis@motorola.com">jim.mathis@motorola.com</a></dd>
+
+<dt>
+&nbsp;</dt>
+
+<dd>
+&nbsp;</dd>
+
+<dt>
+Full Copyright Statement&nbsp;</dt>
+
+<dd>
+Copyright (C) The Open Services Gateway Initiative (1999).</dd>
+
+<br>All Rights Reserved.&nbsp;
+<p>This document and translations of it may be copied and furnished to
+others, and derivative works that comment on or otherwise explain it may
+be prepared, copied, published and distributed, in whole or in part, without
+restriction of any kind, provided that the above copyright notice and this
+paragraph are included on all such copies and derivative works. However,
+this document itself may not be modified in any way, such as by removing
+the copyright notice or references to the Open Services Gateway Initiative.&nbsp;
+<p>The limited permissions granted above are perpetual and will not be
+revoked by the Open Services Gateway Initiative or its successors or assigns.&nbsp;
+<p>This document and the information contained herein is provided on an
+"AS IS" basis and THE OPEN SERVICES GATEWAY INITIATIVE DISCLAIMS ALL WARRANTIES,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT THE
+USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY RIGHTS OR ANY IMPLIED
+WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.&nbsp;
+<dt>
+&nbsp;</dt>
+
+<dd>
+&nbsp;</dd>
+</dl>
+</td>
+</tr>
+</table></center>
+
+<hr><!-- hhmts start -->
+<br>Expires 20 days after: 20 Sept 1999<!-- hhmts end -->

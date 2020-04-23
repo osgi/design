@@ -1,0 +1,291 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.6 [en] (WinNT; I) [Netscape]">
+   <title>Service Lookup RFP (04-Oct-1999)</title>
+</head>
+<body bgcolor="#FFFFFF">
+&nbsp;
+<center><table BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="600" >
+<tr>
+<td ALIGN=LEFT WIDTH="30%"></td>
+
+<td ALIGN=LEFT WIDTH="50%"></td>
+
+<td ALIGN=LEFT></td>
+</tr>
+
+<tr>
+<td>Java Expert Group&nbsp;</td>
+
+<td></td>
+
+<td>Kriens/Idermark</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT>Request for Proposal: 0010</td>
+
+<td ALIGN=LEFT></td>
+
+<td ALIGN=LEFT>ERICSSON&nbsp;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT>Expires 20 days after: (tbd)</td>
+
+<td ALIGN=LEFT></td>
+
+<td ALIGN=LEFT>04 Oct 1999&nbsp;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT>rfc-0010.html</td>
+
+<td ALIGN=LEFT></td>
+
+<td ALIGN=LEFT></td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT></td>
+
+<td ALIGN=LEFT></td>
+
+<td ALIGN=LEFT></td>
+</tr>
+</table></center>
+
+<center>
+<h2>
+Service Lookup Service</h2></center>
+
+<center><table BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="600" >
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>
+<h4>
+<b>Status of this Memo</b></h4>
+
+<dl>
+<dt>
+This document suggests the following extension to the OSGi specification
+and requests discussion. Distribution of this document is unlimited.&nbsp;</dt>
+
+<h4>
+Abstract&nbsp;</h4>
+The ServiceSpace [1] API has been limited in functionality to allow even
+very small devices to utilize it. This document requests and RFC that will
+extend the ServiceSpace API with a facility to find services based on selection
+criteria.&nbsp;
+<h4>
+Introduction&nbsp;</h4>
+The ServiceSpace API does not support a lookup facility for services. Services
+can only be obtained via the ServiceDescription. However, in many cases
+there is a need for a facility where a service can be found via its property
+values instead of its name.&nbsp;
+<br>For example, a print service could register its service with a location
+property. This would allow any other service that wants to print to present
+a list of printing services that are close to a certain location.&nbsp;
+<p>This RFP seeks RFCs that propose a service that can supply a filter
+mechanism for services.&nbsp;
+<h4>
+Terminology</h4>
+A <i>filter </i>is a construction that asserts one or more values on a
+property.&nbsp;
+<br>A <i>property</i> is a named attribute of a service. Each attribute
+can contain 0 or more values.&nbsp;
+<br>A <i>value</i> can be an instance of different data types.&nbsp;
+<h4>
+Technical Discussion</h4>
+
+<h5>
+The API must have:</h5>
+
+<ol>
+<li>
+An OSGi service where other services can be enumerated that match a filter.</li>
+</ol>
+
+<h5>
+The API should have:</h5>
+
+<ol>
+<li>
+The API should fit in the standard OSGi environment as described in [1]
+and [2].</li>
+
+<li>
+A standard set of attributes plus a mechanism to extend this</li>
+
+<li>
+Well defined rules for matching different data types&nbsp;</li>
+
+<li>
+Filters should support constructs like AND, OR and NOT.</li>
+
+<li>
+Filters should support sub expressions</li>
+
+<li>
+A service property must be allowed to have multiple values</li>
+
+<li>
+Magnitude comparisons (>,&lt;) should be supported for the appropriate
+attributes.</li>
+</ol>
+
+<h5>
+The API could have:</h5>
+
+<ol>
+<li>
+API's based on earlier standards are preferable.</li>
+
+<li>
+The minimum implementation must be possible to make it small (e.g. &lt;8K).</li>
+
+<li>
+It must be possible to construct a filter in run time.</li>
+
+<li>
+Filters should be human readable</li>
+
+<li>
+A mapping to existing service lookup mechanisms: SLP [5], SSDP[6], JINI
+[4], LDAP [3].</li>
+
+<li>
+Regular expression matching, approximate matching, presence testing.</li>
+</ol>
+
+<h4>
+Security Considerations&nbsp;</h4>
+The list of services should only contain services to which this service
+has access to.&nbsp;
+<h4>
+References&nbsp;</h4>
+[1] Jim Mathis, "Services Framework RFP", OSGi RFP-0001, 1999-09-16, rfp-0001.html&nbsp;
+<br>[2] Jim Mathis, "Services Framework J2ME Profile RFP", OSGi RFP-0006,
+1999-09-17, rfp-0006.html&nbsp;
+<br>[3] LDAP Filter syntax, RFC1960, http://sunsite.hr/cgi-bin/rfc/rfc1960.txt&nbsp;
+<br>[4] JINI, http://www.sun.com/jini/&nbsp;
+<br>[5] SLP, http://194.52.182.96/rfc/rfc2165.html&nbsp;
+<br>[6] SSDP, http://search.ietf.org/internet-drafts/draft-cai-ssdp-v1-02.txt&nbsp;
+<h3>
+&nbsp;Author's Address&nbsp;</h3>
+
+<table CELLSPACING=0 CELLPADDING=5 WIDTH="600" >
+<tr>
+<td ALIGN=LEFT VALIGN=TOP WIDTH="231">First Name:</td>
+
+<td ALIGN=LEFT VALIGN=TOP WIDTH="179">Peter</td>
+
+<td ALIGN=LEFT VALIGN=TOP WIDTH="182">Tom</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>Last Name:&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP>Kriens</td>
+
+<td ALIGN=LEFT VALIGN=TOP>Idermark</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>Company Name:&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP>ERICSSON</td>
+
+<td ALIGN=LEFT VALIGN=TOP>ERICSSON</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>Company Division:&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP></td>
+
+<td ALIGN=LEFT VALIGN=TOP></td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>Street Address:&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP>Finnasandsvagen</td>
+
+<td ALIGN=LEFT VALIGN=TOP>Teknikringen 8</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>City, State, Country, Postal Code:&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP>Onsala,,Sweden,43933</td>
+
+<td ALIGN=LEFT VALIGN=TOP>Linkoping,,Sweden,581 17</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>voice:&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP>+46 70 5950899</td>
+
+<td ALIGN=LEFT VALIGN=TOP>+46 13 322104</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>fax:&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP>+46 300 39805</td>
+
+<td ALIGN=LEFT VALIGN=TOP></td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>e-mail:</td>
+
+<td ALIGN=LEFT VALIGN=TOP><a href="mailto:Peter.Kriens@aQute.se" TARGET="_top">Peter.Kriens@aQute.se</a></td>
+
+<td ALIGN=LEFT VALIGN=TOP><a href="mailto:tom.idermark@era.ericsson.se">tom.idermark@era.ericsson.se</a></td>
+</tr>
+</table>
+
+<h4>
+Full Copyright Statement&nbsp;</h4>
+
+<dd>
+Copyright (C) The Open Services Gateway Initiative (1999).</dd>
+
+<br>All Rights Reserved.&nbsp;
+<p>This document and translations of it may be copied and furnished to
+others, and derivative works that comment on or otherwise explain it may
+be prepared, copied, published and distributed, in whole or in part, without
+restriction of any kind, provided that the above copyright notice and this
+paragraph are included on all such copies and derivative works. However,
+this document itself may not be modified in any way, such as by removing
+the copyright notice or references to the Open Services Gateway Initiative.&nbsp;
+<p>The limited permissions granted above are perpetual and will not be
+revoked by the Open Services Gateway Initiative or its successors or assigns.&nbsp;
+<p>This document and the information contained herein is provided on an
+"AS IS" basis and THE OPEN SERVICES GATEWAY INITIATIVE DISCLAIMS ALL WARRANTIES,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT THE
+USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY RIGHTS OR ANY IMPLIED
+WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.&nbsp;
+<dt>
+&nbsp;</dt>
+
+<dd>
+&nbsp;</dd>
+</dl>
+</td>
+</tr>
+
+<tr>
+<td></td>
+</tr>
+</table></center>
+
+<hr>
+<br>&nbsp;
+<p>Expires 20 days after: (tbd)
+</body>
+</html>

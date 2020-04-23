@@ -1,0 +1,291 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.6 [en] (WinNT; I) [Netscape]">
+   <title>RFP-0001 - Services Framework RFP</title>
+</head>
+<body bgcolor="#FFFFFF">
+&nbsp;
+<center><table BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="90%" >
+<tr>
+<td ALIGN=LEFT WIDTH="30%">&nbsp;</td>
+
+<td ALIGN=LEFT WIDTH="50%">&nbsp;</td>
+
+<td ALIGN=LEFT>&nbsp;</td>
+</tr>
+
+<tr>
+<td>Java Expert Group&nbsp;</td>
+
+<td>&nbsp;</td>
+
+<td>Mathis</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT>Request for Proposal: 0001</td>
+
+<td ALIGN=LEFT>&nbsp;</td>
+
+<td ALIGN=LEFT>Motorola&nbsp;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT>Expires 20 days after: (tbd)</td>
+
+<td ALIGN=LEFT>&nbsp;</td>
+
+<td ALIGN=LEFT>16 Sept 1999&nbsp;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT>rfp-0001.html</td>
+
+<td ALIGN=LEFT>&nbsp;</td>
+
+<td ALIGN=LEFT>&nbsp;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT>&nbsp;</td>
+
+<td ALIGN=LEFT>&nbsp;</td>
+
+<td ALIGN=LEFT>&nbsp;</td>
+</tr>
+</table></center>
+
+<center>
+<h2>
+Services Framework RFP</h2></center>
+
+<center><table BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="90%" >
+<tr>
+<td ALIGN=LEFT WIDTH="100%">
+<dl>
+<dt>
+Status of this Memo&nbsp;</dt>
+
+<dd>
+This document suggests the following improvement to the OSGi specification
+for the Open Services Gateway Initiative, and requests discussion. Distribution
+of this document is unlimited.&nbsp;</dd>
+
+<dt>
+&nbsp;</dt>
+
+<dd>
+&nbsp;</dd>
+
+<dt>
+Abstract&nbsp;</dt>
+
+<dd>
+A key component of the Open Services Gateway initiative is an open framework
+that defines the service execution environment for vendor and 3rd party
+services.&nbsp; This RFP provides some general goals and guidelines and
+solicits technical submissions that will lead to defining a Java service
+framework API.</dd>
+
+<dt>
+&nbsp;</dt>
+
+<dd>
+&nbsp;</dd>
+
+<dt>
+Acknowledgment&nbsp;</dt>
+
+<dd>
+The author wants to acknowledge the contributions of the members of the
+Connected Alliance.&nbsp;</dd>
+
+<dt>
+&nbsp;</dt>
+
+<dd>
+&nbsp;</dd>
+
+<dt>
+Introduction&nbsp;</dt>
+
+<dd>
+The Java services framework API defines a basic set of capabilities needed
+to deploy and operate independently developed services within an open services
+gateway context. The gateway device will&nbsp; typically be installed,
+operated and maintained by an OSG operator and will run a set of 3rd party
+services bundled together by a service aggregator.&nbsp; The service framework
+must support the deployment of services to resource constrained devices
+and must provide sufficient security to prevent unauthorized interactions
+between services. The defined framework should leverage as best possible
+existing Java APIs, tools, and techniques.</dd>
+
+<dt>
+&nbsp;</dt>
+
+<dd>
+While service framework APIs for other languages and runtime environments
+may be useful in the future, this RFP is focused explicitly only on a Java
+language API.</dd>
+
+<dd>
+&nbsp;</dd>
+
+<dt>
+Technical Discussion&nbsp;</dt>
+
+<dd>
+The services framework API must provide, at a minimum, the following capabilities
+and features:</dd>
+
+<ul>
+<li>
+Complete life cycle management of securely deploying services, including
+the ability to suspend operation and dynamically update installed software.</li>
+
+<li>
+Mechanisms to allow services to be downloaded when needed and the memory&nbsp;
+reclaimed when the service is no longer used.</li>
+
+<li>
+Simple query mechanism for locating and using services that are running
+within a single gateway device.</li>
+
+<li>
+Security of service interactions within a single gateway device.</li>
+
+<li>
+Local administration of services.</li>
+
+<li>
+Mechanisms to describe the required runtime environment.</li>
+
+<li>
+Mechanisms to declare dependencies on other services, packages, and native
+code libraries.</li>
+
+<li>
+Protected, persistent storage area for storing configuration information.</li>
+
+<li>
+Standardized mechanism for configuring services.</li>
+
+<li>
+Mechanisms to enable an off-line check of package dependencies to support
+preload determination of program footprint by a service aggregator.&nbsp;</li>
+
+<li>
+Support for service aggregators that can resell rebundle services developed
+by 3rd parties.</li>
+</ul>
+
+<dd>
+Additional feature and capability requirements may be found in the Market
+Requirements document currently being developed.&nbsp; Other attributes
+and capabilities of the services framework API may be defined during the
+course of the development of the API specification.</dd>
+
+<dt>
+&nbsp;</dt>
+
+<dd>
+&nbsp;</dd>
+
+<dt>
+Security Considerations&nbsp;</dt>
+
+<dd>
+As a request for technical proposals, this document has no direct security
+considerations.&nbsp; However, the resulting services framework API will
+significantly impact the security of services running within a gateway
+and a security review is needed before approval of the API.</dd>
+
+<dt>
+&nbsp;</dt>
+
+<dd>
+&nbsp;</dd>
+
+<dt>
+References&nbsp;</dt>
+
+<dt>
+&nbsp;</dt>
+
+<dd>
+&nbsp;</dd>
+
+<dt>
+Author's Address&nbsp;</dt>
+
+<dd>
+First Name: Jim</dd>
+
+<dd>
+Last Name: Mathis</dd>
+
+<dd>
+Company Name: Motorola</dd>
+
+<dd>
+Company Division: Personal Networking Group</dd>
+
+<dd>
+Street Address: 50 E. Commerce Drive</dd>
+
+<dd>
+City, State, Country, Postal Code: Schaumburg IL, USA 60173</dd>
+
+<dd>
+&nbsp;</dd>
+
+<dd>
+voice: + 1-847-576-0674</dd>
+
+<dd>
+fax: + 1-847-538-4253</dd>
+
+<dd>
+email: <a href="mailto:jim.mathis@motorola.com">jim.mathis@motorola.com</a></dd>
+
+<dt>
+&nbsp;</dt>
+
+<dd>
+&nbsp;</dd>
+
+<dt>
+Full Copyright Statement&nbsp;</dt>
+
+<dd>
+Copyright (C) The Open Services Gateway Initiative (1999).</dd>
+
+<br>All Rights Reserved.&nbsp;
+<p>This document and translations of it may be copied and furnished to
+others, and derivative works that comment on or otherwise explain it may
+be prepared, copied, published and distributed, in whole or in part, without
+restriction of any kind, provided that the above copyright notice and this
+paragraph are included on all such copies and derivative works. However,
+this document itself may not be modified in any way, such as by removing
+the copyright notice or references to the Open Services Gateway Initiative.&nbsp;
+<p>The limited permissions granted above are perpetual and will not be
+revoked by the Open Services Gateway Initiative or its successors or assigns.&nbsp;
+<p>This document and the information contained herein is provided on an
+"AS IS" basis and THE OPEN SERVICES GATEWAY INITIATIVE DISCLAIMS ALL WARRANTIES,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT THE
+USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY RIGHTS OR ANY IMPLIED
+WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.&nbsp;
+<dt>
+&nbsp;</dt>
+
+<dd>
+&nbsp;</dd>
+</dl>
+</td>
+</tr>
+</table></center>
+
+<hr><!-- hhmts start -->
+<br>Expires 20 days after: (tbd)<!-- hhmts end -->

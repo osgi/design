@@ -1,0 +1,493 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./rfc-0004-PA1_files/filelist.xml">
+<link rel=Edit-Time-Data href="./rfc-0004-PA1_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>OSGi RFC 0004 - Java HTTP Service for OSGi Framework</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>BJ Hargrave</o:Author>
+  <o:LastAuthor>BJ Hargrave</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>401</o:TotalTime>
+  <o:Created>1999-12-03T20:03:00Z</o:Created>
+  <o:LastSaved>1999-12-03T20:03:00Z</o:LastSaved>
+  <o:Pages>3</o:Pages>
+  <o:Words>865</o:Words>
+  <o:Characters>4933</o:Characters>
+  <o:Company>IBM</o:Company>
+  <o:Lines>41</o:Lines>
+  <o:Paragraphs>9</o:Paragraphs>
+  <o:CharactersWithSpaces>6058</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Courier;
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:0;
+	mso-generic-font-family:modern;
+	mso-font-format:other;
+	mso-font-pitch:fixed;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h2
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:13.0pt;
+	font-family:Arial;
+	font-weight:bold;}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:38.6pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoBodyTextIndent2, li.MsoBodyTextIndent2, div.MsoBodyTextIndent2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:230963334;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1849599398 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l1
+	{mso-list-id:269827021;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-808921030 -1797510406 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l2
+	{mso-list-id:664093424;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-2105539664 -1254951960 -849457428 280397226 1163531912 -723899866 1113637428 -805375752 -307616064 -177800048;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l2:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3
+	{mso-list-id:667177311;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1813440442 -855088552 1504716642 1219642748 310385028 671152022 -1136862708 -1180257412 683864952 -250949258;}
+@list l3:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l4
+	{mso-list-id:756708804;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1813440442 709245038 1504716642 1219642748 310385028 671152022 -1136862708 -1180257412 683864952 -250949258;}
+@list l4:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l5
+	{mso-list-id:925964536;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1813440442 762345648 1504716642 1219642748 310385028 671152022 -1136862708 -1180257412 683864952 -250949258;}
+@list l5:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l6
+	{mso-list-id:1158807616;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1813440442 -1969948674 1504716642 1219642748 310385028 671152022 -1136862708 -1180257412 683864952 -250949258;}
+@list l6:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="2050"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white lang=EN-US link=blue vlink=blue style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<div align=center>
+
+<table border=0 cellspacing=0 cellpadding=0 width="90%" style='width:90.0%;
+ mso-cellspacing:0in;mso-padding-alt:0in 0in 0in 0in'>
+ <tr>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>OSGi Java Expert Group </p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>Hargrave </p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>Request for Comments: 0004</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>IBM Corporation</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>Expires 30 days after:</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>1999-12-06</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>rfc-0004.html</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+<h2 align=center style='text-align:center'>Java HTTP Service for OSGi Framework
+(HTTP Service)</h2>
+
+<div align=center>
+
+<table border=0 cellspacing=0 cellpadding=0 width="90%" style='width:90.0%;
+ mso-cellspacing:0in;mso-padding-alt:0in 0in 0in 0in'>
+ <tr>
+  <td width="100%" style='width:100.0%;padding:0in 0in 0in 0in'>
+  <h3>Status of this Memo </h3>
+  <p class=MsoBodyTextIndent style='margin-left:.5in'>This document specifies a
+  Java HTTP Service for the OSGi Framework (HTTP Service), and requests
+  discussion and suggestions for improvements. Distribution of this document is
+  unlimited. </p>
+  <h3>Abstract </h3>
+  <p class=MsoBodyTextIndent2>A desirable service to run on the OSGi
+  Framework[1] is a HTTP Service which will provide a Java API to allow Java
+  programs running in the Framework to provide content for HTTP requests
+  accepted by the HTTP Service. This RFC describes an OSGi Service API that
+  supports the requirements in Java HTTP Service RFP 0004[2].</p>
+  <h3>Acknowledgment</h3>
+  <p class=MsoBodyTextIndent style='margin-left:.5in'>This specification is
+  based upon prior work of members of the Connected Alliance and The Open
+  Services Gateway Initiative (OSGi). </p>
+  <h3>Introduction </h3>
+  <p class=MsoBodyTextIndent style='margin-left:.5in'>The HTTP Service API
+  defines the set of capabilities to allow Java programs written to run in the
+  OSGi Framework to register servlets and resources so that they may provide
+  content for HTTP requests accepted by the HTTP Service.</p>
+  <h3>Motivation and Rational </h3>
+  <p class=MsoBodyTextIndent style='margin-left:.5in'>Devices running the OSGi
+  Framework will need a simple protocol to allow communication with other
+  devices and content renderers. A service which supports the ubiquitous HTTP
+  protocol and the Java Servlet programming model will allow Java programs
+  written to run on the OSGi Framework to provide content that may be
+  interpreted or rendered (on the same or different device) by a rendering
+  program, such as a web browser.</p>
+  <h3>Technical Discussion </h3>
+  <p class=MsoBodyTextIndent style='margin-left:.5in'>The HTTP Service provides
+  the following capabilities and features: </p>
+  <p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l1 level1 lfo8;
+  tab-stops:list .75in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><![endif]>Java Servlet API (a.k.a. &quot;servlet.jar&quot;)
+  which provides the definition of the Java Servlet API Java interfaces and
+  classes at the Java Servlet 2.1 (or higher) API[2] specification level. </p>
+  <p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l1 level1 lfo8;
+  tab-stops:list .75in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><![endif]>Java Servlet Engine which provides the runtime
+  environment (and thus the implementation of the Java Servlet API) for Java
+  Servlets which conform to the level of the Java Servlet API above. </p>
+  <p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l1 level1 lfo8;
+  tab-stops:list .75in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><![endif]>Support for HTTP/1.0[3] or HTTP/1.1[4] protocol.
+  HTTP/1.0 is a &quot;smaller&quot; protocol and thus may be more suited for
+  embedded devices. Implementations of the HTTP/1.0 protocol may wish to
+  consider supporting the <span style='font-family:Courier'>Keep-Alive</span>
+  feature of HTTP/1.1 as a performance enhancement. </p>
+  <p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l1 level1 lfo8;
+  tab-stops:list .75in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><![endif]>API to allow Java programs written to run in the OSGi
+  Framework to dynamically register and unregister content, Java Servlets and
+  other resources, into the URI namespace of the HTTP Service. </p>
+  <p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l1 level1 lfo8;
+  tab-stops:list .75in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><![endif]>API to allow Java programs which have registered
+  content to verify the identity of the requestor (HTTP authentication) and if
+  the communication channel is secure (SSL encryption) for HTTP requests
+  accepted by HTTP Service.</p>
+  <p class=MsoBodyTextIndent style='margin-left:.5in'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+  <p class=MsoBodyTextIndent style='margin-left:.5in'>The API for the HTTP
+  Service is described in the <a href="org/osgi/service/http/">Java source files</a>
+  and <a href="apidoc/index.html">Javadoc HTML</a> which are included as part
+  of this RFC (rfc-0004.zip).</p>
+  <h3>Security Considerations </h3>
+  <p class=MsoBodyTextIndent style='margin-left:.5in'>In secure implementations
+  of the OSGi Framework and HTTP Service, the ability to use the HTTP Service
+  should only be given to those bundles that should be allowed to provide
+  content for HTTP requests accepted by HTTP Service. So ServicePermission for
+  the HttpService should only be given to those bundles.</p>
+  <p class=MsoBodyTextIndent style='margin-left:.5in'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+  <p class=MsoBodyTextIndent style='margin-left:.5in'>Additionally, HTTP
+  Service provides the ability for Java programs providing content for HTTP
+  requests accepted by HTTP Service to verify the identity of the requestor
+  (HTTP authentication) and the communication channel is secure (SSL
+  encryption).</p>
+  <h3>References </h3>
+  <p class=MsoBodyTextIndent style='margin-left:.5in'>[1] Jim Mathis,
+  &quot;Services Framework RFP&quot;, OSGi RFP-0001, 1999-09-16, <a
+  href="http://www.osgi.org/members/expertgroups/rfp/rfp-0001.html">http://www.osgi.org/members/expertgroups/rfp/rfp-0001.html</a></p>
+  <p class=MsoBodyTextIndent style='margin-left:.5in'>[2] BJ Hargrave,
+  &quot;Java HTTP Service&quot;, OSGi RFP-0004, 1999-09-16, <a
+  href="http://www.osgi.org/members/expertgroups/rfp/rfp-0004.html">http://www.osgi.org/members/expertgroups/rfp/rfp-0004.html</a></p>
+  <p class=MsoBodyTextIndent style='margin-left:.5in'>[3] Sun Microsystems,
+  &quot;Java Servlet 2.1 API&quot;, 1999-05-30, <a
+  href="http://java.sun.com/products/servlet/2.1/index.html" target="_top">http://java.sun.com/products/servlet/2.1/index.html</a>
+  </p>
+  <p class=MsoBodyTextIndent style='margin-left:.5in'>[4] IETF, &quot;Hypertext
+  Transfer Protocol -- HTTP/1.0&quot;, 1996-05, <a
+  href="http://www.ics.uci.edu/pub/ietf/http/rfc1945.txt" target="_top">http://www.ics.uci.edu/pub/ietf/http/rfc1945.txt</a>
+  </p>
+  <p class=MsoBodyTextIndent style='margin-left:.5in'>[5] IETF, &quot;Hypertext
+  Transfer Protocol -- HTTP/1.1&quot;, 1999-06, <a
+  href="http://www.ics.uci.edu/pub/ietf/http/rfc2616.txt" target="_top">http://www.ics.uci.edu/pub/ietf/http/rfc2616.txt</a>
+  </p>
+  <h3>Author's Address </h3>
+  <p class=MsoBodyTextIndent style='margin-left:.5in'>First Name: BJ</p>
+  <p class=MsoBodyTextIndent style='margin-left:.5in'>Last Name: Hargrave</p>
+  <p class=MsoBodyTextIndent style='margin-left:.5in'>Company Name: IBM
+  Corporation</p>
+  <p class=MsoBodyTextIndent style='margin-left:.5in'>Company Division:
+  Pervasive Computing</p>
+  <p class=MsoBodyTextIndent style='margin-left:.5in'>Street Address: 11400
+  Burnet Road</p>
+  <p class=MsoBodyTextIndent style='margin-left:.5in'>City, State, Country,
+  Postal Code: Austin, TX USA 78758</p>
+  <p class=MsoNormal style='margin-left:.5in'>&nbsp;</p>
+  <p class=MsoBodyTextIndent style='margin-left:.5in'>voice: + 1 512 838 9938</p>
+  <p class=MsoBodyTextIndent style='margin-left:.5in'>fax: + 1 512 838 2087</p>
+  <p class=MsoBodyTextIndent style='margin-left:.5in'>e-mail: <a
+  href="mailto:hargrave@us.ibm.com">hargrave@us.ibm.com</a></p>
+  <h3>Full Copyright Statement </h3>
+  <p class=MsoBodyTextIndent style='margin-left:.5in'>Copyright (C) The Open
+  Services Gateway Initiative (1999). <br>
+  All Rights Reserved. </p>
+  <p class=MsoBodyTextIndent style='margin-left:.5in'>This document and
+  translations of it may be copied and furnished to others, and derivative
+  works that comment on or otherwise explain it may be prepared, copied,
+  published and distributed, in whole or in part, without restriction of any
+  kind, provided that the above copyright notice and this paragraph are
+  included on all such copies and derivative works. However, this document
+  itself may not be modified in any way, such as by removing the copyright notice
+  or references to the Open Services Gateway Initiative. </p>
+  <p class=MsoBodyTextIndent style='margin-left:.5in'>The limited permissions
+  granted above are perpetual and will not be revoked by the Open Services
+  Gateway Initiative or its successors or assigns. </p>
+  <p class=MsoBodyTextIndent style='margin-left:.5in'>This document and the
+  information contained herein is provided on an &quot;AS IS&quot; basis and
+  THE OPEN SERVICES GATEWAY INITIATIVE DISCLAIMS ALL WARRANTIES, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT THE USE OF THE
+  INFORMATION HEREIN WILL NOT INFRINGE ANY RIGHTS OR ANY IMPLIED WARRANTIES OF
+  MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE. </p>
+  <p class=MsoNormal style='margin-left:.5in'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+
+<div class=MsoNormal align=center style='text-align:center'>
+
+<hr size=2 width="100%" align=center>
+
+</div>
+
+
+<p class=MsoNormal><br>
+Expires 30 days after: 1999-12-06</p>
+
+</div>
+
+</body>
+
+</html>

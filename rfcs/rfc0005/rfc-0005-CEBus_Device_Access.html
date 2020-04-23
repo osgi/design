@@ -1,0 +1,347 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./rfc-0005-PA3_files/filelist.xml">
+<link rel=Edit-Time-Data href="./rfc-0005-PA3_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>CEBus Device Access RFP</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>BJ Hargrave</o:Author>
+  <o:LastAuthor>BJ Hargrave</o:LastAuthor>
+  <o:Revision>4</o:Revision>
+  <o:TotalTime>133</o:TotalTime>
+  <o:Created>2000-08-14T18:51:00Z</o:Created>
+  <o:LastSaved>2000-08-15T02:11:00Z</o:LastSaved>
+  <o:Pages>2</o:Pages>
+  <o:Words>813</o:Words>
+  <o:Characters>4637</o:Characters>
+  <o:Company>IBM</o:Company>
+  <o:Lines>38</o:Lines>
+  <o:Paragraphs>9</o:Paragraphs>
+  <o:CharactersWithSpaces>5694</o:CharactersWithSpaces>
+  <o:Version>9.3821</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:550962473;
+	mso-list-type:hybrid;
+	mso-list-template-ids:804919992 1279534530 -319398480 -1841532150 -1275536336 -713026314 1655185334 -334436932 -104712748 1867571600;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white lang=EN-US link=blue vlink=blue style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<div align=center>
+
+<table border=0 cellspacing=0 cellpadding=0 width="90%" style='width:90.0%;
+ mso-cellspacing:0in;mso-padding-alt:0in 0in 0in 0in'>
+ <tr>
+  <td width="35%" style='width:35.16%;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width="44%" style='width:44.84%;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+ </tr>
+ <tr>
+  <td width="35%" style='width:35.16%;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>OSGi Java Expert Group</p>
+  </td>
+  <td width="44%" style='width:44.84%;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>Larouche / St-Arnaud</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="35%" style='width:35.16%;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>Request for Comments: 0005</p>
+  </td>
+  <td width="44%" style='width:44.84%;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>Domosys Corporation</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="35%" style='width:35.16%;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>Expires 30 days after: 14 Aug 2000</p>
+  </td>
+  <td width="44%" style='width:44.84%;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>14 August 2000 </p>
+  </td>
+ </tr>
+ <tr>
+  <td width="35%" style='width:35.16%;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>RFC-0005.html</p>
+  </td>
+  <td width="44%" style='width:44.84%;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="35%" style='width:35.16%;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width="44%" style='width:44.84%;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp; </p>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+<h2 align=center style='text-align:center'>CEBus Device Access API</h2>
+
+<div align=center>
+
+<table border=0 cellspacing=0 cellpadding=0 width="90%" style='width:90.0%;
+ mso-cellspacing:0in;mso-padding-alt:0in 0in 0in 0in'>
+ <tr>
+  <td width="100%" style='width:100.0%;padding:0in 0in 0in 0in'>
+  <h3><strong>Status of this Memo </strong></h3>
+  <p class=MsoNormal style='margin-left:.5in'>This document specifies the CEBus
+  Device Service and the CEBus Raw Service for the Open Services Gateway
+  Initiative, and requests discussion and suggestions for improvement.
+  Distribution of this document is unlimited. This RFC answers RFP-0011. </p>
+  <h3><strong>Abstract</strong> </h3>
+  <p class=MsoNormal style='margin-left:.5in'>In order to allow OSGi framework
+  users to interact with CEBus physical devices by using the Java language, a
+  standard CEBus Device Access service is desirable. This RFC describes the API
+  of the CEBusDevice and the API of the CEBusRawService. Those two services put
+  together should meet the requirements of all CEBus device vendors. </p>
+  <h3><strong>Acknowledgment</strong> </h3>
+  <p class=MsoNormal style='margin-left:.5in'>Many thanks to Tommy Bohlin
+  (Gatespace), BJ Hargrave (IBM), Peter Kriens (Ericsson) and Christian Kruzke
+  (Sun) who have been -- and continue to be -- very helpful in the drafting of
+  this API proposal.</p>
+  <h3><strong>Introduction</strong> </h3>
+  <p class=MsoNormal style='margin-left:.5in'>The CEBus Device Access API
+  contains mainly two services. The first one -- CEBusDevice -- defines a
+  conventional set of methods that all CEBus devices' logical representations
+  will support. It will be used by the driver developpers to get access to the
+  CEBus capabilities without having to deal with any low level
+  transmission/reception details. The second one -- CEBusRawService -- offers
+  low level mechanisms to be able to send and receive messages on a CEBus
+  network. It targets an experienced audience that wants a raw access to the
+  CEBus network. </p>
+  <h3><strong>Motivation and Rational</strong> </h3>
+  <p class=MsoNormal style='margin-left:.5in'>CEBus device developers need a
+  standard way to interact with the OSGi framework. </p>
+  <h3><strong>Technical Discussion</strong> </h3>
+  <p class=MsoNormal style='margin-left:.5in'>The two services that are
+  integrated in the CEBus Device Access Bundle provide the following
+  capabilities and features:</p>
+  <p class=MsoNormal>&nbsp;</p>
+  <p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+  margin-left:1.0in;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol'>·<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><![endif]>Offers the capability of sending messages
+  synchronously (with CEBusDevice) or asynchronously (with CEBusRawService). </p>
+  <p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+  margin-left:1.0in;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol'>·<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><![endif]>Offers two levels of access to the users: a high
+  level access via CEBusDevice and a low level access via CEBusRawDevice. </p>
+  <p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+  margin-left:1.0in;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol'>·<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><![endif]>Offers a common set of methods to interact with a
+  logical representation of a CEBus device. </p>
+  <p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+  margin-left:1.0in;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol'>·<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><![endif]>Offers a reception mechanism that allows interested
+  entities to receive all message results/rejects from the physical network
+  (via the CEBusRawService). </p>
+  <p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+  margin-left:1.0in;text-indent:-.25in;mso-list:l0 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol'>·<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><![endif]>Offers a common way of associating the message
+  request and the message result/reject received from the network via the CEBus
+  raw service event mechanism. </p>
+  <p class=MsoNormal>&nbsp;</p>
+  <p class=MsoNormal style='margin-left:.5in'>The API for the CEBus Device
+  service and for the CEBus Raw service are described in the <a
+  href="org\osgi\service\cebus">Java source files</a> and <a
+  href="apidoc\index.html">Javadoc HTML</a> which are included as part of this
+  RFC.</p>
+  <h3><strong>Security Considerations </strong></h3>
+  <p class=MsoNormal style='margin-left:.5in'>No security considerations are
+  discussed in this document. The security considerations that are related to
+  this API proposal depend on the unregistration of all dependant layers of
+  Device. However, the framework specification already covers this point. Therefore,
+  these mechanisms will be used. Note that the HPnP/CEBus defines means for
+  secure transactions through encryption. In addition, note that no CEBus
+  implementation currently supports authentification and encryption. In any
+  case, such security considerations are the responsibility of the underlying
+  stack and not the API.</p>
+  <h3><strong>References</strong> </h3>
+  <p class=MsoNormal style='margin-left:.5in'>[1] CEBus Industry Council Inc.,
+  &quot;CEBus Industry Council Home Page&quot;, 2000, <a
+  href="http://www.cebus.com">http://www.cebus.com</a></p>
+  <p class=MsoNormal>&nbsp;</p>
+  <p class=MsoNormal style='margin-left:.5in'>[2] CEBus Industry Council,
+  &quot;Home Plug &amp; Play (HPnP) Specification&quot;, 1998, <a
+  href="http://www.cebus.com/tech.htm">http://www.cebus.com/tech.htm</a></p>
+  <p class=MsoNormal>&nbsp;</p>
+  <p class=MsoNormal style='margin-left:.5in'>[3] Grayson Evans, &quot;The
+  CEBus Standard User's Guide&quot;, The Training Dept. Publication, 1996, <a
+  href="http://www.trainingdept.com/educational_resources.htm#CeBus">http://www.trainingdept.com/educational_resources.htm#CeBus</a></p>
+  <p class=MsoNormal>&nbsp;</p>
+  <p class=MsoNormal style='margin-left:.5in'>[4] ANSI/EIA-600, &quot;CEBUS
+  SET: EIA HOME AUTOMATION SYSTEM (CEBUS)&quot;, Global Engineering Documents,
+  1998, <a href="http://global.ihs.com">http://global.ihs.com</a></p>
+  <h3><a name=authors><strong>Authors' Address </strong></a></h3>
+  <p class=MsoNormal style='margin-left:.5in'><span style='mso-bookmark:authors'>First
+  Name: Eric / Francois</span></p>
+  <p class=MsoNormal style='margin-left:.5in'><span style='mso-bookmark:authors'>Last
+  Name: Larouche / St-Arnaud</span></p>
+  <p class=MsoNormal style='margin-left:.5in'><span style='mso-bookmark:authors'>Company
+  Name: Domosys Corporation</span></p>
+  <p class=MsoNormal style='margin-left:.5in'><span style='mso-bookmark:authors'>Street
+  Address: 1995, rue Jean-Talon Sud, Suite 202</span></p>
+  <p class=MsoNormal style='margin-left:.5in'><span style='mso-bookmark:authors'>City,
+  State, Country, Postal Code: Sainte-Foy, Quebec, Canada, G1N 4H9</span></p>
+  <p class=MsoNormal style='margin-left:.5in'><span style='mso-bookmark:authors'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-left:.5in'><span style='mso-bookmark:authors'>voice:
+  + 1 418 681 8022 ext. 314 / 243</span></p>
+  <p class=MsoNormal style='margin-left:.5in'><span style='mso-bookmark:authors'>fax:
+  + 1 418 681 8015</span></p>
+  <p class=MsoNormal style='margin-left:.5in'><span style='mso-bookmark:authors'>email:
+  </span><a href="mailto:elarouche@domosys.com">elarouche@domosys.com</a> / <a
+  href="mailto:fstarnaud@domosys.com">fstarnaud@domosys.com</a> </p>
+  <h3><strong>Full Copyright Statement</strong></h3>
+  <p class=MsoNormal style='margin-left:.5in'>Copyright (C) The Open Services
+  Gateway Initiative (2000). <br>
+  All Rights Reserved. </p>
+  <p style='margin-left:.5in'>This document and translations of it may be
+  copied and furnished to others, and derivative works that comment on or
+  otherwise explain it may be prepared, copied, published and distributed, in
+  whole or in part, without restriction of any kind, provided that the above
+  copyright notice and this paragraph are included on all such copies and
+  derivative works. However, this document itself may not be modified in any
+  way, such as by removing the copyright notice or references to the Open
+  Services Gateway Initiative. </p>
+  <p style='margin-left:.5in'>The limited permissions granted above are
+  perpetual and will not be revoked by the Open Services Gateway Initiative or
+  its successors or assigns. </p>
+  <p style='margin-left:.5in'>This document and the information contained
+  herein is provided on an &quot;AS IS&quot; basis and THE OPEN SERVICES
+  GATEWAY INITIATIVE DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING
+  BUT NOT LIMITED TO ANY WARRANTY THAT THE USE OF THE INFORMATION HEREIN WILL
+  NOT INFRINGE ANY RIGHTS OR ANY IMPLIED WARRANTIES OF MERCHANTABILITY OR
+  FITNESS FOR A PARTICULAR PURPOSE. </p>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+
+<div class=MsoNormal align=center style='text-align:center'>
+
+<hr size=2 width="100%" align=center>
+
+</div>
+
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+</div>
+
+</body>
+
+</html>

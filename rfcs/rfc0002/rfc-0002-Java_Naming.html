@@ -1,0 +1,207 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Generator" content="Lotus Word Pro">
+   <meta name="GENERATOR" content="Mozilla/4.6 [en] (WinNT; I) [Netscape]">
+   <title>RFC-0004 Java Naming Conventions (1999-09-20)</title>
+</head>
+<body bgcolor="#FFFFFF">
+&nbsp;
+<center><table CELLSPACING=0 CELLPADDING=0 WIDTH="719" >
+<tr>
+<td ALIGN=LEFT VALIGN=CENTER WIDTH="29%">&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=CENTER WIDTH="43%">&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=CENTER>&nbsp;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=CENTER>Java Expert Group&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=CENTER>&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=CENTER>Hargrave/Kriens&nbsp;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=CENTER>Request for Comments: 0002&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=CENTER>&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=CENTER>IBM Corporation/Ericsson</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=CENTER>Expires 30 days after:&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=CENTER>&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=CENTER>1999-09-20&nbsp;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=CENTER>rfc-0002.html&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=CENTER>&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=CENTER>&nbsp;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=CENTER>&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=CENTER>&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=CENTER>&nbsp;</td>
+</tr>
+</table></center>
+
+<center>
+<h2>
+Java Naming Conventions RFC</h2></center>
+
+<h3>
+Status of this Memo</h3>
+This document specifies the Java Naming Conventions for the Open Services
+Gateway Initiative, and requests discussion and suggestions for improvements.
+Distribution of this document is unlimited.
+<h3>
+Abstract</h3>
+A critical aspect of the Open Services Gateway Initiative specifications
+for Java is to have a Java Naming Convention that will be followed by all
+specifications for Java APIs.
+<h3>
+Introduction</h3>
+The OSGi specifications for Java APIs should use the Java package naming
+conventions in this RFC. The naming conventions specified by this RFC are
+in general based upon Section 6.8 "Naming Conventions" of The Java Language
+Specification[1].
+<h3>
+Motivation and Rational</h3>
+It is important to following the naming conventions in this RFC for consistency
+among API specifications and to avoid namespace collisions with other Java
+code produced outside of the OSGi development process.
+<h3>
+Technical Discussion</h3>
+
+<h4>
+Package Names</h4>
+All Java package names for OSGi specification must be lowercase and must
+begin with "<tt>org.osgi</tt>". This will be the OSGi root within the complete
+Java package namespace. The base package name for the Services Framework
+will be "<tt>org.osgi.framework</tt>". The base package names for all service
+APIs will begin with "<tt>org.osgi.service</tt>" and be followed by the
+service name. For example the FooService will use the base package name
+"<tt>org.osgi.service.foo</tt>".
+<h3>
+Security Considerations</h3>
+This document has no direct security considerations.&nbsp; It merely defines
+the Java Naming Conventions for use by OSGi specifications for the Java
+programming language..
+<h3>
+References</h3>
+[1] <font size=+0>Gosling, Joy, Steele</font>, "<font size=+0>The Java
+Language Specification</font>", <font size=+0>Addison-Wesley</font>, 1996,
+<a href="http://java.sun.com/docs/books/jls/html/index.html" TARGET="_top">http://java.sun.com/docs/books/jls/html/index.html</a>
+<h3>
+Author's Address</h3>
+
+<table CELLSPACING=0 CELLPADDING=5 WIDTH="636" >
+<tr>
+<td ALIGN=LEFT VALIGN=TOP WIDTH="231">First Name:</td>
+
+<td ALIGN=LEFT VALIGN=TOP WIDTH="179">BJ&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP WIDTH="182">Peter</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>Last Name:&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP>Hargrave</td>
+
+<td ALIGN=LEFT VALIGN=TOP>Kriens</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>Company Name:&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP>IBM Corporation</td>
+
+<td ALIGN=LEFT VALIGN=TOP>&nbsp;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>Company Division:&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP>Pervasive Computing</td>
+
+<td ALIGN=LEFT VALIGN=TOP>&nbsp;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>Street Address:&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP>11400 Burnet Road</td>
+
+<td ALIGN=LEFT VALIGN=TOP>&nbsp;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>City, State, Country, Postal Code:&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP>Austin, TX USA 78758</td>
+
+<td ALIGN=LEFT VALIGN=TOP>&nbsp;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>voice:&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP>+1 512 838 9938</td>
+
+<td ALIGN=LEFT VALIGN=TOP>&nbsp;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>fax:&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP>+1 512 838 2087</td>
+
+<td ALIGN=LEFT VALIGN=TOP>&nbsp;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>e-mail:</td>
+
+<td ALIGN=LEFT VALIGN=TOP><a href="mailto:hargrave@us.ibm.com" TARGET="_top">hargrave@us.ibm.com</a></td>
+
+<td ALIGN=LEFT VALIGN=TOP><a href="mailto:Peter.Kriens@aqute.se" TARGET="_top">Peter.Kriens@acute.se</a></td>
+</tr>
+</table>
+
+<h3>
+Full Copyright Statement</h3>
+Copyright (C) The Open Services Gateway Initiative (1999).
+<p>All Rights Reserved.
+<p>This document and translations of it may be copied and furnished to
+others, and derivative works that comment on or otherwise explain it may
+be prepared, copied, published and distributed, in whole or in part, without
+restriction of any kind, provided that the above copyright notice and this
+paragraph are included on all such copies and derivative works. However,
+this document itself may not be modified in any way, such as by removing
+the copyright notice or references to the Open Services Gateway Initiative.
+<p>The limited permissions granted above are perpetual and will not be
+revoked by the Open Services Gateway Initiative or its successors or assigns.
+<p>This document and the information contained herein is provided on an
+"AS IS" basis and THE OPEN SERVICES GATEWAY INITIATIVE DISCLAIMS ALL WARRANTIES,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT THE
+USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY RIGHTS OR ANY IMPLIED
+WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
+<ul>
+<hr></ul>
+Expires 30 days after: 1999-09-20
+</body>
+</html>

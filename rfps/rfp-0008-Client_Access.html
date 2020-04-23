@@ -1,0 +1,329 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.6 [en] (WinNT; I) [Netscape]">
+   <title>Client Access RFP (04-Oct-1999)</title>
+</head>
+<body bgcolor="#FFFFFF">
+&nbsp;
+<center><table BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="600" >
+<tr>
+<td ALIGN=LEFT WIDTH="30%"></td>
+
+<td ALIGN=LEFT WIDTH="50%"></td>
+
+<td ALIGN=LEFT></td>
+</tr>
+
+<tr>
+<td>Java Expert Group&nbsp;</td>
+
+<td></td>
+
+<td>Kriens/Idermark</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT>Request for Proposal: 0008</td>
+
+<td ALIGN=LEFT></td>
+
+<td ALIGN=LEFT>ERICSSON&nbsp;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT>Expires 20 days after: (tbd)</td>
+
+<td ALIGN=LEFT></td>
+
+<td ALIGN=LEFT>04 Oct 1999&nbsp;</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT>rfc-0008.html</td>
+
+<td ALIGN=LEFT></td>
+
+<td ALIGN=LEFT></td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT></td>
+
+<td ALIGN=LEFT></td>
+
+<td ALIGN=LEFT></td>
+</tr>
+</table></center>
+
+<center>
+<h2>
+Client Access</h2></center>
+
+<center><table BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="600" >
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>
+<h4>
+<b>Status of this Memo</b></h4>
+
+<dl>
+<dt>
+This document suggests the following extension to the OSGi specification
+and requests discussion. Distribution of this document is unlimited.&nbsp;</dt>
+
+<h4>
+Abstract&nbsp;</h4>
+The purpose of a gateway is to provide services to end users. A mechanism
+is needed to allow these end users to view information in the gateway,
+modify configuration information, receive notifications and in interact
+with the services in a uniform way. This RFP seeks solutions in this area.&nbsp;
+<h4>
+Introduction&nbsp;</h4>
+An OSGi gateway will be connected to many different devices in a household.
+These devices will be able to communicate among each other and to services
+reachable over the internet. For example ServiceSpace and the Device API
+will take care of most these communication issues. These APIs and services
+are about machine-machine interaction and leave the end user out of the
+picture.&nbsp;
+<br>However, the users of the gateway play an important role. It can be
+expected that users will require the following interactions:&nbsp;
+<ol>
+<li>
+Receive notifications</li>
+
+<li>
+View information of a service</li>
+
+<li>
+Input information to a service</li>
+</ol>
+
+<h4>
+Terminology</h4>
+A <i>user</i> is a person seeking access to the gateway.&nbsp;
+<br>A <i>role</i> is a principal that acts as a user but can be filled
+by a group of users.&nbsp;
+<br>A <i>device</i> is a machine connected to the gateway in some way.
+E.g. a PDA, cell phone or web browser. This device will be represented
+in the gateway by a <i>proxy</i>.&nbsp;
+<br>A <i>publisher</i> is a service that has information for a user.&nbsp;
+<h4>
+Technical Discussion</h4>
+
+<ol>
+<li>
+The API should fit in the standard OSGi environment as described in [1]
+and [2].</li>
+
+<li>
+API's based on standard javax APIs (like for example the Servlet API) are
+preferable.</li>
+
+<li>
+The API should provide a framework for publishing that minimizes the work
+for the bundle writer.</li>
+
+<li>
+A central registry of information should be possible.</li>
+
+<li>
+A mechanism needs to be provided where a user can persistently store a
+reference to a piece of information. E.g. a bookmark.</li>
+
+<li>
+Publishers must be able to publish information in a simple way without
+any knowledge whatsoever of the actual devices present.</li>
+
+<li>
+Notifications must be associated with a priority that supports at least
+3 levels: NORMAL, URGENT, ALARM.</li>
+
+<li>
+The user must be able to react on information from a service and provide
+values.</li>
+
+<li>
+There should be a query mechanism where a service can post a query. This
+query should be answered by a user as soon as possible.</li>
+
+<li>
+Support data format negotiation. Devices will have widely different capabilities.
+E.g. some device like a pager or a cell phone can only display a single
+line of text. Other devices like a web browser on a iMac can show rich
+text and graphics.&nbsp;</li>
+
+<li>
+A publisher must be able to publish information for specific users or roles.</li>
+
+<li>
+A publisher must be able to optimize the information depending on the capabilities
+of the device.</li>
+
+<li>
+Each user can be associated with 0 or more devices.</li>
+
+<li>
+Each device can be associated with 0 or more users.</li>
+
+<li>
+Proxies must be able to optimize the cost based on: user profile, urgency
+of information, presence of other devices, the life time of unread information.</li>
+
+<li>
+A role can be filled by 0 or more users</li>
+
+<li>
+Proxies must authenticate their users with the help of a system component.</li>
+
+<li>
+User authentication mechanisms should be extendable, however should at
+least support password authentication.</li>
+
+<li>
+Publishers should not require any secure information from the user for
+authentication purpose.</li>
+
+<li>
+Proxies should not be able to fake the authentication of a role or user.</li>
+</ol>
+
+<h4>
+Security Considerations&nbsp;</h4>
+
+<dt>
+The client access API is very vulnerable. Through this API, any service
+can get access to critical information from any other service and modify
+its operational parameters. Therefore it is crucial that the RFC will propose
+a mechanism where the publisher will not have to trust the proxy and where
+the proxy will not have to trust the publisher. E.g. a mechanism where
+a publisher has to "trust" a proxy to have authenticated a user is not
+acceptable. Also not acceptable is that the proxy must hand over credentials
+to the publisher to proof its user. This would allow a publisher to get
+its hands on credentials and use it for other purposes.</dt>
+
+<h4>
+References&nbsp;</h4>
+[1] Jim Mathis, "Services Framework RFP", OSGi RFP-0001, 1999-09-16, rfp-0001.html&nbsp;
+<br>[2] Jim Mathis, "Services Framework J2ME Profile RFP", OSGi RFP-0006,
+1999-09-17, rfp-0006.html&nbsp;
+<dt>
+&nbsp;</dt>
+
+<h3>
+&nbsp;Author's Address&nbsp;</h3>
+
+<table CELLSPACING=0 CELLPADDING=5 WIDTH="600" >
+<tr>
+<td ALIGN=LEFT VALIGN=TOP WIDTH="231">First Name:</td>
+
+<td ALIGN=LEFT VALIGN=TOP WIDTH="179">Peter</td>
+
+<td ALIGN=LEFT VALIGN=TOP WIDTH="182">Tom</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>Last Name:&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP>Kriens</td>
+
+<td ALIGN=LEFT VALIGN=TOP>Idermark</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>Company Name:&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP>ERICSSON</td>
+
+<td ALIGN=LEFT VALIGN=TOP>ERICSSON</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>Company Division:&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP></td>
+
+<td ALIGN=LEFT VALIGN=TOP></td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>Street Address:&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP>Finnasandsvagen</td>
+
+<td ALIGN=LEFT VALIGN=TOP>Teknikringen 8</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>City, State, Country, Postal Code:&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP>Onsala,,Sweden,43933</td>
+
+<td ALIGN=LEFT VALIGN=TOP>Linkoping,,Sweden,581 17</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>voice:&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP>+46 70 5950899</td>
+
+<td ALIGN=LEFT VALIGN=TOP>+46 13 322104</td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>fax:&nbsp;</td>
+
+<td ALIGN=LEFT VALIGN=TOP>+46 300 39805</td>
+
+<td ALIGN=LEFT VALIGN=TOP></td>
+</tr>
+
+<tr>
+<td ALIGN=LEFT VALIGN=TOP>e-mail:</td>
+
+<td ALIGN=LEFT VALIGN=TOP><a href="mailto:Peter.Kriens@aQute.se" TARGET="_top">Peter.Kriens@aQute.se</a></td>
+
+<td ALIGN=LEFT VALIGN=TOP><a href="mailto:tom.idermark@era.ericsson.se">tom.idermark@era.ericsson.se</a></td>
+</tr>
+</table>
+
+<h4>
+Full Copyright Statement&nbsp;</h4>
+
+<dd>
+Copyright (C) The Open Services Gateway Initiative (1999).</dd>
+
+<br>All Rights Reserved.&nbsp;
+<p>This document and translations of it may be copied and furnished to
+others, and derivative works that comment on or otherwise explain it may
+be prepared, copied, published and distributed, in whole or in part, without
+restriction of any kind, provided that the above copyright notice and this
+paragraph are included on all such copies and derivative works. However,
+this document itself may not be modified in any way, such as by removing
+the copyright notice or references to the Open Services Gateway Initiative.&nbsp;
+<p>The limited permissions granted above are perpetual and will not be
+revoked by the Open Services Gateway Initiative or its successors or assigns.&nbsp;
+<p>This document and the information contained herein is provided on an
+"AS IS" basis and THE OPEN SERVICES GATEWAY INITIATIVE DISCLAIMS ALL WARRANTIES,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT THE
+USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY RIGHTS OR ANY IMPLIED
+WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.&nbsp;
+<dt>
+&nbsp;</dt>
+
+<dd>
+&nbsp;</dd>
+</dl>
+</td>
+</tr>
+
+<tr>
+<td></td>
+</tr>
+</table></center>
+
+<hr>
+<br>&nbsp;
+<p>Expires 20 days after: (tbd)
+</body>
+</html>

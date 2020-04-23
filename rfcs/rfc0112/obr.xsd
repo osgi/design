@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.osgi.org/xmlns/obr/v1.0.0/"
+        xmlns:obr="http://www.osgi.org/xmlns/obr/v1.0.0/"
+        elementFormDefault="unqualified"
+        attributeFormDefault="unqualified"
+        version="1.0.0">
+    <complexType name="Repository">
+        <sequence>
+            <choice maxOccurs="unbounded" minOccurs="0">
+                <element ref="obr:resource"></element>
+                <element ref="obr:referral"></element>
+            </choice>
+            <any namespace="##any"
+                 processContents="lax"
+                 minOccurs="0"
+                 maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="name" type="string">
+            <annotation>
+                <documentation>
+                    The name of the repository. The name may contain
+                    spaces and punctuation.
+                </documentation>
+            </annotation>
+        </attribute>
+        <attribute name="increment" type="long">
+            <annotation>
+                <documentation>
+                    An indication of when the repository was last changed. Client's can check if a
+                    repository has been updated by checking this increment value.
+                </documentation>
+            </annotation>
+        </attribute>
+        <anyAttribute/>
+    </complexType>
+
+    <complexType name="Resource">
+        <annotation>
+            <documentation>
+                Describes a general resource with
+                requirements and capabilities.
+            </documentation>
+        </annotation>
+        <sequence>
+            <element ref="obr:require" maxOccurs="unbounded"
+                     minOccurs="0">
+            </element>
+            <element ref="obr:capability" maxOccurs="unbounded"
+                     minOccurs="1">
+            </element>
+            <any namespace="##any"
+                 processContents="lax"
+                 minOccurs="0"
+                 maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="Referral">
+        <annotation>
+            <documentation>
+                A referral points to another repository XML file. The
+                purpose of this element is to create a federation of
+                repositories that can be accessed as a single
+                repository.
+            </documentation>
+        </annotation>
+        <attribute name="depth" type="int" use="optional">
+            <annotation>
+                <documentation>
+                    The depth of referrals this repository acknowledges.
+                </documentation>
+            </annotation>
+        </attribute>
+        <attribute name="url" type="anyURI" use="required">
+            <annotation>
+                <documentation>
+                    The URL to the referred repository. The URL can be
+                    absolute or relative from the given repository’s
+                    URL.
+                </documentation>
+            </annotation>
+        </attribute>
+        <anyAttribute/>
+    </complexType>
+
+    <element name="repository" type="obr:Repository"></element>
+
+    <element name="resource" type="obr:Resource"></element>
+
+    <element name="referral" type="obr:Referral"></element>
+
+    <simpleType name="Version">
+        <annotation>
+            <documentation>
+                Version must follow the major, minor, micro, qualifier
+                format as used the Framework’s version class. Example is
+                "1.0.4.R128"
+            </documentation>
+        </annotation>
+        <restriction base="string">
+            <pattern value="\d+(\.\d+((\.\d+)(\..+)?)?)?"></pattern>
+        </restriction>
+    </simpleType>
+
+    <element name="require" type="obr:Require"></element>
+
+    <element name="capability" type="obr:Capability"></element>
+
+    <complexType name="Capability">
+        <annotation>
+            <documentation>
+                A named set of type attributes and directives. A capability can be
+                used to resolve a requirement if the resource is included.
+            </documentation>
+        </annotation>
+        <sequence>
+            <element ref="obr:attribute" maxOccurs="unbounded" minOccurs="0"></element>
+            <element ref="obr:directive" maxOccurs="unbounded" minOccurs="0"></element>
+            <any namespace="##any"
+                 processContents="lax"
+                 minOccurs="0"
+                 maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="namespace" type="string">
+            <annotation>
+                <documentation>
+                    Namespace of the capability. Only requirements with the
+                    same namespace must be able to match this capability.
+                </documentation>
+            </annotation>
+        </attribute>
+        <anyAttribute/>
+    </complexType>
+
+    <complexType name="Require">
+        <annotation>
+            <documentation>
+                A filter on a named set of capability attributes.
+            </documentation>
+        </annotation>
+        <sequence>
+            <element ref="obr:attribute" maxOccurs="unbounded" minOccurs="0"></element>
+            <element ref="obr:directive" maxOccurs="unbounded" minOccurs="0"></element>
+            <any namespace="##any"
+                 processContents="lax"
+                 minOccurs="0"
+                 maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="namespace" type="string">
+            <annotation>
+                <documentation>
+                    Namespace of the requirements. Only capabilities with the
+                    same namespace must be able to match this requirement.
+                </documentation>
+            </annotation>
+        </attribute>
+        <anyAttribute/>
+    </complexType>
+
+    <element name="directive" type="obr:Directive"></element>
+
+    <element name="attribute" type="obr:Attribute"></element>
+
+    <complexType name="Attribute">
+        <annotation>
+            <documentation>
+                A named value with an optional type that identifies
+                a requirement or capability
+            </documentation>
+        </annotation>
+        <sequence>
+            <any namespace="##any"
+                 processContents="lax"
+                 minOccurs="0"
+                 maxOccurs="unbounded"/>
+
+        </sequence>
+        <attribute name="name" type="string">
+            <annotation>
+                <documentation>The name of the attribute</documentation>
+            </annotation>
+        </attribute>
+        <attribute name="value" type="string">
+            <annotation>
+                <documentation>The value of the attribute</documentation>
+            </annotation>
+        </attribute>
+        <attribute name="type" type="obr:PropertyType" default="string">
+            <annotation>
+                <documentation>The type of the attribute.</documentation>
+            </annotation>
+        </attribute>
+        <anyAttribute/>
+    </complexType>
+
+    <complexType name="Directive">
+        <annotation>
+            <documentation>
+                A named value of type string that instructs a resolver
+                how to process a requirement or directive
+            </documentation>
+        </annotation>
+        <sequence>
+            <any namespace="##any"
+                 processContents="lax"
+                 minOccurs="0"
+                 maxOccurs="unbounded"/>
+
+        </sequence>
+        <attribute name="name" type="string">
+            <annotation>
+                <documentation>The name of the directive</documentation>
+            </annotation>
+        </attribute>
+        <attribute name="value" type="string">
+            <annotation>
+                <documentation>The value of the directive</documentation>
+            </annotation>
+        </attribute>
+        <anyAttribute/>
+    </complexType>
+
+    <simpleType name="PropertyType">
+        <restriction base="string">
+            <enumeration value="boolean"></enumeration>
+            <enumeration value="string"></enumeration>
+            <enumeration value="version"></enumeration>
+            <enumeration value="uri"></enumeration>
+            <enumeration value="long"></enumeration>
+            <enumeration value="double"></enumeration>
+            <enumeration value="list"></enumeration>
+        </restriction>
+    </simpleType>
+    <attribute name="must-understand" type="boolean" default="false">
+        <annotation>
+            <documentation>
+                This attribute should be used by extensions to documents to require that the document consumer
+                understand the extension. This attribute must be qualified when used.
+            </documentation>
+        </annotation>
+    </attribute>
+</schema>

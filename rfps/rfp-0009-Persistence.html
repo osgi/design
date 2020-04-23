@@ -1,0 +1,340 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+  
+<HEAD>
+    
+<TITLE>Persistence Service RFP (23-Sep-1999)</TITLE>
+    
+ 
+</HEAD>
+
+  
+<BODY BGCOLOR="#ffffff">
+    
+<CENTER>
+      
+        
+<TABLE WIDTH=90% BORDER="0" CELLSPACING="0" CELLPADDING="0">
+          
+<TR>
+            
+<TD ALIGN=left WIDTH=30%> &nbsp;</TD>
+            
+<TD ALIGN=left WIDTH=50%> &nbsp;</TD>
+            
+<TD ALIGN=left> &nbsp; </TD>
+          </TR>
+
+          
+<TR>
+            
+<TD ALIGN=> Java Expert Group </TD>
+            
+<TD ALIGN=> &nbsp;</TD>
+            
+<TD ALIGN=> Ahad </TD>
+          </TR>
+          
+<TR>
+            
+<TD ALIGN=left> Request for Proposal: 0009</TD>
+            
+<TD ALIGN=left> &nbsp;</TD>
+            
+<TD ALIGN=left> Oracle Corporation </TD>
+          </TR>
+
+          
+<TR>
+            
+<TD ALIGN=left> Expires 20 days after: 23 Sep 1999</TD>
+            
+<TD ALIGN=left> &nbsp;</TD>
+            
+<TD ALIGN=left> 23 Sep 1999 </TD>
+          </TR>
+
+          
+<TR>
+            
+<TD ALIGN=left> RFP-0009.html</TD>
+            
+<TD ALIGN=left> &nbsp;</TD>
+            
+<TD ALIGN=left> &nbsp;</TD>
+          </TR>
+
+          
+<TR>
+            
+<TD ALIGN=left> &nbsp;</TD>
+            
+<TD ALIGN=left> &nbsp;</TD>
+            
+<TD ALIGN=left> &nbsp; </TD>
+          </TR>
+
+        
+</TABLE>
+        
+</CENTER>
+
+        
+<CENTER>
+          
+<H2>Persistence Service RFP</H2>
+        
+</CENTER>
+
+        
+<CENTER>
+        
+<TABLE WIDTH=90% BORDER="0" CELLSPACING="0" CELLPADDING="0">
+          
+<TR>
+            
+<TD ALIGN=left WIDTH=100%>
+              
+<DL>
+                
+<DT>                  Status of this Memo
+                </DT>
+                
+<DD>
+                  This document suggests the following 
+extension to the OSGi 
+specficiation for the Open 
+Services Gateway,
+                  and requests discussion. Distribution of this 
+document is unlimited.
+                </DD>
+
+                
+<DT>&nbsp;
+</DT>
+<DD>&nbsp;</DD>
+
+                
+<DT>                  Abstract
+                
+</DT>
+                
+<DD>
+                  Many of the services running on the Open Service Gateway will need to store and retrieve information that persists beyond the life of the service, and that can be shared by other services. Rather than each of these services writing code to efficiently read and write information to a file system, and recover from error, we want to have a common persistence service that can be used by other services to store and retrieve information persistently. This RFP provides some general goals and guidelines and solicits technical submissions that will lead to defining a Persistence Service API for the Open Service Gateway.
+
+                
+</DD>
+
+                
+<DT>&nbsp;
+</DT>
+<DD>&nbsp;</DD>
+
+                
+                
+<DT>                  Acknowledgment (Optional)
+                
+</DT>
+                
+<DD>
+                  The author wants to acknowledge the contributions of the members of Data Management team of the Connected Alliance and OSGi.
+                
+</DD>
+
+                
+<DT>&nbsp;
+</DT>
+<DD>&nbsp;</DD>
+
+                
+<DT>                  Introduction
+                
+</DT>
+                
+<DD>
+                  Many of the services running on the Service Gateway, be it a high level service such as the home security system or a system level service such as Log Service (RFP 003) will need to write information to a persistent store so that the same or different service can access this information at a later time. Some of these services may need this persistent information to be backed up on a server machine (perhaps managed by an operator).
+
+
+                
+</DD>
+
+                
+<DT>&nbsp;
+</DT>
+<DD>&nbsp;</DD>
+
+                
+<DT>    Motivation              
+
+                
+</DT>
+                
+<DD>
+                  A common approach to make information persist is to write it out to a file. However, a file system provides only limited service for persistence leaving the service developer to write a lot of code just to store and retrieve the information efficienty and be able to synchronize this information with a server machine. Also a file system is operating system dependent and thus is not portable.
+
+We need an API for the services to be able to make any piece of information persistent, be able to search the persistent information store using a high level query language, be able to recover from failure after partial updates, and be able to synchronize the data with a server database.
+
+The benefits of this API will be smaller code size and better quality code for the services using this API.
+                
+</DD>
+                
+<DT>&nbsp;
+</DT>
+<DD>&nbsp;</DD>
+
+                
+<DT>                  Technical Discussion
+                
+</DT>
+                
+<DD>
+The Persistence Service must provide the following capabilities.
+
+<li> Ability to organize information as a set of tables (SQL model) or a set of Java classes.
+<li> Ability to use a high level query language to search for required information.
+<li> Ability to create indexes to speed up searches.
+<li> Ability to download data from a server database and synchronize changes made to the persistent store with the server database.
+<li> Ability to create a session for a given user who is already authenticated by the Security Service.
+<li> Ability to rollback partial updates made to the persistent store within a session.
+<li> Ability to enforce access authorization based on the user's privileges (optional). 
+<li> Ability to support retrieval of persistent information with a small number of instructions.         
+</DD>
+
+                
+<DT>&nbsp;
+</DT>
+<DD>&nbsp;</DD>
+
+                
+<DT>                  Security Considerations
+                
+</DT>
+                
+<DD>
+                  The Persistence Service will assume the existence of Security Service which will be responsible for authenticating the user or service that is requesting a persistence service. If the security service does not provide access control, then the persistent service will support authorization service to control access to persistent information. Encryption of data downloaded from/synchronized with the server database is implementation-defined. 
+                
+</DD>
+
+                
+<DT>&nbsp;
+</DT>
+<DD>&nbsp;</DD>
+
+                
+<DT>                  References
+                
+</DT>
+                
+<DD>
+                  [1] JavaCard, "ISO 7816-7 JC-JDBC Reference", Aug 1999.
+<br>
+
+                  [2] Rafiul Ahad, "Persistent Object Service", OSGi, January 1999.
+                
+</DD>
+
+                
+<DT>&nbsp;
+</DT>
+<DD>&nbsp;</DD>
+
+                
+<DT>                  Author's Address
+                
+</DT>
+                
+<DD>First Name: Rafiul</DD>
+                
+<DD>Last Name: Ahad</DD>
+                
+<DD>Company Name: Oracle Corporation</DD>
+                
+<DD>Company Division: Mobile and Embedded Products</DD>
+                
+<DD>Street Address: 500 Oracle Parkway</DD>
+                
+<DD>City, State, Country, Postal Code: Redwood Shores, CA 94065 </DD>
+                
+<DD>&nbsp;</DD>
+                
+<DD>voice: +1 650 506 1445 </DD>
+                
+<DD>fax: +1 650 506 7222 </DD>
+                
+<DD>email: <a href="mailto:rahad@us.oracle.com">rahad@us.oracle.com</a></DD>
+
+                
+<DT>&nbsp;
+</DT>
+<DD>&nbsp;</DD>
+
+                
+<DT>                  Full Copyright Statement
+                
+</DT>
+                
+<DD>
+                Copyright (C) The Open Services Gateway Initiative 
+(1999).
+<BR>
+                All Rights Reserved.
+                
+<P>
+                This document and translations of it may be copied and
+                furnished to others, and derivative works that comment 
+on
+                or otherwise explain it may be prepared, copied, 
+published
+                and distributed, in whole or in part, without 
+restriction
+                of any kind, provided that the above copyright notice
+                and this paragraph are included on all such copies and
+                derivative works. However, this document itself may not
+                be modified in any way, such as by removing the 
+copyright
+                notice or references to the Open Services Gateway 
+Initiative.
+                
+<P>
+                The limited permissions granted above are perpetual and
+                will not be revoked by the Open Services Gateway 
+Initiative or its
+                successors or assigns.
+                
+<P>
+                This document and the information contained herein is
+                provided on an "AS IS" basis and THE OPEN SERVICES 
+GATEWAY INITIATIVE
+                DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING
+                BUT NOT LIMITED TO ANY WARRANTY THAT THE USE OF THE
+                INFORMATION HEREIN WILL NOT INFRINGE ANY RIGHTS OR ANY
+                IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A
+                PARTICULAR PURPOSE.
+                
+</DD>
+
+                
+<DT>&nbsp;
+</DT>
+<DD>&nbsp;</DD>
+
+              
+</DL>
+            
+</TD>
+          </TR>
+        
+</TABLE>
+        
+</CENTER>
+
+    
+<HR>
+
+<!-- hhmts start -->
+<BR>
+Expires 20 days after: 23 Sep 1999
+<!-- hhmts end -->
+  
+</BODY>
+</HTML>
